@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Logger>
+        <Level>INFO</Level>
+    </Logger>
+
+    <Server>
+        <Biz>mapi</Biz>
+    </Server>
+
+    <Database>
+        <Tongqu>
+            <JdbcUrl><![CDATA[jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull]]></JdbcUrl>
+            <Username>tongqu</Username>
+            <Password>Tongqu!@#456</Password>
+        </Tongqu>
+    </Database>
+
+    <Image>
+        <Domain>http://s.momia.cn</Domain>
+    </Image>
+
+    <Service>
+        <Base>http://localhost:8080</Base>
+        <Deal>http://localhost:7070</Deal>
+    </Service>
+
+    <Home>
+        <BannerCount>3</BannerCount>
+        <PageSize>10</PageSize>
+        <MaxPageCount>50</MaxPageCount>
+    </Home>
+
+    <Product>
+        <PageSize>25</PageSize>
+        <MaxPageCount>50</MaxPageCount>
+        <CustomerPageSize>6</CustomerPageSize>
+        <Playmate>
+            <MaxSkuCount>20</MaxSkuCount>
+        </Playmate>
+        <Url>http://m.momia.cn/actsDetail.html</Url>
+    </Product>
+
+    <Order>
+        <PageSize>20</PageSize>
+        <MaxPageCount>50</MaxPageCount>
+    </Order>
+
+    <Coupon>
+        <PageSize>20</PageSize>
+        <MaxPageCount>50</MaxPageCount>
+    </Coupon>
+</Configuration>
