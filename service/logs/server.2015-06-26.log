@@ -1,0 +1,205 @@
+10:54:57.751 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+10:54:59.814 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+10:54:59.995 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+10:55:00.258 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+10:55:00.736 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9acpdou312xp9it|185cb87, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9acpdou312xp9it|185cb87, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+10:55:02.071 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+11:00:06.200 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+11:00:08.260 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+11:00:08.321 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+11:00:08.559 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+11:00:08.927 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9acpkaqe1cj3gvp|1dfddf4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9acpkaqe1cj3gvp|1dfddf4, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+11:00:09.801 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+11:00:17.768 [qtp18067720-22] ERROR cn.momia.service.web.ctrl.base.AuthController 58 - fail to login user for 123
+11:05:48.779 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+11:05:49.917 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+11:05:49.970 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+11:05:50.188 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+11:05:50.567 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9acprmc41klt0it|2f4d91, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9acprmc41klt0it|2f4d91, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+11:05:51.456 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+11:07:58.212 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+11:07:59.948 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+11:07:59.994 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+11:08:00.188 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+11:08:00.571 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9acpueny5qpjmi|1115546, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9acpueny5qpjmi|1115546, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+11:08:01.583 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+11:08:06.990 [qtp31216075-27] ERROR cn.momia.service.web.ctrl.base.AuthController 88 - fail to register user for 13918872284
+11:19:39.479 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+11:19:41.566 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+11:19:41.653 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+11:19:42.025 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+11:19:42.763 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9acq9g3z1axep6l|1bf0add, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9acq9g3z1axep6l|1bf0add, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+11:19:43.729 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+11:20:56.714 [qtp33291038-24] ERROR cn.momia.service.web.ctrl.base.AuthController 88 - fail to register user for 13407174967
+11:36:05.504 [qtp33291038-25] ERROR cn.momia.service.web.ctrl.base.AuthController 88 - fail to register user for 13407174967
+11:51:25.264 [qtp33291038-20] ERROR cn.momia.service.web.ctrl.base.AuthController 88 - fail to register user for 13407174967
+11:52:09.935 [qtp33291038-25] ERROR cn.momia.service.web.ctrl.base.AuthController 88 - fail to register user for 13407174967
+11:52:32.611 [qtp33291038-24] ERROR cn.momia.service.web.ctrl.base.AuthController 88 - fail to register user for 13407174967
+12:10:40.830 [qtp33291038-21] ERROR cn.momia.service.web.ctrl.base.AuthController 88 - fail to register user for 15907103172
+13:54:22.741 [qtp33291038-25] ERROR c.m.service.base.product.sku.impl.SkuServiceImpl 157 - fail to parse sku prices, sku id: 64
+13:54:22.742 [qtp33291038-25] ERROR c.m.service.base.product.sku.impl.SkuServiceImpl 157 - fail to parse sku prices, sku id: 65
+15:59:29.026 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:59:32.775 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:59:33.048 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:59:34.557 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:59:35.495 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9ad09cgulpozez|dc54ce, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9ad09cgulpozez|dc54ce, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:59:36.684 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:00:08.078 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:00:10.268 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:00:10.305 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:00:10.462 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:00:10.822 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9ad2fawy1u2toax|1c9e95a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9ad2fawy1u2toax|1c9e95a, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:00:12.318 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+18:18:59.149 [qtp2334931-23] WARN  org.eclipse.jetty.servlet.ServletHandler 538 - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT id, cityId, categoryId, title, cover, crowd, content, sales FROM t_product WHERE status=1 AND (cityId=1 OR cityId=0) ORDER BY addTime DESC LIMIT ?,?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10,10' at line 1
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:857) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:735) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:26) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:971) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1033) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:644) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT id, cityId, categoryId, title, cover, crowd, content, sales FROM t_product WHERE status=1 AND (cityId=1 OR cityId=0) ORDER BY addTime DESC LIMIT ?,?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10,10' at line 1
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:231) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:752) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:762) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.product.impl.ProductServiceImpl.query(ProductServiceImpl.java:112) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.ProductController.getProducts(ProductController.java:59) ~[classes/:na]
+	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 33 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10,10' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:389) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.Util.getInstance(Util.java:372) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:980) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3835) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3771) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2535) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1911) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2034) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:1418) ~[c3p0-0.9.5.jar:0.9.5]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:703) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted
+18:18:59.152 [qtp2334931-23] WARN  org.eclipse.jetty.servlet.ServletHandler 563 - /product
+org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT id, cityId, categoryId, title, cover, crowd, content, sales FROM t_product WHERE status=1 AND (cityId=1 OR cityId=0) ORDER BY addTime DESC LIMIT ?,?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10,10' at line 1
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:231) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:752) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:762) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.product.impl.ProductServiceImpl.query(ProductServiceImpl.java:112) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.ProductController.getProducts(ProductController.java:59) ~[classes/:na]
+	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:857) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:735) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:26) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:971) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1033) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:644) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10,10' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:389) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.Util.getInstance(Util.java:372) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:980) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3835) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3771) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2535) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1911) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2034) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:1418) ~[c3p0-0.9.5.jar:0.9.5]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:703) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted

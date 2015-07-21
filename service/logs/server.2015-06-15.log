@@ -1,0 +1,92 @@
+14:47:29.277 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+14:47:31.090 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+14:47:31.156 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+14:47:31.340 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+14:47:31.813 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx991w8ye8qr8ghab|1bda30a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx991w8ye8qr8ghab|1bda30a, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+14:47:32.725 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:33:21.833 [C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-AdminTaskTimer] WARN  c.mchange.v2.async.ThreadPoolAsynchronousRunner 211 - com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1541fb -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+15:33:21.904 [C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-AdminTaskTimer] WARN  c.mchange.v2.async.ThreadPoolAsynchronousRunner 211 - com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1541fb -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask@ac50d9
+			on thread: C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-HelperThread-#0
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask@12e1de3
+			on thread: C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-HelperThread-#2
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask@efef86
+			on thread: C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-HelperThread-#1
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask@5646e5
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask@4868a9
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask@1cf5c86
+Pool thread stack traces:
+	Thread[C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-HelperThread-#0,5,main]
+		java.net.SocketInputStream.socketRead0(Native Method)
+		java.net.SocketInputStream.read(SocketInputStream.java:152)
+		java.net.SocketInputStream.read(SocketInputStream.java:122)
+		com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:100)
+		com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:143)
+		com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:173)
+		com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:2911)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3332)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3322)
+		com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3762)
+		com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435)
+		com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2531)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2489)
+		com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1446)
+		com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnection(DefaultConnectionTester.java:262)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:509)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.finerLoggingTestPooledConnection(C3P0PooledConnectionPool.java:451)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.finerLoggingTestPooledConnection(C3P0PooledConnectionPool.java:443)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:433)
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:2196)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+	Thread[C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-HelperThread-#1,5,main]
+		java.net.SocketInputStream.socketRead0(Native Method)
+		java.net.SocketInputStream.read(SocketInputStream.java:152)
+		java.net.SocketInputStream.read(SocketInputStream.java:122)
+		com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:100)
+		com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:143)
+		com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:173)
+		com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:2911)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3332)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3322)
+		com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3762)
+		com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435)
+		com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2531)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2489)
+		com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1446)
+		com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnection(DefaultConnectionTester.java:262)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:509)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.finerLoggingTestPooledConnection(C3P0PooledConnectionPool.java:451)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.finerLoggingTestPooledConnection(C3P0PooledConnectionPool.java:443)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:433)
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:2196)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+	Thread[C3P0PooledConnectionPoolManager[identityToken->z8kfsx991w8ye8qr8ghab|1bda30a]-HelperThread-#2,5,main]
+		java.net.SocketInputStream.socketRead0(Native Method)
+		java.net.SocketInputStream.read(SocketInputStream.java:152)
+		java.net.SocketInputStream.read(SocketInputStream.java:122)
+		com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:100)
+		com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:143)
+		com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:173)
+		com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:2911)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3332)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3322)
+		com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3762)
+		com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435)
+		com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2531)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2489)
+		com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1446)
+		com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnection(DefaultConnectionTester.java:262)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:509)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.finerLoggingTestPooledConnection(C3P0PooledConnectionPool.java:451)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.finerLoggingTestPooledConnection(C3P0PooledConnectionPool.java:443)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:433)
+		com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:2196)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:696)
+

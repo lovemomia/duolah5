@@ -1,0 +1,1131 @@
+14:41:16.120 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+14:41:18.602 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+14:41:18.770 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+14:41:19.107 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+14:41:19.495 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asnb3olcsx2l9|1dcaab3, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asnb3olcsx2l9|1dcaab3, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+14:41:20.499 [main]        WARN  org.eclipse.jetty.webapp.WebAppContext 503 - Failed startup of context o.e.j.w.WebAppContext{/,file:/home/ysm/momia/momia/service/web/}
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean] for bean with name 'cleanOrderJob' defined in file [/home/ysm/momia/momia/service/target/classes/beans/application-context.xml]; nested exception is java.lang.ClassNotFoundException: org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1328) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:622) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:591) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1397) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:968) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:735) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:782) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:774) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+Caused by: java.lang.ClassNotFoundException: org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366) ~[na:1.7.0_79]
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355) ~[na:1.7.0_79]
+	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.7.0_79]
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354) ~[na:1.7.0_79]
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:421) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:383) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:249) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:395) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1349) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1320) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 27 common frames omitted
+14:49:21.012 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+14:49:23.193 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+14:49:23.240 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+14:49:23.387 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+14:49:23.783 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asnlher17anklb|1cfa61c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asnlher17anklb|1cfa61c, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+14:49:24.656 [main]        WARN  org.eclipse.jetty.webapp.WebAppContext 503 - Failed startup of context o.e.j.w.WebAppContext{/,file:/home/ysm/momia/momia/service/web/}
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean] for bean with name 'cleanOrderJob' defined in file [/home/ysm/momia/momia/service/target/classes/beans/application-context.xml]; nested exception is java.lang.ClassNotFoundException: org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1328) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:622) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:591) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1397) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:968) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:735) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:782) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:774) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+Caused by: java.lang.ClassNotFoundException: org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366) ~[na:1.7.0_79]
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355) ~[na:1.7.0_79]
+	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.7.0_79]
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354) ~[na:1.7.0_79]
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:421) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:383) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:249) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:395) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1349) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1320) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 27 common frames omitted
+15:04:39.920 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:04:42.111 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:04:42.158 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:04:42.343 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:04:42.914 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9aso56gk5m7o18|9bb60, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9aso56gk5m7o18|9bb60, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:04:45.526 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:04:55.003 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 252 - start to clean expired orders ...
+15:04:55.176 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 279 - clean expired orders finished
+15:09:54.969 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 252 - start to clean expired orders ...
+15:09:55.040 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 279 - clean expired orders finished
+15:14:54.969 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 252 - start to clean expired orders ...
+15:14:54.985 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 279 - clean expired orders finished
+15:17:03.324 [qtp13065124-34] WARN  org.eclipse.jetty.servlet.ServletHandler 538 - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.dao.TransientDataAccessResourceException: PreparedStatementCallback; SQL []; Parameter index out of range (4 > number of parameters, which is 3).; nested exception is java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.springframework.dao.TransientDataAccessResourceException: PreparedStatementCallback; SQL []; Parameter index out of range (4 > number of parameters, which is 3).; nested exception is java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:108) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:943) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.addUser(UserServiceImpl.java:58) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl.add(UserServiceImpl.java:40) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.register(AuthController.java:101) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 33 common frames omitted
+Caused by: java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:998) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3399) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3384) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.setString(PreparedStatement.java:4110) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.setString(NewProxyPreparedStatement.java:482) ~[c3p0-0.9.5.jar:0.9.5]
+	at cn.momia.service.base.user.impl.UserServiceImpl$2.createPreparedStatement(UserServiceImpl.java:66) ~[classes/:na]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:638) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 50 common frames omitted
+15:17:03.326 [qtp13065124-34] WARN  org.eclipse.jetty.servlet.ServletHandler 563 - /auth/register
+org.springframework.dao.TransientDataAccessResourceException: PreparedStatementCallback; SQL []; Parameter index out of range (4 > number of parameters, which is 3).; nested exception is java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:108) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:943) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.addUser(UserServiceImpl.java:58) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl.add(UserServiceImpl.java:40) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.register(AuthController.java:101) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Parameter index out of range (4 > number of parameters, which is 3).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:998) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3399) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3384) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.setString(PreparedStatement.java:4110) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.setString(NewProxyPreparedStatement.java:482) ~[c3p0-0.9.5.jar:0.9.5]
+	at cn.momia.service.base.user.impl.UserServiceImpl$2.createPreparedStatement(UserServiceImpl.java:66) ~[classes/:na]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:638) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 50 common frames omitted
+15:19:02.280 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:19:04.679 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:19:04.783 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:19:05.039 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:19:05.554 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asono3d94482o|e8b0bf, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asono3d94482o|e8b0bf, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:19:06.462 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:19:07.425 [main]        WARN  / 2050 - unavailable
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private cn.momia.service.sms.SmsSender cn.momia.service.web.ctrl.base.AuthController.smsSender; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1210) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:755) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:663) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:629) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:677) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:548) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:532) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:344) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:791) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242) [jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494) [jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private cn.momia.service.sms.SmsSender cn.momia.service.web.ctrl.base.AuthController.smsSender; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 35 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 37 common frames omitted
+15:19:07.428 [main]        WARN  o.eclipse.jetty.util.component.AbstractLifeCycle 204 - FAILED service: javax.servlet.ServletException: service
+javax.servlet.ServletException: service
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:553) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:344) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:791) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242) [jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494) [jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private cn.momia.service.sms.SmsSender cn.momia.service.web.ctrl.base.AuthController.smsSender; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1210) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:755) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:663) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:629) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:677) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:548) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:532) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	... 17 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private cn.momia.service.sms.SmsSender cn.momia.service.web.ctrl.base.AuthController.smsSender; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 35 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 37 common frames omitted
+15:19:07.430 [main]        WARN  org.eclipse.jetty.webapp.WebAppContext 503 - Failed startup of context o.e.j.w.WebAppContext{/,file:/home/ysm/momia/momia/service/web/}
+javax.servlet.ServletException: service
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:553) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHolder.doStart(ServletHolder.java:344) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:791) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494) ~[jetty-webapp-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authController': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private cn.momia.service.sms.SmsSender cn.momia.service.web.ctrl.base.AuthController.smsSender; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1210) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:303) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:755) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:663) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:629) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:677) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:548) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:489) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:532) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	... 17 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private cn.momia.service.sms.SmsSender cn.momia.service.web.ctrl.base.AuthController.smsSender; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 35 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.momia.service.sms.SmsSender] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 37 common frames omitted
+15:19:29.462 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:19:31.623 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:19:31.665 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:19:31.817 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:19:32.171 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asoo8ssdm87y6|89b125, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asoo8ssdm87y6|89b125, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:19:33.126 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:24:06.308 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:24:09.685 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:24:09.764 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:24:10.061 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:24:10.582 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asou7ev18r0g6i|1e534ad, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asou7ev18r0g6i|1e534ad, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:24:11.740 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:24:13.830 [main]        WARN  o.eclipse.jetty.util.component.AbstractLifeCycle 204 - FAILED SelectChannelConnector@0.0.0.0:8080: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:444) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:436) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.7.0_79]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+15:24:13.831 [main]        WARN  o.eclipse.jetty.util.component.AbstractLifeCycle 204 - FAILED org.eclipse.jetty.server.Server@3fca36: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:444) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:436) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.7.0_79]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+15:24:13.832 [main]        ERROR cn.momia.service.web.ServiceWeb 30 - start server error
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:444) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:436) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.7.0_79]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) ~[classes/:na]
+15:24:37.454 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:24:39.478 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:24:39.521 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:24:39.709 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:24:40.093 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asouuct1svoo2i|9f55d2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asouuct1svoo2i|9f55d2, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:24:41.050 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:24:56.944 [qtp6847573-23] WARN  org.eclipse.jetty.servlet.ServletHandler 538 - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.jdbc.UncategorizedSQLException: PreparedStatementCallback; uncategorized SQLException for SQL [SELECT id,token,nickName,mobile,avatar,name,sex,birthday,cityId,address,children FROM t_user WHERE mobile=? AND status=1]; SQL state [S0022]; error code [0]; Column 'password' not found.; nested exception is java.sql.SQLException: Column 'password' not found.
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.springframework.jdbc.UncategorizedSQLException: PreparedStatementCallback; uncategorized SQLException for SQL [SELECT id,token,nickName,mobile,avatar,name,sex,birthday,cityId,address,children FROM t_user WHERE mobile=? AND status=1]; SQL state [S0022]; error code [0]; Column 'password' not found.; nested exception is java.sql.SQLException: Column 'password' not found.
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:84) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:737) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.getByMobile(UserServiceImpl.java:153) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.login(AuthController.java:60) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 33 common frames omitted
+Caused by: java.sql.SQLException: Column 'password' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:998) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1073) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5206) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyResultSet.getString(NewProxyResultSet.java:908) ~[c3p0-0.9.5.jar:0.9.5]
+	at cn.momia.service.base.user.impl.UserServiceImpl.buildUser(UserServiceImpl.java:98) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl.access$000(UserServiceImpl.java:28) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:156) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:153) ~[classes/:na]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:708) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted
+15:24:56.946 [qtp6847573-23] WARN  org.eclipse.jetty.servlet.ServletHandler 563 - /auth/login
+org.springframework.jdbc.UncategorizedSQLException: PreparedStatementCallback; uncategorized SQLException for SQL [SELECT id,token,nickName,mobile,avatar,name,sex,birthday,cityId,address,children FROM t_user WHERE mobile=? AND status=1]; SQL state [S0022]; error code [0]; Column 'password' not found.; nested exception is java.sql.SQLException: Column 'password' not found.
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:84) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:737) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.getByMobile(UserServiceImpl.java:153) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.login(AuthController.java:60) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column 'password' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:998) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1073) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5206) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyResultSet.getString(NewProxyResultSet.java:908) ~[c3p0-0.9.5.jar:0.9.5]
+	at cn.momia.service.base.user.impl.UserServiceImpl.buildUser(UserServiceImpl.java:98) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl.access$000(UserServiceImpl.java:28) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:156) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:153) ~[classes/:na]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:708) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted
+15:25:19.392 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:25:21.469 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:25:21.559 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:25:21.798 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:25:22.265 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asovqsm1lzjgnu|d68df1, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asovqsm1lzjgnu|d68df1, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:25:23.262 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:25:57.539 [qtp6847573-27] WARN  org.eclipse.jetty.servlet.ServletHandler 538 - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.jdbc.UncategorizedSQLException: PreparedStatementCallback; uncategorized SQLException for SQL [SELECT id,token,nickName,mobile,avatar,name,sex,birthday,cityId,address,children FROM t_user WHERE mobile=? AND status=1]; SQL state [S0022]; error code [0]; Column 'password' not found.; nested exception is java.sql.SQLException: Column 'password' not found.
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.springframework.jdbc.UncategorizedSQLException: PreparedStatementCallback; uncategorized SQLException for SQL [SELECT id,token,nickName,mobile,avatar,name,sex,birthday,cityId,address,children FROM t_user WHERE mobile=? AND status=1]; SQL state [S0022]; error code [0]; Column 'password' not found.; nested exception is java.sql.SQLException: Column 'password' not found.
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:84) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:737) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.getByMobile(UserServiceImpl.java:153) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.login(AuthController.java:60) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 33 common frames omitted
+Caused by: java.sql.SQLException: Column 'password' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:998) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1073) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5206) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyResultSet.getString(NewProxyResultSet.java:908) ~[c3p0-0.9.5.jar:0.9.5]
+	at cn.momia.service.base.user.impl.UserServiceImpl.buildUser(UserServiceImpl.java:98) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl.access$000(UserServiceImpl.java:28) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:156) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:153) ~[classes/:na]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:708) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted
+15:25:57.542 [qtp6847573-27] WARN  org.eclipse.jetty.servlet.ServletHandler 563 - /auth/login
+org.springframework.jdbc.UncategorizedSQLException: PreparedStatementCallback; uncategorized SQLException for SQL [SELECT id,token,nickName,mobile,avatar,name,sex,birthday,cityId,address,children FROM t_user WHERE mobile=? AND status=1]; SQL state [S0022]; error code [0]; Column 'password' not found.; nested exception is java.sql.SQLException: Column 'password' not found.
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:84) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:737) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.getByMobile(UserServiceImpl.java:153) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.login(AuthController.java:60) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: java.sql.SQLException: Column 'password' not found.
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:998) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:937) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:926) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:872) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.findColumn(ResultSetImpl.java:1073) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5206) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyResultSet.getString(NewProxyResultSet.java:908) ~[c3p0-0.9.5.jar:0.9.5]
+	at cn.momia.service.base.user.impl.UserServiceImpl.buildUser(UserServiceImpl.java:98) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl.access$000(UserServiceImpl.java:28) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:156) ~[classes/:na]
+	at cn.momia.service.base.user.impl.UserServiceImpl$6.extractData(UserServiceImpl.java:153) ~[classes/:na]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:708) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted
+15:26:06.308 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:26:08.226 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:26:08.273 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:26:08.453 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:26:08.848 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asowqtzhqpwc5|1e534ad, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asowqtzhqpwc5|1e534ad, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:26:09.973 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:26:39.945 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:26:41.838 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:26:41.884 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:26:42.063 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:26:42.452 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asoxgro1280m38|5c6b1, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asoxgro1280m38|5c6b1, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:26:43.420 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:27:11.352 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:27:12.883 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:27:12.926 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:27:13.097 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:27:13.525 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asoy4pqohrtfg|b2f38f, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asoy4pqohrtfg|b2f38f, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:27:14.526 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+15:28:16.074 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+15:28:18.054 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+15:28:18.100 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+15:28:18.277 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+15:28:18.636 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asozj0axoon83|3dca93, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asozj0axoon83|3dca93, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+15:28:19.576 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:06:22.106 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:06:24.646 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:06:24.726 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:06:25.030 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:06:25.545 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asshp89br0u5x|1815aa4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asshp89br0u5x|1815aa4, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:06:26.605 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:06:29.488 [main]        WARN  o.eclipse.jetty.util.component.AbstractLifeCycle 204 - FAILED SelectChannelConnector@0.0.0.0:8080: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:444) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:436) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.7.0_79]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+17:06:29.491 [main]        WARN  o.eclipse.jetty.util.component.AbstractLifeCycle 204 - FAILED org.eclipse.jetty.server.Server@17fdbee: java.net.BindException: Address already in use
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:444) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:436) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.7.0_79]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+17:06:29.492 [main]        ERROR cn.momia.service.web.ServiceWeb 30 - start server error
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:444) ~[na:1.7.0_79]
+	at sun.nio.ch.Net.bind(Net.java:436) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:214) ~[na:1.7.0_79]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.7.0_79]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.open(SelectChannelConnector.java:187) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractConnector.doStart(AbstractConnector.java:316) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.nio.SelectChannelConnector.doStart(SelectChannelConnector.java:265) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:293) ~[jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64) ~[jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.service.web.ServiceWeb.main(ServiceWeb.java:27) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:na]
+17:07:09.327 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:07:11.871 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:07:11.939 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:07:12.152 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:07:12.622 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9assiple1077kv6|f96654, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9assiple1077kv6|f96654, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:07:13.553 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:09:54.858 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:09:57.180 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:09:57.268 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:09:57.710 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:09:58.651 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9assm9a1kf8bnh|d084e6, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9assm9a1kf8bnh|d084e6, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:10:00.256 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:10:21.204 [qtp15888572-21] ERROR cn.momia.service.web.ctrl.base.AuthController 63 - fail to login user for 13789960298
+17:33:43.638 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:33:46.047 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:33:46.139 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:33:46.404 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:33:47.254 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9astgvq0nm2rks|2ea207, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9astgvq0nm2rks|2ea207, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:33:48.954 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:33:58.624 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+17:33:58.701 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+17:36:52.830 [qtp13065124-37] WARN  org.eclipse.jetty.servlet.ServletHandler 538 - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT mobile, password FROM t_uer WHERE mobile=? AND password=?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'tongqu.t_uer' doesn't exist
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT mobile, password FROM t_uer WHERE mobile=? AND password=?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'tongqu.t_uer' doesn't exist
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:231) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:737) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.validateUser(UserServiceImpl.java:178) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.login(AuthController.java:67) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 33 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'tongqu.t_uer' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:389) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.Util.getInstance(Util.java:372) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:980) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3835) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3771) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2535) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1911) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2034) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:1418) ~[c3p0-0.9.5.jar:0.9.5]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:703) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted
+17:36:52.833 [qtp13065124-37] WARN  org.eclipse.jetty.servlet.ServletHandler 563 - /auth/login
+org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT mobile, password FROM t_uer WHERE mobile=? AND password=?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'tongqu.t_uer' doesn't exist
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:231) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:660) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:695) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:727) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:737) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at cn.momia.service.base.user.impl.UserServiceImpl.validateUser(UserServiceImpl.java:178) ~[classes/:na]
+	at cn.momia.service.web.ctrl.base.AuthController.login(AuthController.java:67) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_79]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_79]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandleMethod(RequestMappingHandlerAdapter.java:776) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:705) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:966) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:868) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:755) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:842) ~[spring-webmvc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:848) ~[javax.servlet-3.0.0.v201112011016.jar:na]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:684) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1496) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1484) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at cn.momia.common.web.filter.LoggingFilter.doFilter(LoggingFilter.java:27) ~[classes/:na]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1476) ~[jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:501) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:557) [jetty-security-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1086) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:429) [jetty-servlet-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1020) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.Server.handle(Server.java:370) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:982) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:1043) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:865) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240) [jetty-http-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82) [jetty-server-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:696) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:53) [jetty-io-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543) [jetty-util-8.1.17.v20150415.jar:8.1.17.v20150415]
+	at java.lang.Thread.run(Thread.java:745) [na:1.7.0_79]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'tongqu.t_uer' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.7.0_79]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) ~[na:1.7.0_79]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.7.0_79]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) ~[na:1.7.0_79]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:389) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.Util.getInstance(Util.java:372) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:980) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3835) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3771) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2435) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2582) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2535) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1911) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2034) ~[mysql-connector-java-5.1.35.jar:5.1.35]
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:1418) ~[c3p0-0.9.5.jar:0.9.5]
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:703) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:644) ~[spring-jdbc-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	... 51 common frames omitted
+17:37:40.286 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:37:42.539 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:37:42.652 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:37:42.886 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:37:43.374 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9astly6oqqn1xh|18f890c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9astly6oqqn1xh|18f890c, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:37:44.407 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:37:54.242 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+17:37:54.260 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+17:42:54.213 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+17:42:54.228 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+17:47:54.212 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+17:47:54.226 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+17:52:54.213 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+17:52:54.227 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+17:54:22.145 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:54:24.547 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:54:24.642 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:54:24.838 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:54:25.237 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asu7fbvv0ylqx|1979b72, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asu7fbvv0ylqx|1979b72, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:54:26.282 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:54:36.123 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+17:54:36.179 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+17:54:47.144 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+17:54:49.041 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+17:54:49.153 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+17:54:49.450 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+17:54:49.902 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asu7y9l1eg9j90|3354e1, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asu7y9l1eg9j90|3354e1, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+17:54:51.209 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+17:55:01.047 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+17:55:01.070 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:00:01.026 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:00:01.044 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:05:01.026 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:05:01.043 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:10:01.026 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:10:01.044 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:12:57.923 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+18:12:59.922 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+18:12:59.992 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+18:13:00.203 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+18:13:00.769 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asuvbxvegckz|18f890c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asuvbxvegckz|18f890c, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+18:13:01.895 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+18:13:11.737 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:13:11.786 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:18:11.711 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:18:11.723 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:23:11.709 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:23:11.959 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:28:11.710 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:28:11.728 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:29:33.020 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+18:29:35.045 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+18:29:35.183 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+18:29:35.534 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+18:29:36.090 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asvgnvhj2vzpf|9bb60, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asvgnvhj2vzpf|9bb60, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+18:29:37.880 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+18:29:47.719 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:29:47.768 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:33:14.590 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+18:33:16.931 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+18:33:17.004 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+18:33:17.202 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+18:33:17.632 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asvlezb1w81ql6|d96a9c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asvlezb1w81ql6|d96a9c, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+18:33:21.280 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+18:33:31.068 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:33:31.443 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:35:11.387 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+18:35:13.696 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+18:35:13.760 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+18:35:14.098 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+18:35:14.727 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9asvnx481jtkgf|1dd23bc, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9asvnx481jtkgf|1dd23bc, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+18:35:15.927 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+18:35:25.743 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:35:25.799 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:40:25.720 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:40:25.736 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:45:25.719 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:45:25.733 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:50:25.718 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:50:25.736 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+18:55:25.719 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-5] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+18:55:25.735 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-5] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:00:25.719 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-6] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:00:25.735 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-6] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:05:25.719 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-7] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:05:25.736 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-7] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:10:25.719 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-8] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:10:25.735 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-8] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:11:30.982 [main]        INFO  / 2040 - Initializing Spring root WebApplicationContext
+19:11:33.815 [main]        INFO  cn.momia.common.web.logger.LoggerConfigurer 31 - set logger level to: INFO
+19:11:33.924 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog 203 - MLog clients using slf4j logging.
+19:11:34.210 [main]        INFO  com.mchange.v2.c3p0.C3P0Registry 203 - Initializing c3p0-0.9.5 [built 02-January-2015 13:25:04 -0500; debug? true; trace: 10]
+19:11:34.955 [main]        INFO  c.m.v2.c3p0.impl.AbstractPoolBackedDataSource 203 - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 1800000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> z8kfsx9aswynb41n4zt81|1ace663, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceUseNamedDriverClass -> false, identityToken -> z8kfsx9aswynb41n4zt81|1ace663, idleConnectionTestPeriod -> 5, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://120.55.102.12:3306/tongqu?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 7200, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> SELECT 1, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> true, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+19:11:36.959 [main]        INFO  / 2040 - Initializing Spring FrameworkServlet 'service'
+19:11:46.553 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:11:46.607 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:16:46.528 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:16:46.580 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:21:46.528 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:21:46.543 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:26:46.527 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:26:46.546 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished
+19:31:46.527 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-5] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 251 - start to clean expired orders ...
+19:31:46.545 [org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-5] INFO  c.momia.service.deal.order.impl.OrderServiceImpl 278 - clean expired orders finished

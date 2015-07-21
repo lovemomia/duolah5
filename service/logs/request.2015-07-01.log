@@ -1,0 +1,83 @@
+09:40:59.880 [qtp1611334-24] INFO  REQUEST 30 - POST	/auth/send	432ms	{type=[login],mobile=[1376129629]}
+09:41:42.115 [qtp1611334-24] INFO  REQUEST 30 - POST	/auth/send	5ms	{type=[login],mobile=[1376129629]}
+09:41:57.368 [qtp1611334-24] INFO  REQUEST 30 - POST	/auth/send	305ms	{type=[login],mobile=[13407174967]}
+09:57:23.226 [qtp1611334-19] INFO  REQUEST 30 - GET	/product/12/sku	90ms	{}
+09:57:23.231 [qtp1611334-25] INFO  REQUEST 30 - GET	/user	77ms	{utoken=[]}
+09:59:06.283 [qtp1611334-22] INFO  REQUEST 30 - GET	/user	22ms	{utoken=[]}
+09:59:06.429 [qtp1611334-23] INFO  REQUEST 30 - GET	/product/37/sku	159ms	{}
+10:13:29.449 [qtp1611334-23] INFO  REQUEST 30 - GET	/user	368ms	{utoken=[]}
+10:13:29.454 [qtp1611334-19] INFO  REQUEST 30 - GET	/product/37/sku	373ms	{}
+10:20:55.558 [qtp14424488-22] INFO  REQUEST 30 - GET	/user/order	648ms	{type=[le],count=[10],status=[1],start=[0],utoken=[123]}
+10:25:19.691 [qtp1486879-25] INFO  REQUEST 30 - GET	/user/order	801ms	{type=[le],count=[10],status=[1],start=[0],utoken=[123]}
+10:26:21.973 [qtp3266290-21] INFO  REQUEST 30 - GET	/user/order	897ms	{type=[le],count=[10],status=[1],start=[0],utoken=[123]}
+10:27:28.105 [qtp1611334-25] INFO  REQUEST 30 - GET	/user/order	602ms	{type=[le],count=[10],status=[1],start=[0],utoken=[123]}
+10:28:30.290 [qtp1611334-23] INFO  REQUEST 30 - POST	/auth/send	86ms	{type=[login],mobile=[13407174967]}
+10:42:45.742 [qtp1611334-23] INFO  REQUEST 30 - GET	/user	18ms	{utoken=[222]}
+10:42:45.788 [qtp1611334-21] INFO  REQUEST 30 - GET	/product/37/sku	67ms	{}
+10:43:12.177 [qtp1611334-19] INFO  REQUEST 30 - GET	/product/37/sku	27ms	{}
+10:43:12.257 [qtp1611334-21] INFO  REQUEST 30 - GET	/user	89ms	{utoken=[123]}
+10:43:21.375 [qtp1611334-23] INFO  REQUEST 30 - GET	/user	14ms	{utoken=[222]}
+10:43:21.378 [qtp1611334-24] INFO  REQUEST 30 - GET	/product/37/sku	22ms	{}
+12:04:49.097 [qtp3266290-20] INFO  REQUEST 30 - GET	/user	285ms	{utoken=[222]}
+12:04:49.159 [qtp3266290-21] INFO  REQUEST 30 - GET	/product/37/sku	347ms	{}
+12:04:55.782 [qtp3266290-19] INFO  REQUEST 30 - GET	/product/37/sku	31ms	{}
+12:04:55.795 [qtp3266290-20] INFO  REQUEST 30 - GET	/user	55ms	{utoken=[123]}
+12:05:00.655 [qtp3266290-23] INFO  REQUEST 30 - GET	/product/37/sku	33ms	{}
+12:05:00.688 [qtp3266290-21] INFO  REQUEST 30 - GET	/user	14ms	{utoken=[222]}
+12:05:06.499 [qtp3266290-25] INFO  REQUEST 30 - GET	/product/12/sku	22ms	{}
+12:05:06.503 [qtp3266290-24] INFO  REQUEST 30 - GET	/user	17ms	{utoken=[123]}
+13:40:01.492 [qtp3266290-20] INFO  REQUEST 30 - GET	/user	14ms	{utoken=[123]}
+13:40:01.500 [qtp3266290-24] INFO  REQUEST 30 - GET	/product/37/sku	27ms	{}
+13:40:05.930 [qtp3266290-19] INFO  REQUEST 30 - GET	/user	17ms	{utoken=[123]}
+13:40:05.947 [qtp3266290-21] INFO  REQUEST 30 - GET	/product/37/sku	32ms	{}
+13:41:15.712 [qtp3266290-19] INFO  REQUEST 30 - GET	/product/37	293ms	{}
+13:41:15.731 [qtp3266290-21] INFO  REQUEST 30 - GET	/product/37/customer	305ms	{count=[6],start=[0]}
+13:44:10.786 [qtp16022866-23] INFO  REQUEST 31 - GET	/product	770ms	{id=[37]}	127.0.0.1
+13:44:21.918 [qtp16022866-23] INFO  REQUEST 31 - GET	/product	27ms	{id=[37],city=[1]}	127.0.0.1
+13:44:36.461 [qtp16022866-22] INFO  REQUEST 31 - GET	/product	460ms	{id=[37],count=[10],start=[0],city=[1]}	127.0.0.1
+13:46:03.865 [qtp16022866-22] INFO  REQUEST 31 - GET	/product/37	60283ms	{}	127.0.0.1
+13:47:54.105 [qtp1611334-21] INFO  REQUEST 31 - GET	/product/37	541ms	{}	127.0.0.1
+13:48:45.761 [qtp1611334-25] INFO  REQUEST 31 - GET	/product/37/sku	37ms	{}	127.0.0.1
+13:48:45.852 [qtp1611334-20] INFO  REQUEST 31 - GET	/user	126ms	{utoken=[123]}	127.0.0.1
+13:49:04.319 [qtp1611334-24] INFO  REQUEST 31 - GET	/product/37	103ms	{}	127.0.0.1
+13:49:04.440 [qtp1611334-25] INFO  REQUEST 31 - GET	/product/37/customer	183ms	{count=[6],start=[0]}	127.0.0.1
+13:53:28.940 [qtp1611334-24] INFO  REQUEST 31 - GET	/product/37/customer	75ms	{count=[6],start=[0]}	127.0.0.1
+13:53:29.067 [qtp1611334-20] INFO  REQUEST 31 - GET	/product/37	209ms	{}	127.0.0.1
+13:57:18.902 [qtp1611334-22] INFO  REQUEST 31 - GET	/product/37/customer	55ms	{count=[6],start=[0]}	127.0.0.1
+13:57:18.940 [qtp1611334-25] INFO  REQUEST 31 - GET	/product/37	98ms	{}	127.0.0.1
+14:00:42.212 [qtp1611334-21] INFO  REQUEST 31 - GET	/product/37/customer	66ms	{count=[6],start=[0]}	127.0.0.1
+14:00:42.247 [qtp1611334-24] INFO  REQUEST 31 - GET	/product/37	100ms	{}	127.0.0.1
+14:01:57.138 [qtp1611334-23] INFO  REQUEST 31 - GET	/product/37/customer	68ms	{count=[6],start=[0]}	127.0.0.1
+14:01:57.153 [qtp1611334-21] INFO  REQUEST 31 - GET	/product/37	91ms	{}	127.0.0.1
+14:03:43.141 [qtp1611334-23] INFO  REQUEST 31 - GET	/product/37/customer	54ms	{count=[6],start=[0]}	127.0.0.1
+14:03:43.155 [qtp1611334-24] INFO  REQUEST 31 - GET	/product/37	81ms	{}	127.0.0.1
+14:06:43.943 [qtp1611334-22] INFO  REQUEST 31 - GET	/user	16ms	{utoken=[123]}	127.0.0.1
+14:06:43.950 [qtp1611334-23] INFO  REQUEST 31 - GET	/product/37/sku	20ms	{}	127.0.0.1
+14:30:17.512 [qtp14424488-22] INFO  REQUEST 31 - GET	/user	330ms	{utoken=[123]}	127.0.0.1
+14:30:17.525 [qtp14424488-23] INFO  REQUEST 31 - GET	/product/37/sku	343ms	{}	127.0.0.1
+14:30:23.509 [qtp14424488-22] INFO  REQUEST 31 - GET	/product/37/sku	22ms	{}	127.0.0.1
+14:30:23.521 [qtp14424488-24] INFO  REQUEST 31 - GET	/user	20ms	{utoken=[123]}	127.0.0.1
+14:30:26.575 [qtp14424488-23] INFO  REQUEST 31 - GET	/product	176ms	{count=[3],start=[0],query=[],city=[1]}	127.0.0.1
+14:30:30.736 [qtp14424488-25] INFO  REQUEST 31 - GET	/product/37	110ms	{}	127.0.0.1
+14:30:30.813 [qtp14424488-20] INFO  REQUEST 31 - GET	/product/37/customer	185ms	{count=[6],start=[0]}	127.0.0.1
+14:30:48.483 [qtp14424488-23] INFO  REQUEST 31 - GET	/user	21ms	{utoken=[123]}	127.0.0.1
+14:30:56.300 [qtp14424488-25] INFO  REQUEST 31 - GET	/user/order	275ms	{type=[eq],count=[2],status=[1],start=[0],utoken=[123]}	127.0.0.1
+16:55:31.844 [qtp1698458-24] INFO  REQUEST 31 - POST	/auth/send	570ms	{type=[],mobile=[13407174967]}	127.0.0.1
+16:56:51.123 [qtp23716756-22] INFO  REQUEST 31 - POST	/auth/send	511ms	{type=[],mobile=[13407174967]}	127.0.0.1
+17:25:55.734 [qtp1611334-23] INFO  REQUEST 31 - GET	/user	350ms	{utoken=[123]}	127.0.0.1
+17:25:56.105 [qtp1611334-20] INFO  REQUEST 31 - POST	/order	263ms	{}	127.0.0.1
+17:28:04.938 [qtp32205781-23] INFO  REQUEST 31 - POST	/order	152ms	{order=[{"productId":35,"skuId":65,"contacts":"xxx","mobile":"139","participants":[30,40],"prices":[{"adult":1,"price":9,"count":1},{"price":10,"count":2,"child":1}]}],utoken=[123]}	127.0.0.1
+17:28:23.164 [qtp32205781-25] INFO  REQUEST 31 - POST	/order	16ms	{}	127.0.0.1
+17:28:42.619 [qtp32205781-24] INFO  REQUEST 31 - POST	/order	7ms	{}	127.0.0.1
+17:33:48.378 [qtp32205781-24] INFO  REQUEST 31 - POST	/order	279715ms	{}	127.0.0.1
+17:34:10.347 [qtp6480411-23] INFO  REQUEST 31 - POST	/order	663ms	{}	127.0.0.1
+17:36:22.075 [qtp21995338-22] INFO  REQUEST 31 - POST	/order	31731ms	{}	127.0.0.1
+18:16:40.287 [qtp1611334-25] INFO  REQUEST 31 - GET	/user	368ms	{utoken=[123]}	127.0.0.1
+18:16:40.604 [qtp1611334-21] INFO  REQUEST 31 - POST	/order	204ms	{}	127.0.0.1
+18:20:57.663 [qtp1611334-23] INFO  REQUEST 31 - POST	/auth/send	401ms	{type=[register],mobile=[13407174967]}	127.0.0.1
+18:23:10.341 [qtp1611334-25] INFO  REQUEST 31 - POST	/auth/send	75ms	{type=[login],mobile=[13407174967]}	127.0.0.1
+18:32:44.046 [qtp1611334-24] INFO  REQUEST 31 - POST	/auth/send	42ms	{type=[login],mobile=[13407174967]}	127.0.0.1
+18:35:42.954 [qtp1611334-20] INFO  REQUEST 31 - POST	/auth/send	29ms	{type=[register],mobile=[13407174967]}	127.0.0.1
+18:38:39.529 [qtp1611334-23] INFO  REQUEST 31 - POST	/auth/send	14ms	{type=[login],mobile=[13476129629]}	127.0.0.1
+19:02:46.618 [qtp1611334-25] INFO  REQUEST 31 - POST	/auth/login	137ms	{mobile=[13407174967],code=[1111]}	127.0.0.1
+19:02:52.824 [qtp1611334-22] INFO  REQUEST 31 - POST	/auth/login	414ms	{mobile=[13407174967],code=[123456]}	127.0.0.1

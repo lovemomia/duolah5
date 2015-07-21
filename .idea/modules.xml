@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cn.duolah5.iml" filepath="$PROJECT_DIR$/cn.duolah5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/duolah5/cn.momia.iml" filepath="$PROJECT_DIR$/duolah5/cn.momia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/utils/common-utils.iml" filepath="$PROJECT_DIR$/common/utils/common-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/web/common-web.iml" filepath="$PROJECT_DIR$/common/web/common-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/duola-common.iml" filepath="$PROJECT_DIR$/common/duola-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image/duola-image.iml" filepath="$PROJECT_DIR$/image/duola-image.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jobs/duola-jobs.iml" filepath="$PROJECT_DIR$/jobs/duola-jobs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/duola-service.iml" filepath="$PROJECT_DIR$/service/duola-service.iml" />
+    </modules>
+  </component>
+</project>

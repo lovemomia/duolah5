@@ -1,0 +1,346 @@
+09:23:41.049 [qtp25481633-24] INFO  REQUEST 30 - POST	/participant	415ms	{participant=[{ "birthday":"2011-01-01", "name": "杨", "sex": "女","userId": 1}]}
+10:15:25.921 [qtp15888572-26] INFO  REQUEST 30 - POST	/participant	368ms	{participant=[{ "birthday":"2011-01-01", "name": "杨", "sex": "女","userId": 1}]}
+10:16:55.027 [qtp15888572-26] INFO  REQUEST 30 - POST	/participant	311ms	{participant=[{ "birthday":"2011-01-01", "name": "杨", "sex": "女","userId": 1}]}
+10:17:52.317 [qtp14593040-26] INFO  REQUEST 30 - POST	/participant	237ms	{participant=[{ "birthday":"2011-01-01", "name": "杨", "sex": "女","userId": 1}]}
+10:18:46.753 [qtp5345090-21] INFO  REQUEST 30 - POST	/participant	248ms	{participant=[{ "birthday":"2011-01-01", "name": "杨", "sex": "女","userId": 1}]}
+10:26:07.871 [qtp14593040-23] INFO  REQUEST 30 - POST	/participant	278ms	{participant=[{ "birthday":"2011-01-01", "name": "杨", "sex": "女","userId": 1}]}
+10:27:31.547 [qtp14593040-24] INFO  REQUEST 30 - POST	/participant	299ms	{participant=[{ "birthday":"2011-01-01", "name": "杨", "sex": "女","userId": 1}]}
+10:29:04.646 [qtp25481633-25] INFO  REQUEST 30 - POST	/participant	270ms	{participant=[{ "name": "杨", "sex": "女","userId": 1}]}
+10:31:36.220 [qtp15888572-26] INFO  REQUEST 30 - POST	/participant	318ms	{participant=[{ "name": "杨", "sex": "女","userId": 1}]}
+10:36:12.378 [qtp14593040-26] INFO  REQUEST 30 - POST	/participant	62ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+10:36:34.890 [qtp14593040-24] INFO  REQUEST 30 - POST	/participant	335ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+10:58:49.595 [qtp1486879-26] INFO  REQUEST 30 - PUT	/user/birthday	814ms	{birthday=[1986-01-01],utoken=[]}
+11:01:14.539 [qtp25481633-24] INFO  REQUEST 30 - POST	/participant	265ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+12:02:32.977 [qtp25481633-25] INFO  REQUEST 30 - POST	/participant	519ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+14:16:25.399 [qtp1486879-24] INFO  REQUEST 30 - POST	/participant	247ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+14:16:33.047 [qtp1486879-25] INFO  REQUEST 30 - PUT	/user/birthday	355ms	{birthday=[1986-01-01],utoken=[]}
+14:27:32.820 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	25ms	{}
+14:28:53.690 [qtp1486879-21] INFO  REQUEST 30 - GET	/participant/1	80ms	{}
+14:28:53.721 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	11ms	{}
+14:54:25.254 [qtp14593040-21] INFO  REQUEST 30 - POST	/participant	400ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+14:59:58.053 [qtp14593040-26] INFO  REQUEST 30 - POST	/participant	81ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+15:00:35.815 [qtp14593040-20] INFO  REQUEST 30 - POST	/participant	283ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+15:15:44.562 [qtp15888572-26] INFO  REQUEST 30 - POST	/participant	387ms	{participant=[{ "birthday":"2011-01-01","name": "杨", "sex": "女","userId": 1}]}
+15:15:51.623 [qtp15888572-26] INFO  REQUEST 30 - PUT	/user/birthday	472ms	{birthday=[1986-01-01],utoken=[]}
+15:16:08.300 [qtp15888572-24] INFO  REQUEST 30 - GET	/participant	59ms	{utoken=[]}
+15:17:54.737 [qtp15888572-21] INFO  REQUEST 30 - POST	/participant	6ms	{participant=[{"birthday": "1999-09-09", "name": "杨", "sex": "女", "userId": 1 }]}
+15:20:24.137 [qtp15888572-24] INFO  REQUEST 30 - GET	/participant	34ms	{utoken=[]}
+15:22:41.165 [qtp15888572-21] INFO  REQUEST 30 - POST	/participant	175ms	{participantJson=[{"birthday": "1999-09-09", "name": "杨", "sex": "女", "userId": 1 }]}
+15:23:13.482 [qtp15888572-25] INFO  REQUEST 30 - POST	/kill	8ms	{}
+15:23:40.807 [qtp15888572-24] INFO  REQUEST 30 - POST	/kill	15ms	{}
+15:25:30.448 [qtp14593040-24] INFO  REQUEST 30 - GET	/user/1	345ms	{}
+15:25:30.503 [qtp14593040-25] INFO  REQUEST 30 - GET	/user	35ms	{utoken=[]}
+15:25:30.590 [qtp14593040-26] INFO  REQUEST 30 - PUT	/user/avatar	62ms	{avatar=[http://s.momia.cn/test/admin],utoken=[]}
+15:25:30.663 [qtp14593040-22] INFO  REQUEST 30 - PUT	/user/name	53ms	{utoken=[],name=[吴秋枫]}
+15:25:30.740 [qtp14593040-24] INFO  REQUEST 30 - PUT	/user/sex	50ms	{utoken=[],sex=[男]}
+15:25:30.991 [qtp14593040-25] INFO  REQUEST 30 - PUT	/user/birthday	229ms	{birthday=[1986-01-01],utoken=[]}
+15:25:31.066 [qtp14593040-22] INFO  REQUEST 30 - PUT	/user/city	51ms	{utoken=[],city=[1]}
+15:25:31.132 [qtp14593040-23] INFO  REQUEST 30 - PUT	/user/address	47ms	{address=[上海市长宁区长宁路969号],utoken=[]}
+15:25:31.397 [qtp14593040-24] INFO  REQUEST 30 - GET	/product	245ms	{count=[2],start=[0]}
+15:25:31.473 [qtp14593040-25] INFO  REQUEST 30 - GET	/product/1	58ms	{}
+15:25:31.595 [qtp14593040-22] INFO  REQUEST 30 - GET	/product/1/place	102ms	{}
+15:25:31.668 [qtp14593040-23] INFO  REQUEST 30 - GET	/product/1/sku	42ms	{}
+15:25:31.824 [qtp14593040-24] INFO  REQUEST 30 - GET	/product/1/customer	138ms	{count=[2],start=[0]}
+15:25:31.904 [qtp14593040-26] INFO  REQUEST 30 - GET	/participant/1	41ms	{}
+15:25:32.011 [qtp14593040-21] INFO  REQUEST 30 - GET	/participant	36ms	{utoken=[]}
+15:25:32.059 [qtp14593040-24] INFO  REQUEST 30 - POST	/kill	17ms	{}
+15:25:40.389 [qtp14593040-23] INFO  REQUEST 30 - POST	/kill	12ms	{}
+15:26:33.872 [qtp14593040-24] INFO  REQUEST 30 - POST	/participant	38ms	{participantJson=[{"birthday": "2009-09-09", "name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:27:27.124 [qtp14593040-27] INFO  REQUEST 30 - GET	/user/1	20ms	{}
+15:27:27.160 [qtp14593040-26] INFO  REQUEST 30 - GET	/user	17ms	{utoken=[]}
+15:27:27.225 [qtp14593040-23] INFO  REQUEST 30 - PUT	/user/avatar	48ms	{avatar=[http://s.momia.cn/test/admin],utoken=[]}
+15:27:27.298 [qtp14593040-25] INFO  REQUEST 30 - PUT	/user/name	51ms	{utoken=[],name=[吴秋枫]}
+15:27:27.364 [qtp14593040-24] INFO  REQUEST 30 - PUT	/user/sex	47ms	{utoken=[],sex=[男]}
+15:27:27.436 [qtp14593040-27] INFO  REQUEST 30 - PUT	/user/birthday	52ms	{birthday=[1986-01-01],utoken=[]}
+15:27:27.502 [qtp14593040-26] INFO  REQUEST 30 - PUT	/user/city	45ms	{utoken=[],city=[1]}
+15:27:27.570 [qtp14593040-22] INFO  REQUEST 30 - PUT	/user/address	46ms	{address=[上海市长宁区长宁路969号],utoken=[]}
+15:27:27.641 [qtp14593040-25] INFO  REQUEST 30 - GET	/product	48ms	{count=[2],start=[0]}
+15:27:27.703 [qtp14593040-24] INFO  REQUEST 30 - GET	/product/1	39ms	{}
+15:27:27.778 [qtp14593040-27] INFO  REQUEST 30 - GET	/product/1/place	51ms	{}
+15:27:27.835 [qtp14593040-26] INFO  REQUEST 30 - GET	/product/1/sku	33ms	{}
+15:27:27.912 [qtp14593040-23] INFO  REQUEST 30 - GET	/product/1/customer	60ms	{count=[2],start=[0]}
+15:27:27.972 [qtp14593040-24] INFO  REQUEST 30 - GET	/participant/1	20ms	{}
+15:27:28.047 [qtp14593040-22] INFO  REQUEST 30 - GET	/participant	35ms	{utoken=[]}
+15:27:28.071 [qtp14593040-23] INFO  REQUEST 30 - POST	/kill	5ms	{}
+15:27:42.456 [qtp14593040-24] INFO  REQUEST 30 - POST	/kill	11ms	{}
+15:31:09.886 [qtp14593040-24] INFO  REQUEST 30 - GET	/participant/1	24ms	{}
+15:31:09.911 [qtp14593040-22] INFO  REQUEST 30 - POST	/kill	6ms	{}
+15:31:58.274 [qtp14593040-25] INFO  REQUEST 30 - POST	/kill	5ms	{}
+15:32:16.748 [qtp14593040-25] INFO  REQUEST 30 - POST	/kill	12ms	{}
+15:32:23.950 [qtp14593040-24] INFO  REQUEST 30 - POST	/kill	8ms	{}
+15:34:21.270 [qtp14593040-25] INFO  REQUEST 30 - PUT	/participant	7ms	{participantJson=[{"birthday": "2003-03-03", "id":3,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:35:57.340 [qtp14593040-22] INFO  REQUEST 30 - PUT	/participant	351ms	{participantJson=[{"birthday": "2003-03-03", "id":3,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:36:22.347 [qtp14593040-24] INFO  REQUEST 30 - PUT	/participant	19ms	{participantJson=[{"birthday": "2003-03-03", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:36:26.337 [qtp14593040-24] INFO  REQUEST 30 - PUT	/participant	20ms	{participantJson=[{"birthday": "2003-03-03", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:40:06.262 [qtp14593040-21] INFO  REQUEST 30 - PUT	/participant	20ms	{participantJson=[{"birthday": "2003-03-03", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:40:23.567 [qtp25481633-21] INFO  REQUEST 30 - PUT	/participant	394ms	{participantJson=[{"birthday": "2003-03-03", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:41:38.885 [qtp25481633-24] INFO  REQUEST 30 - PUT	/participant	21ms	{participantJson=[{"birthday": "2003-03-03", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:47:12.983 [qtp25481633-26] INFO  REQUEST 30 - PUT	/participant	20ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:52:36.751 [qtp14593040-25] INFO  REQUEST 30 - PUT	/participant	321ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:55:32.349 [qtp1486879-22] INFO  REQUEST 30 - PUT	/participant	516ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:56:57.996 [qtp1486879-23] INFO  REQUEST 30 - POST	/participant	75ms	{participantJson=[{"birthday": "2009-09-09", "name": "宝宝2", "sex": "男", "userId": 1,"id": 5}]}
+15:58:56.288 [qtp25481633-22] INFO  REQUEST 30 - POST	/participant	380ms	{participantJson=[{"birthday": "2015-01-01", "name": "宝宝3", "sex": "男", "userId": 1}]}
+15:59:08.995 [qtp25481633-24] INFO  REQUEST 30 - PUT	/participant	29ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+15:59:21.348 [qtp25481633-26] INFO  REQUEST 30 - POST	/kill	20ms	{}
+15:59:56.197 [qtp25481633-25] INFO  REQUEST 30 - POST	/kill	15ms	{}
+16:00:10.569 [qtp25481633-23] INFO  REQUEST 30 - POST	/kill	16ms	{}
+16:01:11.837 [qtp25481633-23] INFO  REQUEST 30 - PUT	/user/city	56ms	{utoken=[],city=[1]}
+16:01:11.864 [qtp25481633-21] INFO  REQUEST 30 - POST	/kill	7ms	{}
+16:01:26.407 [qtp25481633-22] INFO  REQUEST 30 - PUT	/user/city	46ms	{utoken=[],city=[1]}
+16:01:26.451 [qtp25481633-25] INFO  REQUEST 30 - POST	/kill	11ms	{}
+16:04:43.586 [qtp25481633-26] INFO  REQUEST 30 - POST	/kill	12ms	{}
+16:05:37.315 [qtp25481633-21] INFO  REQUEST 30 - POST	/kill	10ms	{}
+16:05:46.921 [qtp25481633-23] INFO  REQUEST 30 - POST	/kill	10ms	{}
+16:06:06.540 [qtp25481633-24] INFO  REQUEST 30 - POST	/kill	11ms	{}
+16:06:44.571 [qtp25481633-24] INFO  REQUEST 30 - GET	/user/1	56ms	{}
+16:06:44.614 [qtp25481633-26] INFO  REQUEST 30 - GET	/user	23ms	{utoken=[]}
+16:06:44.689 [qtp25481633-21] INFO  REQUEST 30 - PUT	/user/avatar	53ms	{avatar=[http://s.momia.cn/test/admin],utoken=[]}
+16:06:44.768 [qtp25481633-24] INFO  REQUEST 30 - PUT	/user/name	53ms	{utoken=[],name=[吴秋枫]}
+16:06:44.843 [qtp25481633-22] INFO  REQUEST 30 - PUT	/user/sex	49ms	{utoken=[],sex=[男]}
+16:06:45.074 [qtp25481633-25] INFO  REQUEST 30 - PUT	/user/birthday	203ms	{birthday=[1986-01-01],utoken=[]}
+16:06:45.155 [qtp25481633-23] INFO  REQUEST 30 - PUT	/user/city	53ms	{utoken=[],city=[1]}
+16:06:45.226 [qtp25481633-24] INFO  REQUEST 30 - PUT	/user/address	49ms	{address=[上海市长宁区长宁路969号],utoken=[]}
+16:06:45.398 [qtp25481633-22] INFO  REQUEST 30 - GET	/product	152ms	{count=[2],start=[0]}
+16:06:45.465 [qtp25481633-26] INFO  REQUEST 30 - GET	/product/1	47ms	{}
+16:06:45.562 [qtp25481633-23] INFO  REQUEST 30 - GET	/product/1/place	76ms	{}
+16:06:45.612 [qtp25481633-24] INFO  REQUEST 30 - GET	/product/1/sku	29ms	{}
+16:06:45.751 [qtp25481633-22] INFO  REQUEST 30 - GET	/product/1/customer	117ms	{count=[2],start=[0]}
+16:06:45.826 [qtp25481633-25] INFO  REQUEST 30 - GET	/participant/1	25ms	{}
+16:06:45.865 [qtp25481633-23] INFO  REQUEST 30 - PUT	/participant	15ms	{}
+16:06:45.909 [qtp25481633-22] INFO  REQUEST 30 - GET	/participant	38ms	{utoken=[]}
+16:06:45.954 [qtp25481633-21] INFO  REQUEST 30 - POST	/kill	13ms	{}
+16:07:00.064 [qtp25481633-23] INFO  REQUEST 30 - PUT	/participant	1ms	{}
+16:07:00.083 [qtp25481633-28] INFO  REQUEST 30 - POST	/kill	5ms	{}
+16:08:38.161 [qtp25481633-23] INFO  REQUEST 30 - POST	/kill	9ms	{}
+16:10:19.872 [qtp14593040-22] INFO  REQUEST 30 - POST	/kill	372ms	{}
+16:10:26.029 [qtp14593040-23] INFO  REQUEST 30 - PUT	/participant	300ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:10:56.772 [qtp14593040-22] INFO  REQUEST 30 - PUT	/participant	13ms	{}
+16:10:56.791 [qtp14593040-20] INFO  REQUEST 30 - POST	/kill	12ms	{}
+16:18:40.687 [qtp14593040-25] INFO  REQUEST 30 - PUT	/participant	1ms	{}
+16:18:40.708 [qtp14593040-23] INFO  REQUEST 30 - POST	/kill	7ms	{}
+16:23:14.077 [qtp14593040-22] INFO  REQUEST 30 - PUT	/participant	4ms	{}
+16:23:14.102 [qtp14593040-26] INFO  REQUEST 30 - POST	/kill	8ms	{}
+16:23:22.746 [qtp14593040-25] INFO  REQUEST 30 - PUT	/participant	1ms	{}
+16:23:22.775 [qtp14593040-23] INFO  REQUEST 30 - POST	/kill	13ms	{}
+16:26:40.006 [qtp14593040-26] INFO  REQUEST 30 - PUT	/participant	81ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:26:44.941 [qtp14593040-25] INFO  REQUEST 30 - PUT	/participant	2ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:26:47.723 [qtp14593040-25] INFO  REQUEST 30 - PUT	/participant	8ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:29:28.085 [qtp15888572-23] INFO  REQUEST 30 - PUT	/participant	49ms	{}
+16:29:28.368 [qtp15888572-25] INFO  REQUEST 30 - POST	/kill	268ms	{}
+16:29:57.749 [qtp15888572-26] INFO  REQUEST 30 - POST	/kill	12ms	{}
+16:30:17.925 [qtp15888572-26] INFO  REQUEST 30 - PUT	/participant	206ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:35:47.272 [qtp15888572-24] INFO  REQUEST 30 - POST	/kill	12ms	{}
+16:36:32.767 [qtp15888572-26] INFO  REQUEST 30 - POST	/kill	14ms	{}
+16:36:57.011 [qtp15888572-23] INFO  REQUEST 30 - PUT	/	6ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:37:10.706 [qtp15888572-25] INFO  REQUEST 30 - PUT	/participant	17ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:37:33.411 [qtp15888572-25] INFO  REQUEST 30 - POST	/kill	5ms	{}
+16:48:28.710 [qtp15888572-25] INFO  REQUEST 30 - POST	/kill	13ms	{}
+16:49:31.584 [qtp15888572-23] INFO  REQUEST 30 - POST	/kill	6ms	{}
+16:49:51.841 [qtp15888572-23] INFO  REQUEST 30 - POST	/kill	9ms	{}
+16:51:27.994 [qtp15888572-25] INFO  REQUEST 30 - GET	/user/1	191ms	{}
+16:51:28.042 [qtp15888572-22] INFO  REQUEST 30 - GET	/user	29ms	{utoken=[]}
+16:51:28.115 [qtp15888572-24] INFO  REQUEST 30 - PUT	/user/avatar	55ms	{avatar=[http://s.momia.cn/test/admin],utoken=[]}
+16:51:28.180 [qtp15888572-21] INFO  REQUEST 30 - PUT	/user/name	47ms	{utoken=[],name=[吴秋枫]}
+16:51:28.252 [qtp15888572-26] INFO  REQUEST 30 - PUT	/user/sex	49ms	{utoken=[],sex=[男]}
+16:51:28.581 [qtp15888572-23] INFO  REQUEST 30 - PUT	/user/birthday	308ms	{birthday=[1986-01-01],utoken=[]}
+16:51:28.654 [qtp15888572-24] INFO  REQUEST 30 - PUT	/user/city	49ms	{utoken=[],city=[1]}
+16:51:28.733 [qtp15888572-26] INFO  REQUEST 30 - PUT	/user/address	51ms	{address=[上海市长宁区长宁路969号],utoken=[]}
+16:51:28.983 [qtp15888572-25] INFO  REQUEST 30 - GET	/product	233ms	{count=[2],start=[0]}
+16:51:29.056 [qtp15888572-23] INFO  REQUEST 30 - GET	/product/1	49ms	{}
+16:51:29.161 [qtp15888572-21] INFO  REQUEST 30 - GET	/product/1/place	82ms	{}
+16:51:29.231 [qtp15888572-26] INFO  REQUEST 30 - GET	/product/1/sku	45ms	{}
+16:51:29.444 [qtp15888572-25] INFO  REQUEST 30 - GET	/product/1/customer	188ms	{count=[2],start=[0]}
+16:51:29.537 [qtp15888572-21] INFO  REQUEST 30 - GET	/participant/1	39ms	{}
+16:51:29.655 [qtp15888572-25] INFO  REQUEST 30 - GET	/participant	41ms	{utoken=[]}
+16:51:29.702 [qtp15888572-22] INFO  REQUEST 30 - POST	/kill	21ms	{}
+16:51:33.970 [qtp15888572-23] INFO  REQUEST 30 - POST	/kill	6ms	{}
+16:54:41.268 [qtp15888572-23] INFO  REQUEST 30 - PUT	/participant	22ms	{participantJson=[{"birthday": "2003-05-05", "id":4,"name": "宝宝2", "sex": "男", "userId": 1 }]}
+16:55:15.941 [qtp15888572-27] INFO  REQUEST 30 - POST	/kill	12ms	{}
+17:00:03.824 [qtp15888572-23] INFO  REQUEST 30 - PUT	/participant	19ms	{participantJson=[{'birthday': '2003-05-05', 'id':4,'name': '宝宝2', 'sex': '男', 'userId': 1 }]}
+17:00:24.004 [qtp15888572-25] INFO  REQUEST 30 - GET	/user/1	23ms	{}
+17:00:24.057 [qtp15888572-22] INFO  REQUEST 30 - GET	/user	32ms	{utoken=[]}
+17:00:24.128 [qtp15888572-27] INFO  REQUEST 30 - PUT	/user/avatar	49ms	{avatar=[http://s.momia.cn/test/admin],utoken=[]}
+17:00:24.207 [qtp15888572-23] INFO  REQUEST 30 - PUT	/user/name	53ms	{utoken=[],name=[吴秋枫]}
+17:00:24.288 [qtp15888572-26] INFO  REQUEST 30 - PUT	/user/sex	61ms	{utoken=[],sex=[男]}
+17:00:24.406 [qtp15888572-25] INFO  REQUEST 30 - PUT	/user/birthday	94ms	{birthday=[1986-01-01],utoken=[]}
+17:00:24.478 [qtp15888572-27] INFO  REQUEST 30 - PUT	/user/city	50ms	{utoken=[],city=[1]}
+17:00:24.548 [qtp15888572-23] INFO  REQUEST 30 - PUT	/user/address	48ms	{address=[上海市长宁区长宁路969号],utoken=[]}
+17:00:24.630 [qtp15888572-24] INFO  REQUEST 30 - GET	/product	64ms	{count=[2],start=[0]}
+17:00:24.698 [qtp15888572-25] INFO  REQUEST 30 - GET	/product/1	46ms	{}
+17:00:24.776 [qtp15888572-27] INFO  REQUEST 30 - GET	/product/1/place	52ms	{}
+17:00:24.819 [qtp15888572-23] INFO  REQUEST 30 - GET	/product/1/sku	22ms	{}
+17:00:24.902 [qtp15888572-26] INFO  REQUEST 30 - GET	/product/1/customer	55ms	{count=[2],start=[0]}
+17:00:24.969 [qtp15888572-25] INFO  REQUEST 30 - GET	/participant/1	26ms	{}
+17:00:25.087 [qtp15888572-27] INFO  REQUEST 30 - GET	/participant	39ms	{utoken=[]}
+17:00:25.115 [qtp15888572-26] INFO  REQUEST 30 - POST	/kill	5ms	{}
+17:00:30.412 [qtp15888572-23] INFO  REQUEST 30 - POST	/kill	5ms	{}
+17:03:45.503 [qtp15888572-26] INFO  REQUEST 30 - POST	/kill	11ms	{}
+17:04:03.040 [qtp15888572-27] INFO  REQUEST 30 - POST	/kill	10ms	{}
+17:04:32.924 [qtp15888572-23] INFO  REQUEST 30 - PUT	/participant	19ms	{participantJson=[{'birthday': '2003-05-05', 'id':4,'name': '宝宝2', 'sex': '男', 'userId': 1 }]}
+17:27:49.184 [qtp15888572-24] INFO  REQUEST 30 - PUT	/participant	16ms	{participantJson=[{'birthday': '2003-05-05', 'id':4,'name': '宝宝2', 'sex': '男', 'userId': 1 }]}
+17:27:49.222 [qtp15888572-27] INFO  REQUEST 30 - POST	/kill	20ms	{}
+17:28:58.872 [qtp15888572-25] INFO  REQUEST 30 - POST	/participant	144ms	{participantJson=[{"birthday": "2009-09-09", "name": "宝宝4", "sex": "男", "userId": 1 }]}
+17:28:58.894 [qtp15888572-23] INFO  REQUEST 30 - POST	/kill	5ms	{}
+17:39:32.121 [qtp25481633-23] INFO  REQUEST 30 - GET	/banner	512ms	{count=[3]}
+17:39:32.181 [qtp25481633-22] INFO  REQUEST 30 - GET	/product	559ms	{count=[10],start=[0]}
+17:39:32.615 [qtp25481633-26] INFO  REQUEST 30 - GET	/product/37	52ms	{}
+17:39:32.633 [qtp25481633-21] INFO  REQUEST 30 - GET	/product/37/place	40ms	{}
+17:39:32.650 [qtp25481633-26] INFO  REQUEST 30 - GET	/product/37/sku	34ms	{}
+17:39:32.850 [qtp25481633-24] INFO  REQUEST 30 - GET	/user	45ms	{utoken=[]}
+17:39:33.039 [qtp25481633-23] INFO  REQUEST 30 - PUT	/user/avatar	16ms	{}
+17:39:33.092 [qtp25481633-22] INFO  REQUEST 30 - PUT	/user/name	2ms	{}
+17:39:33.146 [qtp25481633-25] INFO  REQUEST 30 - PUT	/user/sex	1ms	{}
+17:39:33.378 [qtp25481633-26] INFO  REQUEST 30 - PUT	/user/city	1ms	{}
+17:39:33.417 [qtp25481633-23] INFO  REQUEST 30 - PUT	/user/address	1ms	{}
+17:39:33.471 [qtp25481633-25] INFO  REQUEST 30 - POST	/participant	9ms	{}
+17:39:33.593 [qtp25481633-21] INFO  REQUEST 30 - GET	/participant/1	63ms	{utoken=[]}
+17:39:33.716 [qtp25481633-24] INFO  REQUEST 30 - GET	/user/1	20ms	{}
+17:39:33.754 [qtp25481633-26] INFO  REQUEST 30 - GET	/user	18ms	{utoken=[]}
+17:39:33.841 [qtp25481633-23] INFO  REQUEST 30 - PUT	/user/avatar	66ms	{avatar=[http://s.momia.cn/test/admin],utoken=[]}
+17:39:33.921 [qtp25481633-25] INFO  REQUEST 30 - PUT	/user/name	57ms	{utoken=[],name=[吴秋枫]}
+17:39:34.009 [qtp25481633-24] INFO  REQUEST 30 - PUT	/user/sex	67ms	{utoken=[],sex=[男]}
+17:39:34.228 [qtp25481633-26] INFO  REQUEST 30 - PUT	/user/birthday	195ms	{birthday=[1986-01-01],utoken=[]}
+17:39:34.309 [qtp25481633-23] INFO  REQUEST 30 - PUT	/user/city	56ms	{utoken=[],city=[1]}
+17:39:34.385 [qtp25481633-25] INFO  REQUEST 30 - PUT	/user/address	53ms	{address=[上海市长宁区长宁路969号],utoken=[]}
+17:39:34.465 [qtp25481633-21] INFO  REQUEST 30 - GET	/product	60ms	{count=[2],start=[0]}
+17:39:34.556 [qtp25481633-24] INFO  REQUEST 30 - GET	/product/1	69ms	{}
+17:39:34.654 [qtp25481633-26] INFO  REQUEST 30 - GET	/product/1/place	80ms	{}
+17:39:34.698 [qtp25481633-23] INFO  REQUEST 30 - GET	/product/1/sku	24ms	{}
+17:39:34.891 [qtp25481633-25] INFO  REQUEST 30 - GET	/product/1/customer	160ms	{count=[2],start=[0]}
+17:39:34.943 [qtp25481633-21] INFO  REQUEST 30 - POST	/participant	28ms	{participantJson=[{"birthday": "2009-09-09", "name": "宝宝4", "sex": "男", "userId": 1 }]}
+17:39:34.981 [qtp25481633-24] INFO  REQUEST 30 - GET	/participant/1	18ms	{}
+17:39:35.029 [qtp25481633-22] INFO  REQUEST 30 - PUT	/participant	16ms	{participantJson=[{'birthday': '2003-05-05', 'id':4,'name': '宝宝2', 'sex': '男', 'userId': 1 }]}
+17:39:35.090 [qtp25481633-26] INFO  REQUEST 30 - GET	/participant	36ms	{utoken=[]}
+17:39:35.127 [qtp25481633-25] INFO  REQUEST 30 - POST	/kill	9ms	{}
+17:43:06.222 [qtp1486879-24] INFO  REQUEST 30 - POST	/participant	387ms	{}
+17:45:54.253 [qtp1486879-23] INFO  REQUEST 30 - PUT	/participant	13ms	{}
+17:45:54.283 [qtp1486879-24] INFO  REQUEST 30 - POST	/kill	18ms	{}
+17:48:33.445 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	14ms	{}
+17:50:18.348 [qtp1486879-25] INFO  REQUEST 30 - PUT	/participant	31ms	{}
+17:52:45.766 [qtp1486879-25] INFO  REQUEST 30 - PUT	/participant	1ms	{}
+17:52:45.794 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	6ms	{}
+17:55:39.767 [qtp1486879-26] INFO  REQUEST 30 - PUT	/participant	2ms	{}
+17:55:39.791 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	11ms	{}
+18:01:39.052 [qtp1486879-24] INFO  REQUEST 30 - PUT	/participant	1ms	{}
+18:01:39.077 [qtp1486879-22] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:03:42.956 [qtp1486879-23] INFO  REQUEST 30 - PUT	/participant	1ms	{}
+18:03:42.975 [qtp1486879-24] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:05:39.370 [qtp1486879-25] INFO  REQUEST 30 - PUT	/participant	23ms	{}
+18:05:39.398 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:06:17.195 [qtp1486879-22] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:07:04.166 [qtp1486879-21] INFO  REQUEST 30 - POST	/participant	22ms	{}
+18:07:04.189 [qtp1486879-22] INFO  REQUEST 30 - POST	/kill	7ms	{}
+18:08:41.869 [qtp1486879-23] INFO  REQUEST 30 - DELETE	/participant/7	32ms	{}
+18:09:00.581 [qtp1486879-24] INFO  REQUEST 30 - DELETE	/participant/7	55ms	{utoken=[]}
+18:09:23.251 [qtp1486879-21] INFO  REQUEST 30 - DELETE	/participant/8	37ms	{utoken=[]}
+18:09:46.081 [qtp1486879-25] INFO  REQUEST 30 - DELETE	/participant/10	39ms	{utoken=[]}
+18:11:29.637 [qtp1486879-21] INFO  REQUEST 30 - DELETE	/participant/10	33ms	{utoken=[]}
+18:11:29.663 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	7ms	{}
+18:12:18.534 [qtp1486879-22] INFO  REQUEST 30 - PUT	/user/avatar	64ms	{avatar=[http://s.momia.cn/test/admin],utoken=[]}
+18:12:18.564 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	9ms	{}
+18:12:50.317 [qtp1486879-22] INFO  REQUEST 30 - PUT	/user/name	52ms	{utoken=[],name=[吴秋枫]}
+18:12:50.348 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	11ms	{}
+18:13:24.352 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	5ms	{}
+18:13:44.745 [qtp1486879-26] INFO  REQUEST 30 - PUT	/user/sex	52ms	{utoken=[],sex=[男]}
+18:13:44.776 [qtp1486879-21] INFO  REQUEST 30 - POST	/kill	11ms	{}
+18:14:11.522 [qtp1486879-26] INFO  REQUEST 30 - PUT	/user/birthday	189ms	{birthday=[1986-01-01],utoken=[]}
+18:14:11.547 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:14:41.336 [qtp1486879-26] INFO  REQUEST 30 - PUT	/user/city	50ms	{utoken=[],city=[1]}
+18:14:41.362 [qtp1486879-25] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:15:07.831 [qtp1486879-21] INFO  REQUEST 30 - PUT	/user/address	52ms	{address=[上海市长宁区长宁路969号],utoken=[]}
+18:15:07.855 [qtp1486879-23] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:15:34.018 [qtp1486879-24] INFO  REQUEST 30 - GET	/product	5ms	{}
+18:15:34.045 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	11ms	{}
+18:15:56.041 [qtp1486879-22] INFO  REQUEST 30 - GET	/product	147ms	{count=[2],start=[0]}
+18:15:56.066 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	5ms	{}
+18:16:48.539 [qtp1486879-21] INFO  REQUEST 30 - GET	/banner	30ms	{count=[3]}
+18:16:48.570 [qtp1486879-24] INFO  REQUEST 30 - GET	/product	61ms	{count=[10],start=[0]}
+18:16:48.879 [qtp1486879-25] INFO  REQUEST 30 - POST	/kill	12ms	{}
+18:16:54.749 [qtp1486879-25] INFO  REQUEST 30 - POST	/kill	10ms	{}
+18:17:03.662 [qtp1486879-23] INFO  REQUEST 30 - GET	/product/37/place	18ms	{}
+18:17:03.667 [qtp1486879-25] INFO  REQUEST 30 - GET	/product/37	19ms	{}
+18:17:03.682 [qtp1486879-26] INFO  REQUEST 30 - GET	/product/37/sku	18ms	{}
+18:17:03.715 [qtp1486879-24] INFO  REQUEST 30 - POST	/kill	5ms	{}
+18:17:10.171 [qtp1486879-22] INFO  REQUEST 30 - POST	/kill	10ms	{}
+18:17:15.403 [qtp1486879-21] INFO  REQUEST 30 - POST	/kill	9ms	{}
+18:19:12.218 [qtp1486879-25] INFO  REQUEST 30 - GET	/product	54ms	{count=[2],start=[0],query=[]}
+18:19:39.398 [qtp1486879-25] INFO  REQUEST 30 - GET	/product	49ms	{count=[2],start=[0],query=[]}
+18:19:39.432 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	9ms	{}
+18:19:45.052 [qtp1486879-25] INFO  REQUEST 30 - GET	/product/37	15ms	{}
+18:19:45.071 [qtp1486879-26] INFO  REQUEST 30 - GET	/product/37/place	25ms	{}
+18:19:45.086 [qtp1486879-21] INFO  REQUEST 30 - GET	/product/37/sku	29ms	{}
+18:19:45.111 [qtp1486879-24] INFO  REQUEST 30 - POST	/kill	5ms	{}
+18:20:16.470 [qtp1486879-23] INFO  REQUEST 30 - GET	/product/1/sku	25ms	{}
+18:20:16.515 [qtp1486879-22] INFO  REQUEST 30 - GET	/product/1	72ms	{}
+18:20:16.648 [qtp1486879-25] INFO  REQUEST 30 - GET	/product/1/place	175ms	{}
+18:20:16.726 [qtp1486879-22] INFO  REQUEST 30 - GET	/product/1/customer	207ms	{count=[6],start=[0]}
+18:20:16.798 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	8ms	{}
+18:21:20.193 [qtp1486879-22] INFO  REQUEST 30 - GET	/product/1	44ms	{}
+18:21:20.216 [qtp1486879-26] INFO  REQUEST 30 - GET	/product/1/place	56ms	{}
+18:21:20.230 [qtp1486879-22] INFO  REQUEST 30 - GET	/product/1/sku	34ms	{}
+18:21:20.270 [qtp1486879-21] INFO  REQUEST 30 - GET	/product/1/customer	44ms	{count=[6],start=[0]}
+18:22:43.072 [qtp1486879-24] INFO  REQUEST 30 - GET	/product/1/place	65ms	{}
+18:22:43.088 [qtp1486879-21] INFO  REQUEST 30 - GET	/product/1	89ms	{}
+18:22:43.120 [qtp1486879-24] INFO  REQUEST 30 - GET	/product/1/sku	46ms	{}
+18:22:43.206 [qtp1486879-21] INFO  REQUEST 30 - GET	/product/1/customer	109ms	{count=[6],start=[0]}
+18:23:36.509 [qtp1486879-22] INFO  REQUEST 30 - GET	/product/1/sku	17ms	{}
+18:23:36.544 [qtp1486879-21] INFO  REQUEST 30 - POST	/kill	10ms	{}
+18:23:52.510 [qtp1486879-25] INFO  REQUEST 30 - GET	/product/1/sku	17ms	{}
+18:24:00.941 [qtp1486879-22] INFO  REQUEST 30 - GET	/product/1/place	54ms	{}
+18:24:00.947 [qtp1486879-24] INFO  REQUEST 30 - GET	/product/1	57ms	{}
+18:24:00.963 [qtp1486879-22] INFO  REQUEST 30 - GET	/product/1/sku	20ms	{}
+18:24:01.010 [qtp1486879-21] INFO  REQUEST 30 - GET	/product/1/customer	53ms	{count=[6],start=[0]}
+18:24:59.179 [qtp1486879-22] INFO  REQUEST 30 - POST	/kill	4ms	{}
+18:25:26.682 [qtp1486879-26] INFO  REQUEST 30 - POST	/kill	5ms	{}
+18:25:56.888 [qtp1486879-25] INFO  REQUEST 30 - GET	/user/1	37ms	{}
+18:26:11.153 [qtp1486879-26] INFO  REQUEST 30 - GET	/user/1	19ms	{}
+18:26:11.188 [qtp1486879-21] INFO  REQUEST 30 - POST	/kill	13ms	{}
+18:26:38.452 [qtp1486879-26] INFO  REQUEST 30 - GET	/user/1/order	5ms	{}
+18:26:38.475 [qtp1486879-21] INFO  REQUEST 30 - POST	/kill	4ms	{}
+18:27:02.145 [qtp1486879-22] INFO  REQUEST 30 - GET	/user/1/order	7ms	{}
+18:27:55.109 [qtp1486879-23] INFO  REQUEST 30 - GET	/user	19ms	{utoken=[]}
+18:27:55.136 [qtp1486879-24] INFO  REQUEST 30 - POST	/kill	5ms	{}
+18:28:32.428 [qtp1486879-24] INFO  REQUEST 30 - PUT	/user/avatar	1ms	{}
+18:28:32.494 [qtp1486879-22] INFO  REQUEST 30 - POST	/kill	9ms	{}
+18:29:44.310 [qtp1486879-24] INFO  REQUEST 30 - PUT	/user/avatar	1ms	{}
+18:29:50.036 [qtp1486879-26] INFO  REQUEST 30 - PUT	/user/avatar	2ms	{}
+18:30:16.484 [qtp1486879-22] INFO  REQUEST 30 - PUT	/user/name	1ms	{}
+18:30:16.515 [qtp1486879-25] INFO  REQUEST 30 - POST	/kill	9ms	{}
+18:30:23.701 [qtp1486879-25] INFO  REQUEST 30 - PUT	/user/name	1ms	{}
+18:30:23.735 [qtp1486879-21] INFO  REQUEST 30 - PUT	/user/sex	1ms	{}
+18:30:23.825 [qtp1486879-26] INFO  REQUEST 30 - PUT	/user/city	1ms	{}
+18:30:23.865 [qtp1486879-23] INFO  REQUEST 30 - PUT	/user/address	1ms	{}
+18:30:23.895 [qtp1486879-25] INFO  REQUEST 30 - POST	/kill	4ms	{}
+18:30:38.474 [qtp1486879-21] INFO  REQUEST 30 - POST	/kill	4ms	{}
+18:33:15.087 [qtp1486879-25] INFO  REQUEST 30 - PUT	/user/avatar	2ms	{}
+18:34:45.782 [qtp1486879-25] INFO  REQUEST 30 - PUT	/user/avatar	1ms	{}
+18:35:48.729 [qtp1486879-21] INFO  REQUEST 30 - PUT	/user/avatar	1ms	{}
+18:36:16.533 [qtp1486879-23] INFO  REQUEST 30 - PUT	/user/avatar	1ms	{}
+18:37:07.547 [qtp1486879-25] INFO  REQUEST 30 - PUT	/user/avatar	1ms	{}
+18:37:34.227 [qtp1486879-22] INFO  REQUEST 30 - PUT	/user/avatar	1ms	{}
+18:37:34.254 [qtp1486879-25] INFO  REQUEST 30 - POST	/kill	5ms	{}
+18:39:11.305 [qtp25481633-22] INFO  REQUEST 30 - PUT	/user/avatar	51ms	{}
+18:41:55.611 [qtp25481633-25] INFO  REQUEST 30 - PUT	/user/name	3ms	{}
+18:42:35.823 [qtp25481633-21] INFO  REQUEST 30 - PUT	/user/name	1ms	{}
+18:42:44.555 [qtp25481633-24] INFO  REQUEST 30 - PUT	/user/name	1ms	{}
+18:44:04.817 [qtp25481633-25] INFO  REQUEST 30 - PUT	/user/name	1ms	{}
+18:44:05.126 [qtp25481633-26] INFO  REQUEST 30 - POST	/kill	270ms	{}
+18:44:13.298 [qtp25481633-24] INFO  REQUEST 30 - PUT	/user/sex	2ms	{}
+18:44:13.383 [qtp25481633-22] INFO  REQUEST 30 - PUT	/user/city	2ms	{}
+18:44:13.434 [qtp25481633-25] INFO  REQUEST 30 - PUT	/user/address	2ms	{}
+18:44:13.472 [qtp25481633-26] INFO  REQUEST 30 - POST	/kill	13ms	{}
+18:49:29.008 [qtp25481633-23] INFO  REQUEST 30 - POST	/participant	7ms	{}
+18:49:29.042 [qtp25481633-21] INFO  REQUEST 30 - POST	/kill	11ms	{}
+18:50:25.556 [qtp25481633-23] INFO  REQUEST 30 - GET	/participant/1	98ms	{utoken=[]}
+18:50:25.609 [qtp25481633-21] INFO  REQUEST 30 - POST	/kill	6ms	{}
+18:51:19.883 [qtp25481633-21] INFO  REQUEST 30 - PUT	/participant/1	6ms	{}
+18:51:19.931 [qtp25481633-26] INFO  REQUEST 30 - POST	/kill	13ms	{}
+18:52:40.625 [qtp25481633-22] INFO  REQUEST 30 - DELETE	/participant/5	39ms	{utoken=[123]}
+18:52:40.658 [qtp25481633-21] INFO  REQUEST 30 - POST	/kill	11ms	{}
+18:54:11.149 [qtp25481633-23] INFO  REQUEST 30 - POST	/kill	27ms	{}
+18:58:59.041 [qtp25481633-24] INFO  REQUEST 30 - GET	/participant	40ms	{utoken=[123]}
+18:59:27.667 [qtp25481633-26] INFO  REQUEST 30 - GET	/participant	33ms	{utoken=[123]}
+18:59:27.700 [qtp25481633-22] INFO  REQUEST 30 - POST	/kill	11ms	{}
+19:00:50.630 [qtp25481633-25] INFO  REQUEST 30 - GET	/participant/1	20ms	{utoken=[]}
+19:00:50.660 [qtp25481633-22] INFO  REQUEST 30 - POST	/kill	6ms	{}
+19:03:55.692 [qtp25481633-25] INFO  REQUEST 30 - PUT	/participant/3	7ms	{}
