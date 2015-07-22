@@ -24,13 +24,12 @@ import java.io.IOException;
 import java.util.*;
 
 @Controller
-@RequestMapping("/profile.html")
 public class UserApi  extends AbstractApi {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserApi.class);
 
 
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/profile.html", method = RequestMethod.GET)
     public ModelAndView getUser(@RequestParam String utoken) throws IOException {
         if (StringUtils.isBlank(utoken))
             return new ModelAndView("BadRequest", "msg","invalid params");
@@ -58,7 +57,7 @@ public class UserApi  extends AbstractApi {
         return user;
     }
 
-    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    @RequestMapping(value = "/user_order.html", method = RequestMethod.GET)
     public ModelAndView getOrdersOfUser(@RequestParam String utoken,
                                            @RequestParam int status,
                                            @RequestParam(defaultValue = "eq") String type,

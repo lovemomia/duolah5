@@ -7,8 +7,8 @@
 <body>
 <#list product as map>
     <#list map?keys as itemKey>
-        <#if itemKey = "url">
-        url:${map[itemKey]}
+        <#if itemKey = "cover">
+        cover:${map[itemKey]}
         </#if>
         <#if itemKey = "id">
         id:${map[itemKey]}

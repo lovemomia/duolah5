@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/v1/home")
+@RequestMapping("/index.html")
 public class HomeApi extends AbstractApi {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomeApi.class);
 

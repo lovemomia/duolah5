@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/actsDetail.html")
+@RequestMapping
 public class ProductApi extends AbstractApi {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ProductApi.class);
 
@@ -74,7 +74,7 @@ public class ProductApi extends AbstractApi {
         return products;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/actsDetail.html", method = RequestMethod.GET)
     public ModelAndView getProduct(@RequestParam final long id) {
         if (id <= 0) return new ModelAndView("BadRequest", "msg","invalid params");
 
@@ -83,9 +83,9 @@ public class ProductApi extends AbstractApi {
         if(!collector.isSuccessful())  return new ModelAndView("BadRequest", "msg","fail to get product");
             List list = new ArrayList();
             //Map<String, Object> product = buildProduct((JSONObject) collector.getResponse("product"), (JSONObject) collector.getResponse("customers"));
-            list.add(new ProductDetailFtl((JSONObject) collector.getResponse("product"), (JSONObject) collector.getResponse("customers")));
+        list.add(new ProductDetailFtl((JSONObject) collector.getResponse("product"), (JSONObject) collector.getResponse("customers")));
 
-            return new ModelAndView("./product/product", "product", list);
+        return new ModelAndView("./product/product", "product", list);
 
 
     }
@@ -118,7 +118,7 @@ public class ProductApi extends AbstractApi {
         return MomiaHttpRequest.GET("customers", false, baseServiceUrl("product", productId, "customer"), builder.build());
     }
 
-    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    @RequestMapping(value = "/orderDetail.html", method = RequestMethod.GET)
     public ModelAndView getProductOrder(@RequestParam String utoken, @RequestParam long id) {
         if(StringUtils.isBlank(utoken) || id <= 0) return new ModelAndView("BadRequest", "msg","invalid params");
 
@@ -173,7 +173,7 @@ public class ProductApi extends AbstractApi {
         List list = new ArrayList();
         JSONObject responseJson = new HttpExecute().getJsonObject(request);
         list.add(buildPlaymats((JSONArray) responseJson.get("data")));
-        return new ModelAndView("playmates", "playmates", list);
+        return new ModelAndView("./product/playmates", "playmates", list);
     }
     private Map<String, Object> buildPlaymats(JSONArray playmatesJson) {
         Map<String, Object> playmates = new HashMap<String, Object>();
@@ -191,5 +191,6 @@ public class ProductApi extends AbstractApi {
 
         return playmates;
     }
+
 
 }
