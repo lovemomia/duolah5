@@ -4,8 +4,10 @@ import cn.momia.common.web.http.MomiaHttpParamBuilder;
 import cn.momia.common.web.http.MomiaHttpRequest;
 import cn.momia.common.web.response.ResponseMessage;
 import cn.momia.duolah5.common.HttpExecute;
+import cn.momia.duolah5.dto.base.Dto;
 import cn.momia.duolah5.dto.base.ParticipantFtl;
 import cn.momia.mapi.api.AbstractApi;
+import cn.momia.mapi.dto.composite.ListDto;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -33,12 +35,13 @@ public class ParticipantApi extends AbstractApi {
 
         long userId = getUserId(utoken);
         if (userId <= 0) return new ModelAndView("BadRequest", "msg","user token expired");
-
         JSONObject paticipantJson = JSON.parseObject(participant);
         paticipantJson.put("userId", userId);
         MomiaHttpRequest request = MomiaHttpRequest.POST(baseServiceUrl("participant"), paticipantJson.toString());
-        JSONObject parseJson = new HttpExecute().getJsonObject(request);
-        return new ModelAndView("success", "isSuccessful", parseJson);
+        ResponseMessage responseMessage = executeRequest(request);
+        List list = new ArrayList();
+        list.add(responseMessage);
+        return new ModelAndView("success", "isSuccessful", list);
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -47,11 +50,15 @@ public class ParticipantApi extends AbstractApi {
 
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("participant", id), builder.build());
-        JSONObject parseJson = new HttpExecute().getJsonObject(request);
+        ResponseMessage responseMessage =  executeRequest(request, new Function<Object, Dto>() {
+            @Override
+            public Dto apply(Object data) {
+                return new ParticipantFtl((JSONObject) data, true);
+            }
+        });
         List list = new ArrayList();
-        list.add( new ParticipantFtl(parseJson, true));
-        return new ModelAndView("./user/participant", "participant",  list);
-
+        list.add(responseMessage);
+        return new ModelAndView("./user/participant", "participant", list);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -64,8 +71,10 @@ public class ParticipantApi extends AbstractApi {
         JSONObject paticipantJson = JSON.parseObject(participant);
         paticipantJson.put("userId", userId);
         MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("participant"), paticipantJson.toString());
-        JSONObject jsonObject = new HttpExecute().getJsonObject(request);
-        return new ModelAndView("success", "isSuccessful", jsonObject);
+        ResponseMessage responseMessage = executeRequest(request);
+        List list = new ArrayList();
+        list.add(responseMessage);
+        return new ModelAndView("success", "isSuccessful", list);
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -73,20 +82,29 @@ public class ParticipantApi extends AbstractApi {
         if (StringUtils.isBlank(utoken)) return new ModelAndView("success", "msg", "invalid param");
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("participant"), builder.build());
-        JSONObject parseJson = new HttpExecute().getJsonObject(request);
-        JSONArray participantsJson = parseJson.getJSONArray("data");
+        ResponseMessage responseMessage =  executeRequest(request, new Function<Object, Dto>() {
+            @Override
+            public Dto apply(Object data) {
+                return buildParticipantsDto((JSONArray) data);
+            }
+        });
         List list = new ArrayList();
+        list.add(responseMessage);
+        return new ModelAndView("./user/children", "list", list);
+    }
+
+    private Dto buildParticipantsDto(JSONArray participantsJson) {
+        ListDto participants = new ListDto();
         for (int i = 0; i < participantsJson.size(); i++) {
             try {
                 JSONObject participantJson = participantsJson.getJSONObject(i);
-                list.add(new ParticipantFtl(participantJson,false));
+                participants.add(new ParticipantFtl(participantJson));
             } catch (Exception e) {
                 LOGGER.error("invalid participant: {}", participantsJson.get(i));
             }
         }
-        return new ModelAndView("./user/participant", "participant",  list);
 
-
+        return participants;
     }
 
 

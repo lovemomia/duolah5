@@ -1,8 +1,10 @@
-    <#list isSuccessful?keys as key>
+<#list  isSuccessful as map>
+<#list map?keys as key>
         <#if key = "errmsg">
-        errmsg: ${isSuccessful[key]}
+        errmsg: ${map[key]}
         </#if>
         <#if key = "errno">
-        errnno: ${isSuccessful[key]}
+        errnno: ${map[key]}
         </#if>
     </#list>
+</#list>
