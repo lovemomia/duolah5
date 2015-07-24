@@ -1,9 +1,13 @@
 package cn.momia.duolah5.dto.base;
 
+import cn.momia.common.secret.MobileEncryptor;
+import cn.momia.common.web.img.ImageFile;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.annotation.JSONField;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by ysm on 15-7-17.
@@ -19,6 +23,13 @@ public class OrderOfUserFtl implements Dto{
     private long totalCount;
     private long skuId;
     private int status;
+    private int count;
+    private String contacts;
+    private String mobile;
+    @JSONField(format = "yyyy-mm-dd") private Date addTime;
+    private String scheduler;
+    private BigDecimal price;
+    private String address;
 
     public long getId() {
         return id;
@@ -60,21 +71,63 @@ public class OrderOfUserFtl implements Dto{
         return status;
     }
 
-    public OrderOfUserFtl(JSONObject orderJson) {
-        this.cover = orderJson.getString("cover");
-        this.time = orderJson.getString("time");
-        this.title = orderJson.getString("title");
-
-        JSONObject parseJson = orderJson.getJSONObject("order");
-        this.id = parseJson.getLong("id");
-        this.productId = parseJson.getLong("productId");
-        this.skuId = parseJson.getLong("skuId");
-        this.participants = buildParticipants(parseJson.getJSONArray("prices"));
-        this.totalFee = parseJson.getBigDecimal("totalFee");
-        this.status = parseJson.getInteger("status");
-
-
+    public int getCount() {
+        return count;
     }
+
+    public String getContacts() {
+        return contacts;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public String getScheduler() {
+        return scheduler;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public OrderOfUserFtl(JSONObject orderPackJson) {
+        this(orderPackJson, false);
+    }
+
+
+    public OrderOfUserFtl(JSONObject orderPackJson, boolean extractExtraInfo) {
+        JSONObject orderJson = orderPackJson.getJSONObject("order");
+
+        this.id = orderJson.getInteger("id");
+        this.productId = orderJson.getLong("productId");
+        this.skuId = orderJson.getLong("skuId");
+        this.count = orderJson.getInteger("count");
+        this.totalFee = orderJson.getBigDecimal("totalFee");
+        this.participants = buildParticipants(orderJson.getJSONArray("prices"));
+        this.contacts = orderJson.getString("contacts");
+        this.mobile = MobileEncryptor.encrypt(orderJson.getString("mobile"));
+        this.addTime = orderJson.getDate("addTime");
+        this.status = orderJson.getInteger("status");
+
+        if (extractExtraInfo) {
+            this.cover = ImageFile.url(orderPackJson.getString("cover"));
+            this.title = orderPackJson.getString("title");
+            this.scheduler = orderPackJson.getString("scheduler");
+            this.price = orderPackJson.getBigDecimal("price");
+            this.address = orderPackJson.getString("address");
+            this.time = orderPackJson.getString("time");
+        }
+    }
+
 
     private String buildParticipants(JSONArray prices) {
         int adult = 0;

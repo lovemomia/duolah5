@@ -6,24 +6,21 @@
 </head>
 <body>
 <#list list as map>
-    <#list map?keys as itemKey>
-        <#if itemKey = "avatar">
-        avater:${map[itemKey]}
+    <#list map?keys as key>
+        <#if key = "errno">
+           errno:${map[key]}
         </#if>
-        <#if itemKey = "nickName">
-        nickName:${map[itemKey]}
+        <#if key = "errmsg">
+        errmsg:${map[key]}
         </#if>
-        <#if itemKey = "mobile">
-        mobile:${map[itemKey]}
-        </#if>
-        <#if itemKey = "sex">
-        sex:${map[itemKey]}
-        </#if>
-        <#if itemKey = "city">
-        city:${map[itemKey]}
-        </#if>
-        <#if itemKey = "children">
-        <#list map[itemKey] as child>
+        <#if key = "data">
+        <#if map[key]!="">
+        avatar:${map[key].avatar}
+        mobile:${map[key].mobile}
+        address:${map[key].address}
+        nickname:${map[key].nickName}
+        <#if map[key].children??>
+        <#list map[key].children as child>
             <#list child?keys as childKey>
                 <#if childKey = "id">
                 id:${child[childKey]}
@@ -40,7 +37,10 @@
             </#list>
         </#list>
         </#if>
-    </#list><br/>
+        </#if>
+        </#if>
+
+    </#list>
 </#list>
 </body>
 </html>

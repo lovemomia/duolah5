@@ -54,6 +54,7 @@ public class HomeApi extends AbstractApi {
         homeMap.put("banner", homeDto.getBanners());
         homeMap.put("products", homeDto.getProducts());
         homeMap.put("nextPage", homeDto.getNextpage());
+        homeMap.put("errno", collector.getErrnos().size());
         list.add(homeMap);
         return new ModelAndView("home", "home", list);
     }

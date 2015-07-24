@@ -1,1 +1,1 @@
-errmsg: ${msg}
+errmsg: ${errmsg}

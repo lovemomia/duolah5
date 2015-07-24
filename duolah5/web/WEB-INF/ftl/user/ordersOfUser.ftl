@@ -5,47 +5,54 @@
     <title>Insert title here</title>
 </head>
 <body>
-<#list list as map>
-    <#list map?keys as itemKey>
-        <#if itemKey = "nextIndex">
-        nextIndex:${map[itemKey]}
+    <#list list?keys as key>
+        <#if key = "errno">
+        errrno:${list[key]}
         </#if>
-        <#if itemKey = "totalCount">
-        totalCount:${map[itemKey]}
+        <#if key = "errmsg">
+        errmsg:${list[key]}
         </#if>
-        <#if itemKey = "listOrder">
-            <#list map[itemKey] as order>
-                <#list order?keys as orderKey>
-                    <#if orderKey = "time">
-                    time:${order[orderKey]}
+        <#if key = "data">
+        <#if list[key] !="">
+                <#list list[key]?keys as dataKey>
+                    <#if dataKey = "totalCount">
+                    totalCount:${list[key].totalCount}
                     </#if>
-                    <#if orderKey = "cover">
-                    cover:${order[orderKey]}
+                    <#if dataKey = "nextIndex">
+                    nextIndex:<#if list[key].nextIndex??> ${list[key].nextIndex}</#if>
                     </#if>
-                    <#if orderKey = "title">
-                    title:${order[orderKey]}
-                    </#if>
-                    <#if orderKey = "id">
-                    id:${order[orderKey]}
-                    </#if>
-                    <#if orderKey = "productId">
-                    productId:${order[orderKey]}
-                    </#if>
-                    <#if orderKey = "skuId">
-                    skuId:${order[orderKey]}
-                    </#if>
-                    <#if orderKey = "participants">
-                    participants:${order[orderKey]}
-                    </#if>
-                    <#if orderKey = "totalFee">
-                    totalFee:${order[orderKey]}
-                    </#if>
-                </#list>
-            <br>
-            </#list>
-        </#if>
+                <#if dataKey = "list">
+                    <#list list[key].list as order>
+                        <#list order?keys as orderKey>
+                            <#if orderKey = "id">
+                              id:${order.id}
+                            </#if>
+                            <#if orderKey = "title">
+                            id:${order.title}
+                            </#if>
+                            <#if orderKey = "cover">
+                            cover:${order.cover}
+                            </#if>
+                            <#if orderKey = "count">
+                            count:${order.count}
+                            </#if>
+                            <#if orderKey = "participants">
+                            participants:${order.participants}
+                            </#if>
+                            <#if orderKey = "productId">
+                            productId:${order.productId}
+                            </#if>
+                            <#if orderKey = "time">
+                            time:${order.time}
+                            </#if>
 
+                        </#list>
+                    </#list>
+                </#if>
+                </#list>
+        </#if>
+        </#if>
     </#list>
-</#list>
+
 </body>
 </html>

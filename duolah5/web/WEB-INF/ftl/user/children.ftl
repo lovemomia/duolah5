@@ -6,19 +6,31 @@
 </head>
 <body>
 <#list list as map>
-<#list map?keys as itemKey>
-    <#if itemKey = "id">
-    id:${map[itemKey]}
+<#list map?keys as key>
+<#if key = "errno">
+    errno:${map[key]}
+</#if>
+    <#if key = "errmsg">
+    errmsg:${map[key]}
     </#if>
-    <#if itemKey = "name">
-    name:${map[itemKey]}
-    </#if>
-    <#if itemKey = "sex">
-    sex:${map[itemKey]}
-    </#if>
-    <#if itemKey = "birthday">
-    birthday:${(map[itemKey]?string("yyyy-MM-dd"))!}
-    </#if>
+<#if  key = "data">
+    <#list map[key] as child>
+        <#list child?keys as itemKey>
+            <#if itemKey = "id">
+            id:${child[itemKey]}
+            </#if>
+            <#if itemKey = "name">
+            name:${child[itemKey]}
+            </#if>
+            <#if itemKey = "sex">
+            sex:${child[itemKey]}
+            </#if>
+            <#if itemKey = "birthday">
+            birthday:${(child[itemKey]?string("yyyy-MM-dd"))!}
+            </#if>
+        </#list>
+    </#list>
+</#if>
 </#list>
 <br>
 </#list>

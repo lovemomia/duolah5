@@ -49,7 +49,7 @@ public class ParticipantApi extends AbstractApi {
         MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("participant", id), builder.build());
         JSONObject parseJson = new HttpExecute().getJsonObject(request);
         List list = new ArrayList();
-        list.add( new ParticipantFtl(parseJson.getJSONObject("data"), true));
+        list.add( new ParticipantFtl(parseJson, true));
         return new ModelAndView("./user/participant", "participant",  list);
 
     }

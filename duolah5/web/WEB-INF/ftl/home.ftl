@@ -21,5 +21,8 @@
             nextPage:${map[homeKey]}
             </#if>
         </#if>
+       <#if homeKey = "errno">
+        errno:${map[homeKey]}
+       </#if>
     </#list>
 </#list>

@@ -1,6 +1,7 @@
 package cn.momia.duolah5.dto.base;
 
 import cn.momia.common.misc.AgeUtil;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 
@@ -46,16 +47,20 @@ public class ParticipantFtl implements Dto{
     public Date getBirthday() {
         return birthday;
     }
-    public ParticipantFtl(JSONObject parseJson, boolean showIdNo) {
-        this.id = parseJson.getLong("id");
-        this.name = parseJson.getString("name");
-        this.sex = parseJson.getString("sex");
-        this.birthday = parseJson.getDate("birthday");
+    public ParticipantFtl(JSONObject participantJson) {
+        this(participantJson, false);
+    }
+    public ParticipantFtl(JSONObject participantJson, boolean showIdNo) {
+
+        this.id = participantJson.getLong("id");
+        this.name = participantJson.getString("name");
+        this.sex = participantJson.getString("sex");
+        this.birthday = participantJson.getDate("birthday");
         this.type = AgeUtil.isAdult(this.birthday) ? "成人" : "儿童";
 
         if (showIdNo) {
-            this.idType = parseJson.getInteger("idType");
-            this.idNo = parseJson.getString("idNo");
+            this.idType = participantJson.getInteger("idType");
+            this.idNo = participantJson.getString("idNo");
         }
 
     }

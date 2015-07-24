@@ -1,20 +1,30 @@
 package cn.momia.duolah5.dto.base;
 
+import cn.momia.common.secret.MobileEncryptor;
+import cn.momia.common.web.img.ImageFile;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.annotation.JSONField;
 
 import java.util.*;
 
 /**
  * Created by ysm on 15-7-17.
  */
-public class UserFtl implements Dto{
+public class UserFtl implements Dto {
+    private String token;
+    private String name;
+    private boolean hasPassword;
+    @JSONField(format = "yyyy-MM-dd")
+    private Date birthday;
     private String avatar;
     private String nickName;
     private String mobile;
     private String sex;
     private String city;
-    private Set<Map<String,Object>> children;
+    private String address;
+    private ListDto children;
+
 
     public String getAvatar() {
         return avatar;
@@ -36,28 +46,51 @@ public class UserFtl implements Dto{
         return city;
     }
 
-    public Set<Map<String, Object>> getChildren() {
-        return children;
+    public String getToken() {
+        return token;
     }
 
-    public UserFtl(JSONObject userJson) {
-        JSONObject parseJson = userJson.getJSONObject("user");
-        this.avatar = parseJson.getString("avatar");
-        this.nickName = parseJson.getString("nickName");
-        this.mobile = parseJson.getString("mobile");
-        this.sex = parseJson.getString("sex");
-        this.city= parseJson.getString("city");
-        JSONArray childrenArray = userJson.getJSONArray("children");
-        Set<Map<String, Object>> participantFtls = new HashSet<Map<String, Object>>();
-        for(int i=0; i<childrenArray.size(); i++) {
-            Map<String,Object> child = new HashMap<String, Object>();
-            child.put("id", childrenArray.getJSONObject(i).getString("id"));
-            child.put("name", childrenArray.getJSONObject(i).getString("name"));
-            child.put("sex", childrenArray.getJSONObject(i).getString("sex"));
-            child.put("birthday", childrenArray.getJSONObject(i).getDate("birthday"));
-            participantFtls.add(child);
-        }
-        this.children = participantFtls;
+    public String getName() {
+        return name;
+    }
 
+    public boolean isHasPassword() {
+        return hasPassword;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public ListDto getChildren() {
+        return children;
+    }
+    public UserFtl(JSONObject userPackJson) {
+        this(userPackJson, false);
+    }
+    public UserFtl(JSONObject userPackJson, boolean showToken) {
+        JSONObject userJson = userPackJson.getJSONObject("user");
+        JSONArray childrenJson = userPackJson.getJSONArray("children");
+
+        if (showToken) this.token = userJson.getString("token");
+        this.nickName = userJson.getString("nickName");
+        this.mobile = MobileEncryptor.encrypt(userJson.getString("mobile"));
+        this.hasPassword = userJson.getBoolean("hasPassword");
+        this.avatar = ImageFile.url(userJson.getString("avatar"));
+        this.name = userJson.getString("name");
+        this.sex = userJson.getString("sex");
+        this.birthday = userJson.getDate("birthday");
+        this.city = userJson.getString("city");
+        this.address = userJson.getString("address");
+
+        this.children = new ListDto();
+        for (int i = 0; i < childrenJson.size(); i++) {
+            JSONObject childJson = childrenJson.getJSONObject(i);
+            this.children.add(new ParticipantFtl(childJson, false));
+        }
     }
 }
