@@ -13,8 +13,10 @@
             </#list>
         </#if>
         <#if homeKey = "products">
-            <#assign product = map[homeKey]>
-            <#include "product/product.ftl">
+            <#list map[homeKey] as products>
+                <#assign baseProduct = products>
+                <#include "./product/baseProduct.ftl"> <br>
+            </#list>
         </#if>
         <#if homeKey = "nextPage">
             <#if map[homeKey]??>
