@@ -6,29 +6,38 @@
 </head>
 <body>
 <#list playmates as playmatesMap>
-    <#list playmatesMap?keys as playmatesKey>
+    <#list playmatesMap?keys as key>
+    <#if key  = "errno">
+        errno:${playmatesMap[key]}
+    </#if>
+        <#if key  = "errmsg">
+        errmsg:${playmatesMap[key]}
+        </#if>
+    <#if key = "data">
+    <#list playmatesMap[key] as playmate>
+    <#list playmate?keys as playmatesKey>
         <#if playmatesKey = "time">
-        time:${playmatesMap[playmatesKey]}
+        time:${playmate[playmatesKey]}
         </#if>
         <#if playmatesKey = "joined">
-        joined:${playmatesMap[playmatesKey]}
+        joined:${playmate[playmatesKey]}
         </#if>
         <#if playmatesKey = "playmates">
         playmates:
-        <#list playmatesMap[playmatesKey] as playmate>
-            <#list playmate?keys as key>
+        <#list playmate[playmatesKey] as playmateDate>
+            <#list playmateDate?keys as key>
                 <#if key = "id">
-                id:${playmate[key]}
+                id:${playmateDate[key]}
                 </#if>
                 <#if key = "nickName">
-                nickName:${playmate[key]}
+                nickName:${playmateDate[key]}
                 </#if>
                 <#if key = "avatar">
-                avatar:${playmate[key]}
+                avatar:${playmateDate[key]}
                 </#if>
                 <#if key = "children">
                 children:
-                    <#list playmate[key] as children>
+                    <#list playmateDate[key] as children>
                     ${children}
                     </#list>
                 </#if>
@@ -36,9 +45,11 @@
         <br>
         </#list>
         </#if>
+    </#list>
+    </#list>
+    </#if>
 
     </#list>
-<br>
 </#list>
 </body>
 </html>

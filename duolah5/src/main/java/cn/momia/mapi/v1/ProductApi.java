@@ -3,14 +3,15 @@ package cn.momia.mapi.v1;
 import cn.momia.common.web.http.MomiaHttpParamBuilder;
 import cn.momia.common.web.http.MomiaHttpRequest;
 import cn.momia.common.web.http.MomiaHttpResponseCollector;
+import cn.momia.common.web.response.ResponseMessage;
 import cn.momia.duolah5.common.HttpExecute;
-import cn.momia.duolah5.dto.base.ProductDetailFtl;
-import cn.momia.duolah5.dto.base.ProductFtl;
-import cn.momia.duolah5.dto.base.ProductOrderFtl;
+import cn.momia.duolah5.dto.base.*;
 import cn.momia.mapi.api.AbstractApi;
+import cn.momia.mapi.dto.composite.PagedListDto;
 import cn.momia.mapi.dto.misc.ProductUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Function;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +32,43 @@ import java.util.Map;
 public class ProductApi extends AbstractApi {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ProductApi.class);
 
+    @RequestMapping(value = "/weekend", method = RequestMethod.GET)
+    public ModelAndView getProductsByWeekend(@RequestParam(value = "city") final int cityId, @RequestParam final int start) {
+        final int pageSize = conf.getInt("Product.PageSize");
+        final int maxPageCount = conf.getInt("Product.MaxPageCount");
+        if (cityId < 0 || start < 0 || start > pageSize * maxPageCount) return new ModelAndView("BadRequest", "msg","invalid params");
+
+        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
+                .add("city", cityId)
+                .add("start", start)
+                .add("count", pageSize);
+        MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("product/weekend"), builder.build());
+
+        ResponseMessage responseMessage =  executeRequest(request, new Function<Object, Dto>() {
+            @Override
+            public Dto apply(Object data) {
+                return buildProductsDtoOfWeekend((JSONObject) data, start, pageSize);
+            }
+        });
+        List list = new ArrayList();
+        list.add(responseMessage);
+        return new ModelAndView("./product/products", "products", list);
+    }
+
+    private Dto buildProductsDtoOfWeekend(JSONObject productsPackJson, int start, int count) {
+        PagedListDto products = new PagedListDto();
+
+        long totalCount = productsPackJson.getLong("totalCount");
+        products.setTotalCount(totalCount);
+        if (start + count < totalCount) products.setNextIndex(start + count);
+
+        JSONArray productsJson = productsPackJson.getJSONArray("products");
+        products.addAll(ProductUtil.extractProductsData(productsJson));
+
+        return products;
+    }
+
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView getProducts(@RequestParam(value = "city") final int cityId,
                                        @RequestParam final int start,
@@ -46,30 +84,26 @@ public class ProductApi extends AbstractApi {
                 .add("query", query);
         MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("product"), builder.build());
 
-        JSONObject responseJson = new HttpExecute().getJsonObject(request);
+        ResponseMessage responseMessage =  executeRequest(request, new Function<Object, Dto>() {
+            @Override
+            public Dto apply(Object data) {
+                return buildProductsDto((JSONObject) data, start, pageSize);
+            }
+        });
         List list = new ArrayList();
-        Map<String, Object> products = buildProductsDto(responseJson.getJSONObject("data"), start, count);
-        list.add(products);
+        list.add(responseMessage.getData());
         return new ModelAndView("./product/products", "products", list);
     }
 
-    private Map<String, Object> buildProductsDto(JSONObject productsPackJson, int start, int count) {
-        Map<String, Object> products = new HashMap<String, Object>();
-        List<ProductFtl> productList = new ArrayList<ProductFtl>();
+    private Dto buildProductsDto(JSONObject productsPackJson, int start, int count) {
+        PagedListDto products = new PagedListDto();
 
         long totalCount = productsPackJson.getLong("totalCount");
-        products.put("totalCount", totalCount);
-        if (start + count < totalCount) products.put("nextIndex", start + count);
+        products.setTotalCount(totalCount);
+        if (start + count < totalCount) products.setNextIndex(start + count);
 
         JSONArray productsJson = productsPackJson.getJSONArray("products");
-        for (int i = 0; i < productsJson.size(); i++) {
-            try {
-                productList.add(new ProductUtil().extractProductData(productsJson.getJSONObject(i), false));
-            } catch (Exception e) {
-                LOGGER.error("fail to parse product: ", productsJson.getJSONObject(i), e);
-            }
-        }
-        products.put("products", productList);
+        products.addAll(ProductUtil.extractProductsData(productsJson));
 
         return products;
     }
@@ -80,11 +114,15 @@ public class ProductApi extends AbstractApi {
 
         List<MomiaHttpRequest> requests = buildProductRequests(id);
         MomiaHttpResponseCollector collector = executeRequests(requests);
-        if(!collector.isSuccessful())  return new ModelAndView("BadRequest", "msg","fail to get product");
-            List list = new ArrayList();
-            //Map<String, Object> product = buildProduct((JSONObject) collector.getResponse("product"), (JSONObject) collector.getResponse("customers"));
-        list.add(new ProductDetailFtl((JSONObject) collector.getResponse("product"), (JSONObject) collector.getResponse("customers")));
 
+        ResponseMessage responseMessage =  executeRequests(requests, new Function<MomiaHttpResponseCollector, Dto>() {
+            @Override
+            public Dto apply(MomiaHttpResponseCollector collector) {
+                return new ProductDetailFtl((JSONObject) collector.getResponse("product"), (JSONObject) collector.getResponse("customers"));
+            }
+        });
+        List list = new ArrayList();
+        list.add(responseMessage);
         return new ModelAndView("./product/product", "product", list);
 
 
@@ -170,27 +208,17 @@ public class ProductApi extends AbstractApi {
                 .add("start", 0)
                 .add("count", conf.getInt("Product.Playmate.MaxSkuCount"));
         MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("product", id, "playmate"), builder.build());
+        ResponseMessage responseMessage =  executeRequest(request, new Function<Object, Dto>() {
+            @Override
+            public Dto apply(Object data) {
+                return new PlaymatesFtl((JSONArray) data);
+            }
+        });
         List list = new ArrayList();
-        JSONObject responseJson = new HttpExecute().getJsonObject(request);
-        list.add(buildPlaymats((JSONArray) responseJson.get("data")));
+        list.add(responseMessage);
         return new ModelAndView("./product/playmates", "playmates", list);
     }
-    private Map<String, Object> buildPlaymats(JSONArray playmatesJson) {
-        Map<String, Object> playmates = new HashMap<String, Object>();
-        for(int i = 0; i<playmatesJson.size(); i++) {
-            JSONObject parseJson = playmatesJson.getJSONObject(i);
-            playmates.put("time", parseJson.getString("time"));
-            playmates.put("joined", parseJson.getString("joined"));
-            JSONArray jsonArray = parseJson.getJSONArray("playmates");
-            List playmateInfo = new ArrayList();
-            for(int j=0; j<jsonArray.size(); j++)
-                playmateInfo.add(jsonArray.getJSONObject(j));
-            playmates.put("playmates", playmateInfo);
 
-        }
-
-        return playmates;
-    }
 
 
 }

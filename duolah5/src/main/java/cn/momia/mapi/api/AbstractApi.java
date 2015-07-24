@@ -63,6 +63,18 @@ public  class AbstractApi {
         return  requestExecutor.execute(requests);
 
     }
+
+    protected ResponseMessage executeRequests(List<MomiaHttpRequest> requests, Function<MomiaHttpResponseCollector, Dto> buildResponseData) {
+        MomiaHttpResponseCollector collector = requestExecutor.execute(requests);
+        if (collector.getErrnos().contains(ErrorCode.TOKEN_EXPIRED)) return ResponseMessage.TOKEN_EXPIRED;
+
+        if (!collector.isSuccessful()) {
+            LOGGER.error("fail to execute requests: {}, exceptions: {}", requests, collector.getExceptions());
+            return new ResponseMessage(ErrorCode.FAILED, "fail to execute requests");
+        }
+
+        return new ResponseMessage(buildResponseData.apply(collector));
+    }
     protected long getUserId(String utoken) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("user"), builder.build());
