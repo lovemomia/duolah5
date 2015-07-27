@@ -24,7 +24,6 @@ public class ProductFtl implements Dto{
     private String title;
     private String abstracts;
     private int joined;
-    private int sales;
     private boolean soldOut;
     private BigDecimal price;
     private String crowd;
@@ -36,6 +35,9 @@ public class ProductFtl implements Dto{
     private Date startTime;
     @JSONField(format = "yyyy-MM-dd hh:mm:ss")
     private Date endTime;
+    private String region;
+    private boolean favored;
+    private boolean opened;
 
     // extra info
     private List<String> imgs;
@@ -87,14 +89,6 @@ public class ProductFtl implements Dto{
 
     public void setJoined(int joined) {
         this.joined = joined;
-    }
-
-    public int getSales() {
-        return sales;
-    }
-
-    public void setSales(int sales) {
-        this.sales = sales;
     }
 
     public boolean isSoldOut() {
@@ -185,6 +179,30 @@ public class ProductFtl implements Dto{
         this.content = content;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public boolean isFavored() {
+        return favored;
+    }
+
+    public void setFavored(boolean favored) {
+        this.favored = favored;
+    }
+
+    public boolean isOpened() {
+        return opened;
+    }
+
+    public void setOpened(boolean opened) {
+        this.opened = opened;
+    }
+
     public  ProductFtl(){}
 
     public ProductFtl(ProductFtl product) {
@@ -194,19 +212,19 @@ public class ProductFtl implements Dto{
         this.title = product.title;
         this.abstracts = product.abstracts;
         this.joined = product.joined;
-        this.sales = product.sales;
         this.soldOut = product.soldOut;
         this.price = product.price;
-        this.crowd = product.crowd;
         this.scheduler = product.scheduler;
         this.address = product.address;
         this.poi = product.poi;
         this.tags = product.tags;
-        this.startTime = product.startTime;
-        this.endTime = product.endTime;
+        this.region = product.region;
+        this.opened = product.opened;
+        this.favored = product.favored;
 
         this.imgs = product.imgs;
         this.content = product.content;
+
     }
 }
 

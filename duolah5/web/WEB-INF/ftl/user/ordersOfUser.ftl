@@ -5,24 +5,25 @@
     <title>Insert title here</title>
 </head>
 <body>
-    <#list list?keys as key>
+<#list  list as map>
+    <#list map?keys as key>
         <#if key = "errno">
-        errrno:${list[key]}
+        errrno:${map[key]}
         </#if>
         <#if key = "errmsg">
-        errmsg:${list[key]}
+        errmsg:${map[key]}
         </#if>
         <#if key = "data">
-        <#if list[key] !="">
-                <#list list[key]?keys as dataKey>
+        <#if map[key] ??>
+                <#list map[key]?keys as dataKey>
                     <#if dataKey = "totalCount">
-                    totalCount:${list[key].totalCount}
+                    totalCount:${map[key].totalCount}
                     </#if>
                     <#if dataKey = "nextIndex">
-                    nextIndex:<#if list[key].nextIndex??> ${list[key].nextIndex}</#if>
+                    nextIndex:<#if map[key].nextIndex??> ${map[key].nextIndex}</#if>
                     </#if>
                 <#if dataKey = "list">
-                    <#list list[key].list as order>
+                    <#list map[key].list as order>
                         <#list order?keys as orderKey>
                             <#if orderKey = "id">
                               id:${order.id}
@@ -42,9 +43,7 @@
                             <#if orderKey = "productId">
                             productId:${order.productId}
                             </#if>
-                            <#if orderKey = "time">
-                            time:${order.time}
-                            </#if>
+
 
                         </#list>
                     </#list>
@@ -53,6 +52,6 @@
         </#if>
         </#if>
     </#list>
-
+</#list>
 </body>
 </html>

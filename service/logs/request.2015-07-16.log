@@ -1,6 +1,0 @@
-15:41:36.919 [qtp1611334-21] INFO  REQUEST 31 - GET	/product/61/sku	645ms	null	Apache-HttpClient/4.5 (Java/1.7.0_79)	{}	127.0.0.1
-15:41:36.919 [qtp1611334-20] INFO  REQUEST 31 - GET	/user	644ms	null	Apache-HttpClient/4.5 (Java/1.7.0_79)	{utoken=[666666]}	127.0.0.1
-15:44:17.558 [qtp1611334-23] INFO  REQUEST 31 - GET	/product/61/sku	32ms	null	Apache-HttpClient/4.5 (Java/1.7.0_79)	{}	127.0.0.1
-15:44:17.571 [qtp1611334-24] INFO  REQUEST 31 - GET	/user	39ms	null	Apache-HttpClient/4.5 (Java/1.7.0_79)	{utoken=[666666]}	127.0.0.1
-15:44:56.607 [qtp1611334-24] INFO  REQUEST 31 - GET	/user	32ms	null	Apache-HttpClient/4.5 (Java/1.7.0_79)	{utoken=[666666]}	127.0.0.1
-15:44:56.616 [qtp1611334-25] INFO  REQUEST 31 - GET	/product/61/sku	48ms	null	Apache-HttpClient/4.5 (Java/1.7.0_79)	{}	127.0.0.1

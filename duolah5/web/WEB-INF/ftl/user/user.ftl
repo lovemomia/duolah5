@@ -14,7 +14,7 @@
         errmsg:${map[key]}
         </#if>
         <#if key = "data">
-        <#if map[key]!="">
+        <#if map[key] ??>
         avatar:${map[key].avatar}
         mobile:${map[key].mobile}
         address:${map[key].address}
@@ -32,7 +32,7 @@
                 sex:${child[childKey]}
                 </#if>
                 <#if childKey = "birthday">
-                birthday:${(child[childKey]?string("yyyy-MM-dd"))!}
+                birthday:${child[childKey]}
                 </#if>
             </#list>
         </#list>

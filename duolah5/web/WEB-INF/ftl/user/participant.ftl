@@ -14,7 +14,7 @@
         errmsg:${map[key]}
         </#if>
     <#if key = "data">
-    <#if map[key]!="">
+    <#if map[key]??>
     <#list map[key]?keys as itemKey>
         <#if itemKey="id">
         id:${map[key][itemKey]}
@@ -41,7 +41,7 @@
             </#if>
         </#if>
         <#if itemKey="birthday">
-        birthday:${(map[key][itemKey]?string("yyyy-MM-dd"))!}
+        birthday:${map[key][itemKey]}
         </#if>
     </#list>
     </#if>

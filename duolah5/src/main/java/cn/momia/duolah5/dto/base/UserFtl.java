@@ -73,19 +73,18 @@ public class UserFtl implements Dto {
         this(userPackJson, false);
     }
     public UserFtl(JSONObject userPackJson, boolean showToken) {
-        JSONObject userJson = userPackJson.getJSONObject("user");
         JSONArray childrenJson = userPackJson.getJSONArray("children");
 
-        if (showToken) this.token = userJson.getString("token");
-        this.nickName = userJson.getString("nickName");
-        this.mobile = MobileEncryptor.encrypt(userJson.getString("mobile"));
-        this.hasPassword = userJson.getBoolean("hasPassword");
-        this.avatar = ImageFile.url(userJson.getString("avatar"));
-        this.name = userJson.getString("name");
-        this.sex = userJson.getString("sex");
-        this.birthday = userJson.getDate("birthday");
-        this.city = userJson.getString("city");
-        this.address = userJson.getString("address");
+        if (showToken) this.token = userPackJson.getString("token");
+        this.nickName = userPackJson.getString("nickName");
+        this.mobile = userPackJson.getString("mobile");
+        this.hasPassword = userPackJson.getBoolean("hasPassword");
+        this.avatar = ImageFile.url(userPackJson.getString("avatar"));
+        this.name = userPackJson.getString("name");
+        this.sex = userPackJson.getString("sex");
+      //  this.birthday = userPackJson.getDate("birthday");
+        this.city = userPackJson.getString("city");
+        this.address = userPackJson.getString("address");
 
         this.children = new ListDto();
         for (int i = 0; i < childrenJson.size(); i++) {

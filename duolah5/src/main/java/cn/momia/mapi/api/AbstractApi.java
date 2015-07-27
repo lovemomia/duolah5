@@ -16,75 +16,42 @@ import java.util.List;
 
 public  class AbstractApi {
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractApi.class);
+    @Autowired protected Configuration conf;
+    @Autowired protected MomiaHttpRequestExecutor requestExecutor;
 
-    @Autowired
-    protected Configuration conf;
-
-    @Autowired
-    protected MomiaHttpClient httpClient;
-
-    @Autowired
-    protected MomiaHttpRequestExecutor requestExecutor;
-
-    protected String baseServiceUrl(Object... paths) {
+    protected String url(Object... paths) {
+        // TODO 根据paths判断使用哪个service
         return serviceUrl(conf.getString("Service.Base"), paths);
     }
 
     private String serviceUrl(String service, Object... paths) {
-        StringBuilder urlBuilder = new StringBuilder();
-        urlBuilder.append(service);
-        for (Object path : paths) {
-            urlBuilder.append("/").append(path);
-        }
+        StringBuilder urlBuilder = new StringBuilder().append(service);
+        for (Object path : paths) urlBuilder.append("/").append(path);
 
         return urlBuilder.toString();
-    }
-
-    protected String dealServiceUrl(Object... paths) {
-        return serviceUrl(conf.getString("Service.Deal"), paths);
     }
 
     protected ResponseMessage executeRequest(MomiaHttpRequest request) {
         return executeRequest(request, null);
     }
 
-    protected ResponseMessage executeRequest(MomiaHttpRequest request, Function<Object, Dto> buildResponseData) {
-        try {
-            JSONObject responseJson = httpClient.execute(request);
-            if (buildResponseData == null || responseJson.getInteger("errno") != ErrorCode.SUCCESS) return ResponseMessage.formJson(responseJson);
-            return new ResponseMessage(buildResponseData.apply(responseJson.get("data")));
-        } catch (Exception e) {
-            LOGGER.error("fail to execute request: {}", request, e);
-            return new ResponseMessage(ErrorCode.FAILED, "fail to execute request");
-        }
+    protected ResponseMessage executeRequest(MomiaHttpRequest request, Function<Object, Object> buildResponseData) {
+        ResponseMessage responseMessage = requestExecutor.execute(request);
+
+        if (buildResponseData == null || !responseMessage.successful()) return responseMessage;
+        return new ResponseMessage(buildResponseData.apply(responseMessage.getData()));
     }
 
-    protected MomiaHttpResponseCollector executeRequests(List<MomiaHttpRequest> requests) {
-        return  requestExecutor.execute(requests);
-
-    }
-
-    protected ResponseMessage executeRequests(List<MomiaHttpRequest> requests, Function<MomiaHttpResponseCollector, Dto> buildResponseData) {
+    protected ResponseMessage executeRequests(List<MomiaHttpRequest> requests, Function<MomiaHttpResponseCollector, Object> buildResponseData) {
         MomiaHttpResponseCollector collector = requestExecutor.execute(requests);
-        if (collector.getErrnos().contains(ErrorCode.TOKEN_EXPIRED)) return ResponseMessage.TOKEN_EXPIRED;
 
+        if (collector.notLogin()) return ResponseMessage.TOKEN_EXPIRED;
         if (!collector.isSuccessful()) {
-            LOGGER.error("fail to execute requests: {}, exceptions: {}", requests, collector.getExceptions());
-            return new ResponseMessage(ErrorCode.FAILED, "fail to execute requests");
+            LOGGER.error("fail to execute requests: {}", collector.getExceptions());
+            return ResponseMessage.FAILED;
         }
 
         return new ResponseMessage(buildResponseData.apply(collector));
     }
-    protected long getUserId(String utoken) {
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("user"), builder.build());
-
-        ResponseMessage response = executeRequest(request);
-        if (response.successful()) return ((JSONObject) response.getData()).getJSONObject("user").getLong("id");
-        if (response.getErrno() == ErrorCode.TOKEN_EXPIRED) return 0;
-
-        throw new RuntimeException("fail to get user id");
-    }
-
 
 }

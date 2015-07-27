@@ -26,7 +26,7 @@
             sex:${child[itemKey]}
             </#if>
             <#if itemKey = "birthday">
-            birthday:${(child[itemKey]?string("yyyy-MM-dd"))!}
+            birthday:${child[itemKey]}
             </#if>
         </#list>
     </#list>

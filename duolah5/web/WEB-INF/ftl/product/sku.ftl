@@ -6,15 +6,23 @@
 </head>
 <body>
 <#list skus as skusmap>
-    <#list skusmap?keys as itemkey>
-        <#if itemkey = "contacts">
-        contacts:
-          name:${skusmap[itemkey].name}
-          mobile:${skusmap[itemkey].mobile}
+    <#list skusmap?keys as key>
+        <#if key = "errno">
+        errno:${skusmap[key]}
         </#if>
-        <#if itemkey = "skus">
+        <#if key = "errmsg">
+        errmsg:${skusmap[key]}
+        </#if>
+        <#if key = "data">
+
+            <#if skusmap[key].contacts??>
+            contacts:
+               name:${skusmap[key].contacts.name}
+               mobile:${skusmap[key].contacts.mobile}
+            </#if>
         skus:
-            <#list skusmap[itemkey] as sku>
+        <#if skusmap[key].skus??>
+            <#list skusmap[key].skus as sku>
                 <#list sku?keys as skuKey>
                     <#if skuKey = "productId">
                     productId: ${sku[skuKey]}
@@ -66,7 +74,7 @@
                 </#list>
 
             </#list>
-
+        </#if>
         </#if>
     </#list>
 </#list>

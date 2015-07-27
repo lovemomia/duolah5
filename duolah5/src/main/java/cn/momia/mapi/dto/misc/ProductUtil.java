@@ -39,7 +39,6 @@ public class ProductUtil {
 
 
     public static ProductFtl extractProductData(JSONObject productJson, boolean extractExtraInfo) {
-        JSONObject placeJson = productJson.getJSONObject("place");
         ProductFtl product = new ProductFtl();
 
         product.setId(productJson.getLong("id"));
@@ -48,16 +47,18 @@ public class ProductUtil {
         product.setTitle(productJson.getString("title"));
         product.setAbstracts(productJson.getString("abstracts"));
         product.setJoined(productJson.getInteger("joined"));
-        product.setSales(productJson.getInteger("sales"));
         product.setSoldOut(productJson.getBoolean("soldOut"));
-        product.setPrice(productJson.getBigDecimal("minPrice"));
-        product.setCrowd(productJson.getString("crowd"));
+        product.setPrice(productJson.getBigDecimal("price"));
+      //  product.setCrowd(productJson.getString("crowd"));
         product.setScheduler(productJson.getString("scheduler"));
-        product.setAddress(placeJson.getString("address"));
-        product.setPoi(StringUtils.join(new Object[] { placeJson.getDouble("lng"), placeJson.getDouble("lat") }, ":"));
+        product.setAddress(productJson.getString("address"));
+        product.setPoi(productJson.getString("poi"));
         product.setTags(productJson.getJSONArray("tags"));
-        product.setStartTime(productJson.getDate("startTime"));
-        product.setEndTime(productJson.getDate("endTime"));
+        product.setRegion(productJson.getString("region"));
+        product.setFavored(productJson.getBoolean("favored"));
+        product.setOpened(productJson.getBoolean("opened"));
+      //  product.setStartTime(productJson.getDate("startTime"));
+      //  product.setEndTime(productJson.getDate("endTime"));
 
         if (extractExtraInfo) {
             product.setImgs(extractProductImgs(productJson));

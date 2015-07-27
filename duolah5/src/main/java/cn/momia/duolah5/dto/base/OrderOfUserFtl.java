@@ -105,18 +105,17 @@ public class OrderOfUserFtl implements Dto{
 
 
     public OrderOfUserFtl(JSONObject orderPackJson, boolean extractExtraInfo) {
-        JSONObject orderJson = orderPackJson.getJSONObject("order");
 
-        this.id = orderJson.getInteger("id");
-        this.productId = orderJson.getLong("productId");
-        this.skuId = orderJson.getLong("skuId");
-        this.count = orderJson.getInteger("count");
-        this.totalFee = orderJson.getBigDecimal("totalFee");
-        this.participants = buildParticipants(orderJson.getJSONArray("prices"));
-        this.contacts = orderJson.getString("contacts");
-        this.mobile = MobileEncryptor.encrypt(orderJson.getString("mobile"));
-        this.addTime = orderJson.getDate("addTime");
-        this.status = orderJson.getInteger("status");
+        this.id = orderPackJson.getInteger("id");
+        this.productId = orderPackJson.getLong("productId");
+        this.skuId = orderPackJson.getLong("skuId");
+        this.count = orderPackJson.getInteger("count");
+        this.totalFee = orderPackJson.getBigDecimal("totalFee");
+        this.participants =orderPackJson.getString("participants");
+        this.contacts = orderPackJson.getString("contacts");
+        this.mobile = orderPackJson.getString("mobile");
+        this.addTime = orderPackJson.getDate("addTime");
+        this.status = orderPackJson.getInteger("status");
 
         if (extractExtraInfo) {
             this.cover = ImageFile.url(orderPackJson.getString("cover"));
@@ -124,7 +123,7 @@ public class OrderOfUserFtl implements Dto{
             this.scheduler = orderPackJson.getString("scheduler");
             this.price = orderPackJson.getBigDecimal("price");
             this.address = orderPackJson.getString("address");
-            this.time = orderPackJson.getString("time");
+         //   this.time = orderPackJson.getString("time");
         }
     }
 

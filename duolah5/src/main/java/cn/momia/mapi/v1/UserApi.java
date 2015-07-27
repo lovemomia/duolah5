@@ -2,16 +2,14 @@ package cn.momia.mapi.v1;
 
 import cn.momia.common.web.http.MomiaHttpParamBuilder;
 import cn.momia.common.web.http.MomiaHttpRequest;
+import cn.momia.common.web.img.ImageFile;
 import cn.momia.common.web.response.ResponseMessage;
-import cn.momia.duolah5.common.HttpExecute;
 import cn.momia.duolah5.dto.base.Dto;
 import cn.momia.duolah5.dto.base.OrderOfUserFtl;
 import cn.momia.duolah5.dto.base.ParticipantFtl;
 import cn.momia.duolah5.dto.base.UserFtl;
-import cn.momia.mapi.api.AbstractApi;
 import cn.momia.mapi.dto.composite.ListDto;
 import cn.momia.mapi.dto.composite.PagedListDto;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
@@ -22,23 +20,36 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.*;
 
 @Controller
-public class UserApi  extends AbstractApi {
+public class UserApi extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserApi.class);
 
-    private static final Function<Object, Dto> userFunc = new Function<Object, Dto>() {
+    protected Function<Object, Object> orderDetailFunc = new Function<Object, Object>() {
         @Override
-        public Dto apply(Object data) {
-            return new UserFtl((JSONObject) data);
+        public Object apply(Object data) {
+            JSONObject orderDetailJson = (JSONObject) data;
+            orderDetailJson.put("cover", ImageFile.url(orderDetailJson.getString("cover")));
+
+            return data;
         }
     };
 
+    protected Function<Object, Object> pagedOrdersFunc = new Function<Object, Object>() {
+        @Override
+        public Object apply(Object data) {
+            JSONArray ordersJson = ((JSONObject) data).getJSONArray("list");
+            for (int i = 0; i < ordersJson.size(); i++) {
+                orderDetailFunc.apply(ordersJson.getJSONObject(i));
+            }
+
+            return data;
+        }
+    };
     @RequestMapping(value = "/profile.html", method = RequestMethod.GET)
     public ModelAndView getUser(@RequestParam String utoken) throws IOException {
         if (StringUtils.isBlank(utoken))
@@ -46,12 +57,11 @@ public class UserApi  extends AbstractApi {
 
 
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("user"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
         list.add(responseMessage);
-
         return  new ModelAndView("./user/user","list",list);
 
     }
@@ -69,31 +79,21 @@ public class UserApi  extends AbstractApi {
 
     @RequestMapping(value = "/user_order.html", method = RequestMethod.GET)
     public ModelAndView getOrdersOfUser(@RequestParam String utoken,
-                                           @RequestParam int status,
-                                           @RequestParam(defaultValue = "eq") String type,
-                                           @RequestParam final int start,
-                                           @RequestParam final int count) throws IOException {
-        final int maxPageCount = conf.getInt("Order.MaxPageCount");
-        final int pageSize = conf.getInt("Order.PageSize");
-        if (StringUtils.isBlank(utoken) || start < 0 || start > pageSize * maxPageCount) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
+                                           @RequestParam(defaultValue = "1") int status,
+                                           @RequestParam int start) {
+        if (StringUtils.isBlank(utoken) || start < 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
-                .add("status", status)
-                .add("type", type)
+                .add("status", status < 0 ? 1 : status)
                 .add("start", start)
-                .add("count", count);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("user/order"), builder.build());
+                .add("count", conf.getInt("Order.PageSize"));
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("order/user"), builder.build());
 
-        ResponseMessage responseMessage = executeRequest(request, new Function<Object, Dto>() {
-            @Override
-            public Dto apply(Object data) {
-                return buildOrdersDto((JSONObject) data, start, pageSize);
-            }
-        });
-        return new ModelAndView("./user/ordersOfUser", "list", responseMessage);
+        ResponseMessage responseMessage =  executeRequest(request, pagedOrdersFunc);
 
-
+        List list = new ArrayList();
+        list.add(responseMessage);
+        return new ModelAndView("./user/ordersOfUser", "list", list);
     }
 
     private Dto buildOrdersDto(JSONObject ordersPackJson, int start, int count) {
@@ -102,7 +102,7 @@ public class UserApi  extends AbstractApi {
         long totalCount = ordersPackJson.getLong("totalCount");
         orders.setTotalCount(totalCount);
 
-        JSONArray ordersJson = ordersPackJson.getJSONArray("orders");
+        JSONArray ordersJson = ordersPackJson.getJSONArray("list");
         for (int i = 0; i < ordersJson.size(); i++) {
             try {
                 orders.add(new OrderOfUserFtl(ordersJson.getJSONObject(i), true));
@@ -122,7 +122,7 @@ public class UserApi  extends AbstractApi {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
                 .add("nickname", nickName);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("user/nickname"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/nickname"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
@@ -140,7 +140,7 @@ public class UserApi  extends AbstractApi {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
                 .add("avatar", avatar);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("user/avatar"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/avatar"), builder.build());
 
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
@@ -159,7 +159,7 @@ public class UserApi  extends AbstractApi {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
                 .add("name", name);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("user/name"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/name"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
@@ -176,7 +176,7 @@ public class UserApi  extends AbstractApi {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
                 .add("sex", sex);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("user/sex"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/sex"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
@@ -193,7 +193,7 @@ public class UserApi  extends AbstractApi {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
                 .add("birthday", birthday);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("user/birthday"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/birthday"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
@@ -210,7 +210,7 @@ public class UserApi  extends AbstractApi {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
                 .add("city", city);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("user/city"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/city"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
@@ -227,7 +227,7 @@ public class UserApi  extends AbstractApi {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("utoken", utoken)
                 .add("address", address);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("user/address"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/address"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
@@ -246,7 +246,7 @@ public class UserApi  extends AbstractApi {
 
         JSONArray childrenJson = JSONArray.parseArray(children);
         for (int i = 0; i < childrenJson.size(); i++) childrenJson.getJSONObject(i).put("userId", userId);
-        MomiaHttpRequest request = MomiaHttpRequest.POST(baseServiceUrl("user/child"), childrenJson.toString());
+        MomiaHttpRequest request = MomiaHttpRequest.POST(url("user/child"), childrenJson.toString());
 
         ResponseMessage responseMessage = executeRequest(request, userFunc);
         List list = new ArrayList();
@@ -266,12 +266,11 @@ public class UserApi  extends AbstractApi {
                 .add("utoken", utoken)
                 .add("id", childId)
                 .add("name", name);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("participant/name"), builder.build());
-
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/child/name"), builder.build());
         ResponseMessage response = executeRequest(request);
         if (!response.successful()) return new ModelAndView("BadRequest", "errmsg", response.getErrmsg());
 
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(baseServiceUrl("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
+        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
         List list = new ArrayList();
         list.add(responseMessage);
 
@@ -288,12 +287,12 @@ public class UserApi  extends AbstractApi {
                 .add("utoken", utoken)
                 .add("id", childId)
                 .add("sex", sex);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("participant/sex"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/child/sex"), builder.build());
 
         ResponseMessage response = executeRequest(request);
         if (!response.successful()) return new ModelAndView("BadRequest", "errmsg", response.getErrmsg());
 
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(baseServiceUrl("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
+        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
         List list = new ArrayList();
         list.add(responseMessage);
 
@@ -311,12 +310,12 @@ public class UserApi  extends AbstractApi {
                 .add("utoken", utoken)
                 .add("id", childId)
                 .add("birthday", birthday);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(baseServiceUrl("participant/birthday"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("participant/birthday"), builder.build());
 
         ResponseMessage response = executeRequest(request);
         if (!response.successful()) return new ModelAndView("BadRequest", "errmsg", response.getErrmsg());
 
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(baseServiceUrl("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
+        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user/child/birthday"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
         List list = new ArrayList();
         list.add(responseMessage);
 
@@ -329,12 +328,9 @@ public class UserApi  extends AbstractApi {
         if(StringUtils.isBlank(utoken) || childId <= 0)  return new ModelAndView("BadRequest", "errmsg","invalid params");
 
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.DELETE(baseServiceUrl("user/child", childId), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.DELETE(url("user/child", childId), builder.build());
 
-        ResponseMessage response = executeRequest(request);
-        if (!response.successful()) return new ModelAndView("BadRequest", "errmsg", response.getErrmsg());
-
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(baseServiceUrl("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
+        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user/child"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
         List list = new ArrayList();
         list.add(responseMessage);
 
@@ -347,14 +343,9 @@ public class UserApi  extends AbstractApi {
         if(StringUtils.isBlank(utoken) || childId <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("user/child", childId), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/child", childId), builder.build());
 
-        ResponseMessage responseMessage = executeRequest(request, new Function<Object, Dto>() {
-            @Override
-            public Dto apply(Object data) {
-                return new ParticipantFtl((JSONObject) data);
-            }
-        });
+        ResponseMessage responseMessage = executeRequest(request);
         List list = new ArrayList();
         list.add(responseMessage);
 
@@ -379,14 +370,9 @@ public class UserApi  extends AbstractApi {
         if(StringUtils.isBlank(utoken)) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(baseServiceUrl("user/child"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/child"), builder.build());
 
-        ResponseMessage responseMessage = executeRequest(request, new Function<Object, Dto>() {
-            @Override
-            public Dto apply(Object data) {
-                return buildChildrenDto((JSONArray) data);
-            }
-        });
+        ResponseMessage responseMessage = executeRequest(request);
         List list = new ArrayList();
         list.add(responseMessage);
 
@@ -408,4 +394,19 @@ public class UserApi  extends AbstractApi {
         return children;
     }
 
+    @RequestMapping(value = "/favorite", method = RequestMethod.GET)
+    public ModelAndView getFavoritesOfUser(@RequestParam String utoken, @RequestParam int start) {
+        if (StringUtils.isBlank(utoken) || start < 0) new ModelAndView("BadRequest", "errmsg","invalid params");
+
+        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
+                .add("utoken", utoken)
+                .add("start", start)
+                .add("count", conf.getInt("Favorite.PageSize"));
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/favorite"), builder.build());
+
+        ResponseMessage responseMessage = executeRequest(request, pagedProductsFunc);
+        List list = new ArrayList();
+        list.add(responseMessage);
+        return new ModelAndView("./user/ordersOfUser", "list", list);
+    }
 }

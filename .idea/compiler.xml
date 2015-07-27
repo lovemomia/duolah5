@@ -22,28 +22,24 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="duola-jobs" />
       </profile>
       <profile default="false" name="Annotation profile for common-utils" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="common-utils" />
       </profile>
       <profile default="false" name="Annotation profile for common-web" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="common-web" />
       </profile>
       <profile default="false" name="Annotation profile for duola-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="duola-service" />
       </profile>
       <profile default="false" name="Annotation profile for cn.momia" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -57,7 +53,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="duola-image" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
