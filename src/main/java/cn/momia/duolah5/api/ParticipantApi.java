@@ -28,7 +28,7 @@ import java.util.List;
 public class ParticipantApi extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantApi.class);
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addParticipant(@RequestParam String utoken, @RequestParam String participant) {
 
 
