@@ -41,7 +41,7 @@ start)
       fi
     fi
 
-    nohup java $JAVA_OPTS -cp $CLASSPATH cn.duolah5.mapi.web.Duolah5Web $PORT >> $GCLOGPATH 2>&1 &
+    nohup java $JAVA_OPTS -cp $CLASSPATH cn.momia.duolah5.web.Duolah5Web $PORT >> $GCLOGPATH 2>&1 &
     pid=$!
     sleep 3
     kill -0 $pid

@@ -16,21 +16,21 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="cn.duolah5"/>
+    <context:component-scan base-package="cn.momia"/>
 
-    <bean id="conf" class="cn.duolah5.common.utils.config.impl.XmlConfiguration" init-method="init">
+    <bean id="conf" class="cn.momia.common.utils.config.impl.XmlConfiguration" init-method="init">
         <property name="fileName" value="conf/configuration.xml" />
     </bean>
 
-    <bean class="cn.duolah5.common.web.config.XmlPropertyPlaceholderConfigurer">
+    <bean class="cn.momia.common.web.config.XmlPropertyPlaceholderConfigurer">
         <property name="conf" ref="conf" />
     </bean>
 
-    <bean class="cn.duolah5.common.web.logger.LoggerConfigurer" init-method="init">
+    <bean class="cn.momia.common.web.logger.LoggerConfigurer" init-method="init">
         <property name="conf" ref="conf" />
     </bean>
 
-    <bean class="cn.duolah5.common.web.img.ImageFile">
+    <bean class="cn.momia.common.web.img.ImageFile">
         <property name="domain" value="${Image.Domain}" />
     </bean>
 
@@ -51,14 +51,14 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean class="cn.duolah5.common.web.secret.SecretKey" init-method="init">
+    <bean class="cn.momia.common.web.secret.SecretKey" init-method="init">
         <property name="conf" ref="conf" />
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
 
-    <bean id="requestExecutor" class="cn.duolah5.common.web.http.MomiaHttpRequestExecutor" />
+    <bean id="requestExecutor" class="cn.momia.common.web.http.MomiaHttpRequestExecutor" />
 
-    <bean class="cn.duolah5.mapi.dto.misc.ProductUtil">
+    <bean class="cn.momia.duolah5.dto.misc.ProductUtil">
         <property name="conf" ref="conf" />
     </bean>
 

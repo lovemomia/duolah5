@@ -44,7 +44,7 @@
 
     <filter>
         <filter-name>validationFilter</filter-name>
-        <filter-class>cn.momia.mapi.web.filter.ValidationFilter</filter-class>
+        <filter-class>cn.momia.duolah5.web.filter.ValidationFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>validationFilter</filter-name>
