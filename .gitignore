@@ -1,24 +1,24 @@
 **/.DS_Store
 **/._.DS_Store
 
-**/.idea
-**/*.iml
+/.idea
+/*.iml
 
 **/.settings
 **/.project
 **/.classpath
 
-**/target/
-**/test-output
-**/pom.xml.tag
-**/pom.xml.releaseBackup
-**/pom.xml.versionsBackup
-**/pom.xml.next
-**/release.properties
-**/dependency-reduced-pom.xml
-**/buildNumber.properties
+/target/
+/test-output
+/pom.xml.tag
+/pom.xml.releaseBackup
+/pom.xml.versionsBackup
+/pom.xml.next
+/release.properties
+/dependency-reduced-pom.xml
+/buildNumber.properties
 
-**/logs
+/logs
 **/tmp
 **/*.log
 **/*.pid
