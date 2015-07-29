@@ -1,4 +1,4 @@
-package cn.duolah5.mapi.v1;
+package cn.duolah5.mapi.api;
 
 import cn.duolah5.common.web.http.MomiaHttpParamBuilder;
 import cn.duolah5.common.web.http.MomiaHttpRequest;
@@ -8,7 +8,6 @@ import cn.duolah5.dto.base.OrderOfUserFtl;
 import cn.duolah5.dto.base.ParticipantFtl;
 import cn.duolah5.mapi.dto.composite.ListDto;
 import cn.duolah5.mapi.dto.composite.PagedListDto;
-import cn.duolah5.mapi.v1.BaseFunc;
 import cn.duolah5.dto.base.Dto;
 import cn.duolah5.dto.base.UserFtl;
 import com.alibaba.fastjson.JSONArray;

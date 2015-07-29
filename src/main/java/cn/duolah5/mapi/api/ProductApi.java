@@ -1,14 +1,13 @@
-package cn.momia.mapi.v1;
+package cn.duolah5.mapi.api;
 
-import cn.momia.common.web.http.MomiaHttpParamBuilder;
-import cn.momia.common.web.http.MomiaHttpRequest;
-import cn.momia.common.web.http.MomiaHttpResponseCollector;
-import cn.momia.common.web.img.ImageFile;
-import cn.momia.common.web.response.ResponseMessage;
-import cn.momia.duolah5.dto.base.*;
-import cn.momia.mapi.api.AbstractApi;
-import cn.momia.mapi.dto.composite.PagedListDto;
-import cn.momia.mapi.dto.misc.ProductUtil;
+import cn.duolah5.common.web.http.MomiaHttpParamBuilder;
+import cn.duolah5.common.web.http.MomiaHttpRequest;
+import cn.duolah5.common.web.http.MomiaHttpResponseCollector;
+import cn.duolah5.common.web.img.ImageFile;
+import cn.duolah5.common.web.response.ResponseMessage;
+import cn.duolah5.dto.base.PlaceOrderFtl;
+import cn.duolah5.mapi.dto.composite.PagedListDto;
+import cn.duolah5.mapi.dto.misc.ProductUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
@@ -23,9 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping

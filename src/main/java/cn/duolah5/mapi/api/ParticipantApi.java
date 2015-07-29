@@ -1,4 +1,4 @@
-package cn.duolah5.mapi.v1;
+package cn.duolah5.mapi.api;
 
 
 import cn.duolah5.common.web.http.MomiaHttpParamBuilder;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/com_outer.html")
+@RequestMapping
 public class ParticipantApi extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantApi.class);
 
@@ -43,7 +43,7 @@ public class ParticipantApi extends BaseFunc {
         return new ModelAndView("success", "isSuccessful", list);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/edit_com_outer.html", method = RequestMethod.GET)
     public ModelAndView getParticipant(@RequestParam String utoken, @RequestParam long id) {
         if (StringUtils.isBlank(utoken) || id <= 0) return new ModelAndView("success", "msg", "invalid param");
 
@@ -71,7 +71,7 @@ public class ParticipantApi extends BaseFunc {
         return new ModelAndView("success", "isSuccessful", list);
     }
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/com_outer.html", method = RequestMethod.GET)
     public ModelAndView getParticipantsOfUser(@RequestParam String utoken) {
         if (StringUtils.isBlank(utoken)) return new ModelAndView("success", "msg", "invalid param");
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);

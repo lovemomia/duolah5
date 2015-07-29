@@ -1,4 +1,4 @@
-package cn.duolah5.mapi.v1;
+package cn.duolah5.mapi.api;
 
 
 import cn.duolah5.common.web.http.MomiaHttpParamBuilder;
