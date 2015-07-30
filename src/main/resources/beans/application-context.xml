@@ -22,15 +22,15 @@
         <property name="fileName" value="conf/configuration.xml" />
     </bean>
 
-    <bean class="cn.momia.common.web.config.XmlPropertyPlaceholderConfigurer">
+    <bean class="cn.momia.duolah5.web.config.XmlPropertyPlaceholderConfigurer">
         <property name="conf" ref="conf" />
     </bean>
 
-    <bean class="cn.momia.common.web.logger.LoggerConfigurer" init-method="init">
+    <bean class="cn.momia.duolah5.web.logger.LoggerConfigurer" init-method="init">
         <property name="conf" ref="conf" />
     </bean>
 
-    <bean class="cn.momia.common.web.img.ImageFile">
+    <bean class="cn.momia.duolah5.web.img.ImageFile">
         <property name="domain" value="${Image.Domain}" />
     </bean>
 
@@ -51,14 +51,14 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean class="cn.momia.common.web.secret.SecretKey" init-method="init">
+    <bean class="cn.momia.duolah5.web.secret.SecretKey" init-method="init">
         <property name="conf" ref="conf" />
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
 
-    <bean id="requestExecutor" class="cn.momia.common.web.http.MomiaHttpRequestExecutor" />
+    <bean id="requestExecutor" class="cn.momia.duolah5.web.http.MomiaHttpRequestExecutor" />
 
-    <bean class="cn.momia.duolah5.dto.misc.ProductUtil">
+    <bean class="cn.momia.duolah5.ftl.misc.ProductUtil">
         <property name="conf" ref="conf" />
     </bean>
 

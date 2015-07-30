@@ -18,7 +18,7 @@
 
     <filter>
         <filter-name>loggingFilter</filter-name>
-        <filter-class>cn.momia.common.web.filter.LoggingFilter</filter-class>
+        <filter-class>cn.momia.duolah5.web.filter.LoggingFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>loggingFilter</filter-name>
@@ -53,7 +53,7 @@
 
     <filter>
         <filter-name>crossDomainFilter</filter-name>
-        <filter-class>cn.momia.common.web.filter.CrossDomainFilter</filter-class>
+        <filter-class>cn.momia.duolah5.web.filter.CrossDomainFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>crossDomainFilter</filter-name>

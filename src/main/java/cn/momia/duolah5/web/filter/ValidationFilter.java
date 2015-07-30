@@ -1,6 +1,6 @@
 package cn.momia.duolah5.web.filter;
 
-import cn.momia.common.web.secret.SecretKey;
+import cn.momia.duolah5.web.secret.SecretKey;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 
