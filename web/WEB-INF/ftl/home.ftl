@@ -30,7 +30,7 @@
                 </#list>
 
             </#if>
-            <#if map[homeKey].nextPage>
+            <#if map[homeKey].nextPage??>
             nextPage:${data[dataKey]}
             </#if>
         </#if>
