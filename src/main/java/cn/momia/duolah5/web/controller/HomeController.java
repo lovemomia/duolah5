@@ -27,9 +27,10 @@ public class HomeController extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView home(@RequestParam(value = "pageindex") final int pageIndex, @RequestParam(value = "city") int cityId) {
-        if (pageIndex < 0 || cityId < 0) return new ModelAndView("BadRequest", "errmsg", HomeFtl.EMPTY);
+    public ModelAndView home() {
 
+        final int pageIndex = 0;
+        int cityId =1;
         final int start = pageIndex * conf.getInt("Home.PageSize");
         final int count = conf.getInt("Home.PageSize");
         List<MomiaHttpRequest> requests = buildHomeRequests(cityId, start, count);
