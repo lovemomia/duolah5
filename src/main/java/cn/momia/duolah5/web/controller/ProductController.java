@@ -198,22 +198,5 @@ public class ProductController extends BaseFunc {
         return new ModelAndView("./product/playmates", "playmates", list);
     }
 
-    @RequestMapping(value = "/favor", method = RequestMethod.POST)
-    public ResponseMessage favor(@RequestParam String utoken, @RequestParam long id){
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.POST(url("product", id, "favor"), builder.build());
-
-        return executeRequest(request);
-    }
-
-    @RequestMapping(value = "/unfavor", method = RequestMethod.POST)
-    public ResponseMessage unFavor(@RequestParam String utoken, @RequestParam long id){
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.POST(url("product", id, "unfavor"), builder.build());
-
-        return executeRequest(request);
-    }
-
-
 
 }

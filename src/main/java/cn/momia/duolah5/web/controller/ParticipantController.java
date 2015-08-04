@@ -29,20 +29,6 @@ import java.util.List;
 public class ParticipantController extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantController.class);
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addParticipant(@RequestParam String utoken, @RequestParam String participant) {
-
-
-        long userId = getUserId(utoken);
-        if (userId <= 0) return new ModelAndView("BadRequest", "msg","user token expired");
-        JSONObject paticipantJson = JSON.parseObject(participant);
-        paticipantJson.put("userId", userId);
-        MomiaHttpRequest request = MomiaHttpRequest.POST(url("participant"), paticipantJson.toString());
-        ResponseMessage responseMessage = executeRequest(request);
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("success", "isSuccessful", list);
-    }
 
     @RequestMapping(value = "/edit_com_outer.html", method = RequestMethod.GET)
     public ModelAndView getParticipant(HttpServletRequest httpRequest, @RequestParam long id) {
@@ -57,22 +43,6 @@ public class ParticipantController extends BaseFunc {
         List list = new ArrayList();
         list.add(responseMessage.getData());
         return new ModelAndView("./user/participant", "participant", list);
-    }
-
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ModelAndView updateParticipant(@RequestParam String utoken, @RequestParam String participant) {
-        if (StringUtils.isBlank(utoken) || StringUtils.isBlank(participant)) return new ModelAndView("success", "msg", "invalid param");
-
-        long userId = getUserId(utoken);
-        if (userId <= 0) return new ModelAndView("success", "msg", "user token expried");
-
-        JSONObject paticipantJson = JSON.parseObject(participant);
-        paticipantJson.put("userId", userId);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("participant"), paticipantJson.toString());
-        ResponseMessage responseMessage = executeRequest(request);
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("success", "isSuccessful", list);
     }
 
     @RequestMapping(value = "/com_outer.html", method = RequestMethod.GET)

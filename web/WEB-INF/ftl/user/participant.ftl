@@ -24,30 +24,39 @@
     </header>
 
     <section>
+    <#list participant as outer>
+
         <div class="order_list">
             <!-- <h3>请选择成人<i class="orange adult"></i>名，儿童<i class="orange child"></i>名</h3> -->
-            <div class="order_detail">
-                <!-- <div class="form01">
-                    <div class="left outer_info">
-                        <a href="">
-                            <span class="name">张君雅</span>
-                            <span class="age">成人</span>
-                            <span class="sex">女</span>
-                        </a>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
 
-                <div class="form01 last">
-                    <div class="left outer_info">
-                        <span class="name">张云朵</span>
-                        <span class="age">儿童</span>
-                        <span class="sex">女</span>
+            <div class="order_detail">
+                <#list outer as map>
+                    <#if map_index != outer?size-1>
+                    <div class="form01">
+                        <div class="left outer_info">
+                            <a href="">
+                                <span class="name">${map.name}</span>
+                                <span class="age"><#if map.age??>${map.age}</#if></span>
+                                <span class="sex">${map.sex}</span>
+                            </a>
+                        </div>
+                        <div style="clear:both"></div>
                     </div>
-                    <div style="clear:both"></div>
-                </div> -->
+                </#if>
+                    <#if map_index == outer?size-1>
+                    <div class="form01 last">
+                        <div class="left outer_info">
+                            <span class="name">${map.name}</span>
+                            <span class="age"><#if map.age??>${map.age}</#if></span>
+                            <span class="sex">${map.sex}</span>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                </#if>
+                </#list>
             </div>
         </div>
+    </#list>
     </section>
 
 </article>

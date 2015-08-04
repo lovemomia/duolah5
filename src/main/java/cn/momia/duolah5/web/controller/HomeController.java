@@ -31,44 +31,4 @@ public class HomeController extends BaseFunc {
         return new ModelAndView("home", "home", "");
 
     }
-
-    private List<MomiaHttpRequest> buildHomeRequests(int cityId, int start, int count) {
-        List<MomiaHttpRequest> requests = new ArrayList<MomiaHttpRequest>();
-        if (start == 0) requests.add(buildBannersRequest(cityId));
-        requests.add(buildProductsRequest(cityId, start, count));
-
-        return requests;
-    }
-
-    private MomiaHttpRequest buildBannersRequest(int cityId) {
-        int count = conf.getInt("Home.BannerCount");
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("city", cityId)
-                .add("count", count);
-
-        return MomiaHttpRequest.GET("banners", true, url("banner"), builder.build());
-    }
-
-    private MomiaHttpRequest buildProductsRequest(int cityId, int start, int count) {
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("city", cityId)
-                .add("start", start)
-                .add("count", count);
-
-        return MomiaHttpRequest.GET("products", true, url("product"), builder.build());
-    }
-
-    private Ftl buildHomeDto(MomiaHttpResponseCollector collector, int start, int count, int pageIndex) {
-        HomeFtl homeDto = new HomeFtl();
-
-        if (pageIndex == 0) homeDto.setBanners((JSONArray) collector.getResponse("banners"));
-
-        JSONObject productsPackJson = (JSONObject) pagedProductsFunc.apply(collector.getResponse("products"));
-        homeDto.setProducts(productsPackJson.getJSONArray("list"));
-
-        long totalCount = productsPackJson.getLong("totalCount");
-        if (start + count < totalCount) homeDto.setNextpage(pageIndex + 1);
-
-        return homeDto;
-    }
 }

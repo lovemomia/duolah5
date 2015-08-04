@@ -55,9 +55,9 @@
                     <ul class='scroll_position' id='scroll_position'>
                         <#list map.imgs as img>
                             <#if img_index == 0>
-                                <li class='on'><a href='javascript:void(0);'</a></li>
+                                <li class='on'><a href='javascript:void(0);'></a></li>
                             <#else>
-                                <li><a href='javascript:void(0);'</a></li>
+                                <li><a href='javascript:void(0);'></a></li>
                             </#if>
                         </#list>
                     </ul>
