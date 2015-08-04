@@ -57,7 +57,6 @@
                             <#if img_index == 0>
                                 <li class='on'><a href='javascript:void(0);'</a></li>
                             <#else>
-                            ${im}
                                 <li><a href='javascript:void(0);'</a></li>
                             </#if>
                         </#list>
@@ -168,7 +167,7 @@
                                 <#list body?keys as bodyKey>
                                 <#if bodyKey = "label">
                                     <#if body.label != "" >
-                                        <span class="orange">${body.label}</span>${body.text}<br>
+                                        <span class="orange">${body.label}</span><#if body.text ??>${body.text}</#if><br>
                                     </#if>
                                 <#elseif bodyKey = "img">
                                     <#if body.img != "" >
@@ -235,10 +234,3 @@
 </#list>
 </body>
 </html>
-<#--
-<#list product as map>
-
-id:${map.id}
-
-<br>
-</#list>-->

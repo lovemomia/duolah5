@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,14 +45,17 @@ public class ParticipantController extends BaseFunc {
     }
 
     @RequestMapping(value = "/edit_com_outer.html", method = RequestMethod.GET)
-    public ModelAndView getParticipant(@RequestParam String utoken, @RequestParam long id) {
+    public ModelAndView getParticipant(HttpServletRequest httpRequest, @RequestParam long id) {
+        String utoken = getUtoken(httpRequest);
         if (StringUtils.isBlank(utoken) || id <= 0) return new ModelAndView("success", "msg", "invalid param");
 
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(url("participant", id), builder.build());
         ResponseMessage responseMessage =  executeRequest(request);
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error!");
         List list = new ArrayList();
-        list.add(responseMessage);
+        list.add(responseMessage.getData());
         return new ModelAndView("./user/participant", "participant", list);
     }
 
@@ -72,14 +76,19 @@ public class ParticipantController extends BaseFunc {
     }
 
     @RequestMapping(value = "/com_outer.html", method = RequestMethod.GET)
-    public ModelAndView getParticipantsOfUser(@RequestParam String utoken) {
+    public ModelAndView getParticipantsOfUser(HttpServletRequest httpRequest) {
+        String utoken = getUtoken(httpRequest);
+
         if (StringUtils.isBlank(utoken)) return new ModelAndView("success", "msg", "invalid param");
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(url("participant"), builder.build());
         ResponseMessage responseMessage =  executeRequest(request);
+        if(responseMessage.getErrno() != 0 )
+            return new ModelAndView("BadRequest", "errmsg", "error!");
+
         List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./user/children", "list", list);
+        list.add(responseMessage.getData());
+        return new ModelAndView("./user/participant", "participant", list);
     }
 
     private Ftl buildParticipantsDto(JSONArray participantsJson) {
