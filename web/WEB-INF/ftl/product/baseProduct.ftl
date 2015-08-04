@@ -1,3 +1,4 @@
+
 <#list baseProduct?keys as itemKey>
         <#if itemKey = "cover">
         cover:${baseProduct[itemKey]}

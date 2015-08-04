@@ -14,6 +14,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
@@ -50,12 +53,12 @@ public class UserController extends BaseFunc {
             return data;
         }
     };
-    @RequestMapping(value = "/profile.html", method = RequestMethod.GET)
-    public ModelAndView getUser(@RequestParam String utoken) throws IOException {
+    @RequestMapping(value = "/profileInfo.html", method = RequestMethod.GET)
+    public ModelAndView getUser(HttpServletRequest httpRequest) throws IOException {
+
+        String utoken = getUtoken(httpRequest);
         if (StringUtils.isBlank(utoken))
             return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(url("user"), builder.build());
 

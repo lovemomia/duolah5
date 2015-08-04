@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,9 +68,10 @@ public class ProductController extends BaseFunc {
     }
 
     @RequestMapping(value = "/actsDetail.html", method = RequestMethod.GET)
-    public ModelAndView getProduct(@RequestParam(defaultValue = "") String utoken, @RequestParam long id) {
+    public ModelAndView getProduct(@RequestParam(defaultValue = "") String utoken, @RequestParam long id, HttpServletRequest httpRequest) {
         if (id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
+        utoken = getUtoken(httpRequest);
         List<MomiaHttpRequest> requests = buildProductRequests(utoken, id);
 
         ResponseMessage responseMessage = executeRequests(requests, new Function<MomiaHttpResponseCollector, Object>() {
@@ -87,8 +89,11 @@ public class ProductController extends BaseFunc {
             }
         });
 
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error");
+
         List list = new ArrayList();
-        list.add(responseMessage);
+        list.add(responseMessage.getData());
         return new ModelAndView("./product/product", "product", list);
     }
 
@@ -127,7 +132,8 @@ public class ProductController extends BaseFunc {
     }
 
     @RequestMapping(value = "/orderDetail.html", method = RequestMethod.GET)
-    public ModelAndView getProductOrder(@RequestParam String utoken, @RequestParam long id) {
+    public ModelAndView getProductOrder(HttpServletRequest httpRequest, @RequestParam long id) {
+        String utoken = getUtoken(httpRequest);
         if(StringUtils.isBlank(utoken) || id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
         List<MomiaHttpRequest> requests = buildProductOrderRequests(id, utoken);
@@ -138,8 +144,10 @@ public class ProductController extends BaseFunc {
                 return new PlaceOrderFtl((JSONObject) collector.getResponse("contacts"), (JSONArray) collector.getResponse("skus"));
             }
         });
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error!");
         List list = new ArrayList();
-        list.add(responseMessage);
+        list.add(responseMessage.getData());
         return new ModelAndView("./product/sku", "skus", list);
     }
 

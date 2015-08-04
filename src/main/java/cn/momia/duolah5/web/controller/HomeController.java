@@ -28,22 +28,7 @@ public class HomeController extends BaseFunc {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView home() {
-
-        final int pageIndex = 0;
-        int cityId =1;
-        final int start = pageIndex * conf.getInt("Home.PageSize");
-        final int count = conf.getInt("Home.PageSize");
-        List<MomiaHttpRequest> requests = buildHomeRequests(cityId, start, count);
-        ResponseMessage responseMessage = executeRequests(requests, new Function<MomiaHttpResponseCollector, Object>() {
-            @Override
-            public Object apply(MomiaHttpResponseCollector collector) {
-                return buildHomeDto(collector, start, count, pageIndex);
-            }
-        });
-
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("home", "home", list);
+        return new ModelAndView("home", "home", "");
 
     }
 

@@ -776,20 +776,7 @@ tq.home = {
       async: false,
       success: function(data) {
         if(data.errno == 0){
-          if(data.data.favored == true){
-            $(".collect img").attr("src", "image/collect_check2x.png");
-            $(".collect").on("click",function(){
-              var api = tq.url + "product/unfavor";
-              $.post(api, {utoken:utoken,id:id}, function(res){
-                if(res.errno == 0){
-                  $(".collect img").attr("src", "image/collect2.png");
-                }else{
-                  tq.t.alert(res.errmsg);
-                  tq.t.cancel();
-                }
-              });
-            })
-          }
+
           //获取顶部轮播
           var data1 = data.data.imgs;
           if (data1.length == 0) {
@@ -862,10 +849,10 @@ tq.home = {
                 } else if (data2[i].body[j].img != "" && data2[i].body[j].img != undefined) {
                   r += '<img src= ' + data2[i].body[j].img + '><br>';
                 }else if (data2[i].body[j].html){
-                  r += '<span>'+data2[i].body[j].html+'</sapn>';
+                  r += '<span>'+data2[i].body[j].html+'</span>';
                 } 
                 else {
-                  r += '<span>'+data2[i].body[j].text+'</sapn><br>';
+                  r += '<span>'+data2[i].body[j].text+'</span><br>';
                 }
 
               }
@@ -958,6 +945,25 @@ tq.home = {
     }
   }
 
+  //  取消收藏
+  ,
+  uncollect: function(){
+    var id = tq.t.getQueryString("id");
+    var utoken = tq.t.cookie.get("utoken");
+    if (!utoken || utoken == "" || utoken == null) {
+      location.href = "registerpsw.html?actsDetail.html?id=" + id + "";
+    } else {
+      var api = tq.url + "product/unfavor";
+      $.post(api, {utoken:utoken,id:id}, function(res){
+        if(res.errno == 0){
+          $(".collect img").attr("src", "image/collect2.png");
+        }else{
+          tq.t.alert(res.errmsg);
+          tq.t.cancel();
+        }
+      });
+    }
+  }
   // 获取个人收藏
   ,
   getCollect: function(){
@@ -970,6 +976,7 @@ tq.home = {
         var data = res.data.list;
         for(var i=0; i<data.length; i++){
           pro_id.push(data[i].id);
+          console.log(data[i].id);
           var s = '<div class="collect_pad">';
           s += '<img src="'+data[i].cover+'" alt="">';
           s += '<div class="collect_main">';
@@ -1034,7 +1041,7 @@ tq.home = {
           else{
             if (i == 0) {
               var s = "<div class='form01 flag'>";
-            } 
+            }
             else if (i == data.skus.length - 1) {
               var s = "<div class='form01' id='last'>";
             }

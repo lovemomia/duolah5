@@ -9,6 +9,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,5 +100,15 @@ public class BaseFunc extends AbstractController {
         if (response.successful()) return ((JSONObject) response.getData()).getLong("id");
 
         throw new RuntimeException("fail to get user id");
+    }
+
+    protected String getUtoken(HttpServletRequest httpRequest) {
+        Cookie[] cookies = httpRequest.getCookies();
+        for(Cookie cookie : cookies)
+            if(StringUtils.equals(cookie.getName(), "utoken")) {
+               return cookie.getValue();
+            }
+        return "";
+
     }
 }
