@@ -48,7 +48,7 @@
 =======
 <script type="text/javascript">
     tq.home.getIndexScrollImg($("#scroll_img"));
-    tq.home.getActsList($("#act_content"));
+    tq.home.getActsList($("#act_content"),0);
     if(tq.t.isandroid()){
         $(".ads_bot").addClass("none");
     }
@@ -67,8 +67,7 @@
         else{
             location.href = "profile.html";
         }
-
-    })
+    });
 </script>
 </body>
 </html>

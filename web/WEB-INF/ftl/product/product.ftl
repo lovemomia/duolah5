@@ -228,6 +228,23 @@
 
         tq.t.getScrollImg();
 
+        <#--if(${map.soldOut} == true || ${map.opened} == false){-->
+            <#--$(".btn.submit").css("background","gray");-->
+            <#--return;-->
+        <#--}else{-->
+            <#--$(".btn.submit").on("click", function() {-->
+                <#--var utoken = tq.t.cookie.get("utoken");-->
+                <#--var id = tq.t.getQueryString("id");-->
+                <#--if (!utoken || utoken == "" || utoken == null) {-->
+                    <#--location.href = "registerpsw.html?orderDetail.html?id=" + id + "";-->
+                <#--} else {-->
+                    <#--tq.t.delSession();-->
+                    <#--location.href = "orderDetail.html?id=" + id + "";-->
+                <#--}-->
+            <#--});-->
+        <#--}-->
+      //  tq.t.getDetailScrollImg();
+
 
     });
 </script>

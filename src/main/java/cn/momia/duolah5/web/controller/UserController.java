@@ -81,58 +81,11 @@ public class UserController extends BaseFunc {
     }
 
     @RequestMapping(value = "/user_order.html", method = RequestMethod.GET)
-    public ModelAndView getOrdersOfUser(@RequestParam String utoken,
-                                           @RequestParam(defaultValue = "1") int status,
-                                           @RequestParam int start) {
-        if (StringUtils.isBlank(utoken) || start < 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("status", status < 0 ? 1 : status)
-                .add("start", start)
-                .add("count", conf.getInt("Order.PageSize"));
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("order/user"), builder.build());
+    public ModelAndView getOrdersOfUser() {
 
-        ResponseMessage responseMessage =  executeRequest(request, pagedOrdersFunc);
-
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./user/ordersOfUser", "list", list);
+        return new ModelAndView("./user/ordersOfUser", "list", "");
     }
 
-    private Ftl buildOrdersDto(JSONObject ordersPackJson, int start, int count) {
-        PagedListFtl orders = new PagedListFtl();
-
-        long totalCount = ordersPackJson.getLong("totalCount");
-        orders.setTotalCount(totalCount);
-
-        JSONArray ordersJson = ordersPackJson.getJSONArray("list");
-        for (int i = 0; i < ordersJson.size(); i++) {
-            try {
-                orders.add(new OrderOfUserFtl(ordersJson.getJSONObject(i), true));
-            } catch (Exception e) {
-                LOGGER.error("fail to parse order: {}", ordersJson.getJSONObject(i), e);
-            }
-        }
-        if (start + count < totalCount) orders.setNextIndex(start + count);
-
-        return orders;
-    }
-
-
-    @RequestMapping(value = "/child", method = RequestMethod.GET)
-    public ModelAndView getChild(@RequestParam String utoken, @RequestParam(value = "cid") long childId) {
-        if(StringUtils.isBlank(utoken) || childId <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/child", childId), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/participant","participant",list);
-
-    }
 
     private Map<String, Object> buildChild(JSONObject childJson) {
         Map<String, Object> child = new HashMap<String, Object>();
@@ -146,20 +99,6 @@ public class UserController extends BaseFunc {
         return child;
     }
 
-    @RequestMapping(value = "/child/list", method = RequestMethod.GET)
-    public ModelAndView getChildren(@RequestParam String utoken) {
-        if(StringUtils.isBlank(utoken)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/child"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/children","list",list);
-
-    }
 
     private Ftl buildChildrenDto(JSONArray childrenJson) {
         ListFtl children = new ListFtl();
@@ -175,19 +114,8 @@ public class UserController extends BaseFunc {
         return children;
     }
 
-    @RequestMapping(value = "/favorite", method = RequestMethod.GET)
-    public ModelAndView getFavoritesOfUser(@RequestParam String utoken, @RequestParam int start) {
-        if (StringUtils.isBlank(utoken) || start < 0) new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("start", start)
-                .add("count", conf.getInt("Favorite.PageSize"));
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/favorite"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, pagedProductsFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./user/ordersOfUser", "list", list);
+    @RequestMapping(value = "/collect.html", method = RequestMethod.GET)
+    public ModelAndView getFavoritesOfUser() {
+        return new ModelAndView("./user/myfavorite", "list", "");
     }
 }

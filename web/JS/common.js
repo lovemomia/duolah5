@@ -244,6 +244,21 @@ tq.t = {
     sessionStorage.removeItem("childSum");
     sessionStorage.removeItem("participant_idArr");
   }
+
+  // 判断是否在可视区域
+  ,
+  isView: function(obj){
+    var a = $(obj).offsetTop;
+    console.log(a);
+    if (a >= $(window).scrollTop() && a < ($(window).scrollTop()+$(window).height())) {
+        // alert("div在可视范围");
+        // console.log("在可视区域")
+        return true;
+    }else{
+      return false;
+    }
+  }
+  // 判断设备
   , 
   isandroid: function () {
       return navigator.userAgent.toLowerCase().indexOf('android') != -1;
@@ -692,14 +707,18 @@ tq.home = {
   }
   //获取活动列表数据
   ,
-  getActsList: function(wrap) {
-    api = tq.url + "home?pageindex=0&city=1";
-    $.get(api, {}, function(data) {
+  getActsList: function(wrap,pageindex) {
+    api = tq.url + "home";
+    $.get(api, {pageindex:pageindex,city:1}, function(data) {
       if(data.errno == 0){
         var data = data.data.products;
         for (var i = 0; i < data.length; i++) {
           var id = data[i].id;
-          var s = '<div class="act_list">';
+          if(i == data.length-1){
+            var s = '<div class="act_list last_act">';
+          }else{
+            var s = '<div class="act_list">';
+          }
           s += "<a href=actsDetail.html?id=" + id + ">";
           s += '<img src=' + data[i].cover + ' />'; //获取图片
           s += '<div class="act_detail">';
@@ -764,167 +783,6 @@ tq.home = {
     });
   }
 
-  //活动详情页数据获取;
-  ,
-  getDetailScrollImg: function(wrap) {
-    var id = tq.t.getQueryString("id");
-    var utoken = tq.t.cookie.get("utoken"); 
-    api = tq.url + "product?id=" + id+"&utoken="+utoken+"";
-    $.ajax({
-      type: "get",
-      url: api,
-      async: false,
-      success: function(data) {
-        if(data.errno == 0){
-
-          //获取顶部轮播
-          var data1 = data.data.imgs;
-          if (data1.length == 0) {
-            $(wrap).css("display", "none");
-          }else if(data1.length == 1) {
-            for (var i = 0; i < data1.length; i++) {
-              var s = "<img src='" + data1[i] + "' width='100%' />";
-            }
-            $(wrap).append(s);
-          }else {
-            var ul1 = "<ul class = 'scroll_wrap' id='scroll_wrap'>";
-            for (var i = 0; i < data1.length; i++) {
-              ul1 += "<li><img src='" + data1[i] + "' width='100%' /></li>";
-            }
-            ul1 += "</ul>";
-
-            var ul2 = "<ul class='scroll_position' id='scroll_position'>";
-            for (var j = 0; j < data1.length; j++) {
-              if (j == 0) {
-                ul2 += "<li class='on'><a href='javascript:void(0);'</a></li>";
-              } else {
-                ul2 += "<li><a href='javascript:void(0);'</a></li>";
-              }
-            }
-            ul2 += "</ul>";
-            $(wrap).append(ul1).append(ul2);
-            wrap_li = $("#scroll_position");
-            tq.t.getScrollImg();
-          }
-
-          //获取活动流程，活动特色等数据
-          var data2 = data.data.content;
-          for (var i = 0; i < data2.length; i++) {
-            if (data2[i].style === "ol") {
-              var r = '<div class="tips_list">';
-              r += '<h3>' + data2[i].title + '</h3>';
-              r += '<ol class="tips_article spec1 spes" style="margin-left:0.15rem">';
-              for (var j = 0; j < data2[i].body.length; j++) {
-                if (data2[i].body[j].link == "" || data2[i].body[j].link == undefined) {
-                  r += '<li>' + data2[i].body[j].text + '</li>';
-                }
-              }
-              r += '</ol>';
-              for (var j = 0; j < data2[i].body.length; j++) {
-                if (data2[i].body[j].link != "" && data2[i].body[j].link != undefined) {
-                  r += '<div class="word_img">';
-                  r += '<a href = ' + data2[i].body[j].link + '>' + data2[i].body[j].text + '<span class="more01"></span></a>';
-                  r += '</div>';
-                }
-              }
-              r += '</div>';
-              $(".content_list").append(r);
-            } else if (data2[i].style === "ul") {
-              var r = '<div class="tips_list ">';
-              r += '<h3>' + data2[i].title + '</h3>';
-              r += '<ul class="tips_article spes" id="pad_left">';
-              for (var j = 0; j < data2[i].body.length; j++) {
-                r += '<li>' + data2[i].body[j].text + '</li>';
-              }
-              r += '</ul></div>';
-              $(".content_list").append(r);
-            } else {
-              var r = '<div class="tips_list">';
-              r += '<h3>' + data2[i].title + '</h3>';
-              r += '<p class="tips_article spec spes">';
-              for (var j = 0; j < data2[i].body.length; j++) {
-
-                if (data2[i].body[j].label != "" && data2[i].body[j].label != undefined) {
-                  r += '<span class="orange">' + data2[i].body[j].label + ':</span>' + data2[i].body[j].text + '<br>';
-                } else if (data2[i].body[j].img != "" && data2[i].body[j].img != undefined) {
-                  r += '<img src= ' + data2[i].body[j].img + '><br>';
-                }else if (data2[i].body[j].html){
-                  r += '<span>'+data2[i].body[j].html+'</span>';
-                } 
-                else {
-                  r += '<span>'+data2[i].body[j].text+'</span><br>';
-                }
-
-              }
-              r += '</p></div>';
-              $(".content_list").append(r);
-            }
-          }
-
-          //获取title等信息
-          var data3 = data.data.customers;
-          if(data3){
-            var m = '<h3>' + data3.text + '</h3>';
-            m += "<div style='clear:both'></div>";
-            if(data3.avatars){
-              for (var i = 0; i < data3.avatars.length; i++) {
-                if(data3.avatars[i] == ""){
-                  m += "<img src = 'image/default.png' />";
-                }else{
-                  m += "<img src = " + data3.avatars[i] + " />";
-                }             
-              }
-            }else{
-              $(".attent_total").addClass("none");
-            }
-            m += "<div style='clear:both'></div>";
-            $(".attent_total").append(m);
-            $(".attent_total").on("click", function(){
-              location.href = "partner.html?id="+id+"";
-            })
-          }
-
-          var n = "<h3>" + data.data.title + "</h3>";
-          document.title = data.data.title;
-          n += "<div class='act_attend'>";
-          if(data.data.joined == 0){
-            n += "<span class='num'></span>";
-          }else{
-            n += "<span class='num'><i>" + data.data.joined + "</i>人报名</span>";
-          }
-          n += "<span class='act_price orange'><i style='font-size:0.1rem;'>￥</i><i>" + data.data.price + "</i><i style='font-size:0.1rem;'>起</i></span>";
-          n += "</div>";
-          $(".act_detail").append(n);
-
-          if(data.data.tags){
-            for(var i=0; i<data.data.tags.length; i++){
-              var m = "<span>"+data.data.tags[i]+"</span>";
-              $(".act_safe").append(m);
-            }
-          }
-
-          var k = "<p class='child_age'><img src='image/umbrella.png'>" + data.data.crowd + "</p>";
-          k += "<p class='tel'><img src='image/alarm.png'>" + data.data.scheduler + "</p>";
-          k += "<p class='address' id='last'><img src='image/address2.png'>" + data.data.address + "</p>";
-          $(".tips").append(k);
-
-          $(".btn.submit").on("click", function() {
-            var utoken = tq.t.cookie.get("utoken");
-            if (!utoken || utoken == "" || utoken == null) {
-              location.href = "registerpsw.html?orderDetail.html?id=" + id + "";
-            } else {
-              tq.t.delSession();
-              location.href = "orderDetail.html?id=" + id + "";
-            }
-          })
-        }else{
-          tq.t.alert(data.errmsg);
-          tq.t.cancel();
-        }
-      }
-    });
-  }
-
   // 收藏活动
   ,
   collect: function(){
@@ -945,7 +803,7 @@ tq.home = {
     }
   }
 
-  //  取消收藏
+  //uncollect
   ,
   uncollect: function(){
     var id = tq.t.getQueryString("id");
@@ -964,6 +822,7 @@ tq.home = {
       });
     }
   }
+
   // 获取个人收藏
   ,
   getCollect: function(){
@@ -976,7 +835,6 @@ tq.home = {
         var data = res.data.list;
         for(var i=0; i<data.length; i++){
           pro_id.push(data[i].id);
-          console.log(data[i].id);
           var s = '<div class="collect_pad">';
           s += '<img src="'+data[i].cover+'" alt="">';
           s += '<div class="collect_main">';
@@ -1041,7 +899,7 @@ tq.home = {
           else{
             if (i == 0) {
               var s = "<div class='form01 flag'>";
-            }
+            } 
             else if (i == data.skus.length - 1) {
               var s = "<div class='form01' id='last'>";
             }
@@ -1560,6 +1418,7 @@ tq.home = {
       var id = tq.t.getQueryString("id"); //此id为product_id;
       var adult = sessionStorage.getItem("adultSum");
       var child = sessionStorage.getItem("childSum");
+      var url = location.href;
 
       api = tq.url + "participant/list?utoken=" + utoken + "";
 
@@ -1588,7 +1447,7 @@ tq.home = {
           }
           $(".form01").on("click", function() {
             var index = $(".form01").index(this); //获取当前出行人的id进入编辑
-            location.href = "edit_Outer.html?outer_id=" + data[index].id + "&id="+id+"";
+            location.href = "edit_Outer.html?outer_id=" + data[index].id + "&url="+url+"";
           });
 
           $(".form01 .pay-chk").on("click", function() {
@@ -1599,7 +1458,7 @@ tq.home = {
           });
 
           $(".add").on("click", function() { // 传入product_id
-              location.href = "addOuter.html?id=" + id + "";
+              location.href = "addOuter.html?id=" + id + "&url="+url+"";
             })
             //选择
           $(".add_submit").on("click", function() {
@@ -1624,8 +1483,7 @@ tq.home = {
                 
               } //for_end
               if (childSum == child && adultSum == adult) {
-                location.href = "orderDetail.html?id=" + id + "";
-                // console.log(sessionStorage.getItem("fee_arr"));
+                location.href = "orderDetail.html?id=" + id + ""; 
               } else {
                 tq.t.alert("所选出行人数目不匹配");
                 tq.t.cancel();
@@ -1647,7 +1505,7 @@ tq.home = {
   get_edit_Outer: function() {
     var outer_id = tq.t.getQueryString("outer_id");
     var utoken = tq.t.cookie.get("utoken");
-    var id = tq.t.getQueryString("id");
+    var url = tq.t.getQueryString("url");
     api = tq.url + "participant?id=" + outer_id + "&utoken=" + utoken + "";
     $.get(api, {}, function(res) {
       if(res.errno == 0){
@@ -1700,15 +1558,27 @@ tq.home = {
           participant: data
         }, function(res) {
           if (res.errno == 0) {
-            location.href = "choose_Outer.html?id=" + id + "";
+            location.href = url;
           } else {
             tq.t.alert(res.errmsg);
             tq.t.cancel();
           }
         });
       }
-
     });
+
+    // 删除出行人
+    $(".delete").on("click",function(){
+      var api = tq.url + "participant/delete";
+      $.post(api,{utoken:utoken,id:outer_id},function(res){
+        if(res.errno == 0){
+          location.href = url;
+        }else{
+          tq.t.alert(res.errmsg);
+          tq.t.cancel();
+        }
+      })
+    })
   }
 
   //添加出行人
@@ -1718,6 +1588,7 @@ tq.home = {
       var id = tq.t.getQueryString("id");
       var utoken = tq.t.cookie.get("utoken");
       var api = tq.url + "participant?utoken=" + utoken + "";
+      var url = tq.t.getQueryString("url");
       if ($("#realname").val() == "" || $("#birth").val() == "" || $("#gender").val() == "" || $("#card_num").val() == "" || $("#certificate").val() == "") {
         tq.t.alert("信息不完整");
         tq.t.cancel();
@@ -1738,7 +1609,7 @@ tq.home = {
             participant: data
           }, function(res) {
             if (res.errno == 0) {
-              location.href = "choose_Outer.html?id=" + id + "";
+              location.href = url;
             }else{
               tq.t.alert(res.errmsg);
               tq.t.cancel();
@@ -1793,139 +1664,15 @@ tq.home = {
   ,
   getComOuter: function() {
       var utoken = tq.t.cookie.get("utoken");
-      api = tq.url + "participant/list?utoken=" + utoken + "";
-      $.get(api, {}, function(res) {
-        if(res.errno == 0){
-          var data = res.data;
-          for (var i = 0; i < data.length; i++) {
-            if (i == data.length - 1) {
-              var s = "<div class='form01' id='last'>";
-            } else {
-              var s = "<div class='form01'>";
-            }
-            s += "<div class='left outer_info'>";
-            s += "<span class='name'>" + data[i].name + "</span>";
-            s += "<span class='age'>" + data[i].type + "</span>";
-            s += "<span class='sex'>" + data[i].sex + "</span>";
-            s += "</a></div>";
-            s += "<div style='clear:both'></div>";
-            s += "</div>";
-            $(".order_detail").append(s);
-          }
-          $(".form01").on("click", function() {
-            var index = $(".form01").index(this);
-            location.href = "edit_com_outer.html?id=" + data[index].id + "";
-          });
+      var url = location.href;
+      $(".form01").on("click", function() {
+        var index = $(".form01").index(this);
+        location.href = "edit_outer.html?outer_id=" + data[index].id + "&url="+url+"";
+      });
 
-          $(".add").on("click", function() {
-            location.href = "addComOuter.html";
-          })
-        }else{
-          tq.t.alert(res.errmsg);
-          tq.t.cancel();
-        }
-      }); //get请求end
-  }
-  //编辑常用出行人
-  ,
-  editComOuter: function() {
-    var id = tq.t.getQueryString("id");
-    var utoken = tq.t.cookie.get("utoken");
-
-    api = tq.url + "participant?id=" + id + "&utoken=" + utoken + "";
-    $.get(api, {}, function(res) {
-      if(res.errno == 0){
-
-        $("#realname").val(res.data.name); //姓名
-        var arr_opt = $("#gender option"); //性别
-        if ($(arr_opt[0]).html() == res.data.sex) {
-          $(arr_opt[0]).attr("selected", "selected");
-        } else {
-          $(arr_opt[1]).attr("selected", "selected");
-        }
-        $("#birth").val(res.data.birthday);
-        if (res.data.idType == 1) { //证件类型
-          $(".id_card").attr("selected", "selected");
-        } else if (res.data.idType == 2) {
-          $(".passport").attr("selected", "selected");
-        }
-        $("#card_num").val(res.data.idNo); //证件号码
-      }else{
-        tq.t.alert(res.errmsg);
-        tq.t.cancel();
-      }
-    });
-
-    $(".edit_submit").on("click", function() {
-      var utoken = tq.t.cookie.get("utoken");
-      var api = tq.url + "participant/update?utoken=" + utoken + "";
-      if ($("#realname").val() == "" || $("#birth").val() == "" || $("#gender").val() == "" || $("#card_num").val() == "" || $("#certificate").val() == "") {
-        tq.t.alert("信息不完整");
-        tq.t.cancel();
-      } else if (!tq.t.valiID($("#card_num").val()) && !tq.t.valiPass($("#card_num").val())) {
-        tq.t.alert("证件号码不正确");
-        tq.t.cancel();
-      } else {
-        var arr = {
-          "id": id,
-          "name": $("#realname").val(),
-          "birthday": $("#birth").val(),
-          "sex": $("#gender").val(),
-          "idType": $("#certificate").val(),
-          "idNo": $("#card_num").val()
-        }
-        var data = JSON.stringify(arr);
-        $.post(api, {
-          participant: data
-        }, function(res) {
-          if (res.errno == 0) {
-            location.href = "com_outer.html";
-          } else {
-            tq.t.alert(res.errmsg);
-            tq.t.cancel();
-          }
-        });
-      }
-    });
-  }
-
-  //添加常用出行人
-  ,
-  add_com_Outer: function() {
-    $(".add").on("click", function() {
-      // var utoken = localStorage.getItem("utoken");
-      var utoken = tq.t.cookie.get("utoken");
-      var api = tq.url + "participant?utoken=" + utoken + "";
-
-      if ($("#realname").val() == "" || $("#birth").val() == "" || $("#gender").val() == "" || $("#card_num").val() == "" || $("#certificate").val() == "") {
-        tq.t.alert("信息不完整");
-        tq.t.cancel();
-      } else {
-        if (!tq.t.valiID($("#card_num").val()) && !tq.t.valiPass($("#card_num").val())) {
-          tq.t.alert("证件号码不正确");
-          tq.t.cancel();
-        } else {
-          var arr = {
-            "name": $("#realname").val(),
-            "sex": $("#gender").val(),
-            "birthday": $("#birth").val(),
-            "idType": $("#certificate").val(),
-            "idNo": $("#card_num").val()
-          }
-          var data = JSON.stringify(arr);
-          $.post(api, {
-            participant: data
-          }, function(res) {
-            if (res.errno == 0) {
-              location.href = "com_outer.html";
-            } else {
-              tq.t.alert(res.errmsg);
-              tq.t.cancel();
-            }
-          });
-        }
-      }
-    });
+      $(".add").on("click", function() {
+        location.href = "addOuter.html?url="+url+"";
+      })
   }
 
   //我的订单页面
@@ -2211,8 +1958,9 @@ tq.home = {
   // 我的信息
   ,
   profileInfo: function(){
+    var utoken = tq.t.cookie.get("utoken");
+    var api = tq.url + "user?utoken=" + utoken + "";
     $(".order_detail .chk_num .plus").on("click", function(){
-
       var input = $(this).siblings(".num01");
       if(parseInt(input.html()) >=5){
         input.html("5");
