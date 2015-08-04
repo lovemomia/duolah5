@@ -1503,40 +1503,43 @@ tq.home = {
   //编辑出行人
   ,
   get_edit_Outer: function() {
-    var outer_id = tq.t.getQueryString("outer_id");
+    var outer_id = tq.t.getQueryString("id");
     var utoken = tq.t.cookie.get("utoken");
     var url = tq.t.getQueryString("url");
-    api = tq.url + "participant?id=" + outer_id + "&utoken=" + utoken + "";
-    $.get(api, {}, function(res) {
-      if(res.errno == 0){
-
-        //将信息显示出来
-        $("#realname").val(res.data.name); //姓名
-        var arr_opt = $("#gender option"); //性别
-        if ($(arr_opt[0]).html() == res.data.sex) {
-          $(arr_opt[0]).attr("selected", "selected");
-        } else {
-          $(arr_opt[1]).attr("selected", "selected");
-        }
-        $("#birth").val(res.data.birthday);
-
-        if (res.data.idType == 1) { //证件类型
-          $(".id_card").attr("selected", "selected");
-        } else if (res.data.idType == 2) {
-          $(".passport").attr("selected", "selected");
-        }
-
-        $("#card_num").val(res.data.idNo); //证件号码
-
-      }else{
-        tq.t.alert(res.errmsg);
+    //将修改后的提交
+    $(".edit_submit").on("click", function() {
+      var api = tq.url + "participant/update?utoken=" + utoken + "";
+      if ($("#realname").val() == null || $("#birth").val() == null || $("#gender").val() == null || $("#card_num").val() == null || $("#certificate").val() == null) {
+        tq.t.alert("信息不完整");
         tq.t.cancel();
+      } else if (!tq.t.valiID($("#card_num").val()) && !tq.t.valiPass($("#card_num").val())) {
+        tq.t.alert("证件号码不正确");
+        tq.t.cancel();
+      } else {
+        var arr = {
+          "id": outer_id,
+          "name": $("#realname").val(),
+          "birthday": $("#birth").val(),
+          "sex": $("#gender").val(),
+          "idType": $("#certificate").val(),
+          "idNo": $("#card_num").val()
+        }
+        var data = JSON.stringify(arr);
+        $.post(api, {
+          participant: data
+        }, function(res) {
+          if (res.errno == 0) {
+            location.href = url;
+          } else {
+            tq.t.alert(res.errmsg);
+            tq.t.cancel();
+          }
+        });
       }
     });
 
     //将修改后的提交
     $(".edit_submit").on("click", function() {
-      var utoken = tq.t.cookie.get("utoken");
       var api = tq.url + "participant/update?utoken=" + utoken + "";
       if ($("#realname").val() == null || $("#birth").val() == null || $("#gender").val() == null || $("#card_num").val() == null || $("#certificate").val() == null) {
         tq.t.alert("信息不完整");
@@ -1666,8 +1669,8 @@ tq.home = {
       var utoken = tq.t.cookie.get("utoken");
       var url = location.href;
       $(".form01").on("click", function() {
-        var index = $(".form01").index(this);
-        location.href = "edit_outer.html?outer_id=" + data[index].id + "&url="+url+"";
+        var outer_id = $(this).attr("id");
+        location.href = "edit_outer.html?id="+outer_id+"&url="+url+"";
       });
 
       $(".add").on("click", function() {

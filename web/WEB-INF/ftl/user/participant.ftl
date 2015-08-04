@@ -32,7 +32,7 @@
             <div class="order_detail">
                 <#list outer as map>
                     <#if map_index != outer?size-1>
-                    <div class="form01">
+                    <div class="form01" id="${map.id}">
                         <div class="left outer_info">
                             <a href="">
                                 <span class="name">${map.name}</span>
@@ -44,7 +44,7 @@
                     </div>
                 </#if>
                     <#if map_index == outer?size-1>
-                    <div class="form01 last">
+                    <div class="form01 last" id="${map.id}">
                         <div class="left outer_info">
                             <span class="name">${map.name}</span>
                             <span class="age"><#if map.age??>${map.age}</#if></span>

@@ -17,7 +17,7 @@
     </header>
 
     <section>
-        <!-- <div class="collect_pad">
+         <div class="collect_pad">
             <img src="image/photo.jpg" alt="">
             <div class="collect_main">
                 <div class="collect_info">
@@ -29,7 +29,7 @@
                     </p>
                 </div>
             </div>
-        </div> -->
+        </div>
     </section>
 </article>
 
