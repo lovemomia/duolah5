@@ -213,6 +213,10 @@
         $(".ads_top").on("click", function(){
             location.href = "../../../downapp.html";
         });
+        $(".attent_total").on("click", function(){
+            var id = tq.t.getQueryString("id");
+            location.href = "partner.html?id="+id+"";
+        })
 
         <#if map.favored?c == "true">
             $(".collect").on("click",function(){
@@ -225,8 +229,13 @@
                 tq.home.collect();
             })
         </#if>
+        if(${map.imgs?size} >1 )
+        {
+            console.log(1);
+            tq.t.getScrollImg();
+        }
 
-        tq.t.getScrollImg();
+
         <#if map.soldOut?c == "true"|| map.opened?c == "false">
             $(".btn.submit").css("background","gray");
             return;
@@ -243,11 +252,7 @@
                 }
             });
          </#if>
-      //  tq.t.getDetailScrollImg();
-        $(".attent_total").on("click", function(){
-            var id = tq.t.getQueryString("id");
-            location.href = "partner.html?id="+id+"";
-        })
+
 
     });
 </script>

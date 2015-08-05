@@ -17,19 +17,7 @@
     </header>
 
     <section>
-         <div class="collect_pad">
-            <img src="image/photo.jpg" alt="">
-            <div class="collect_main">
-                <div class="collect_info">
-                    <p class="title">哆啦A梦密室逃脱</p>
-                    <p class="schedule">6月18号到8月18号</p>
-                    <p class="ad_pr" style="margin-bottom:0">
-                        <span class="address">中山公园</span>
-                        <span class="price">150<i>起</i></span>
-                    </p>
-                </div>
-            </div>
-        </div>
+
     </section>
 </article>
 

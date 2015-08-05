@@ -1479,7 +1479,7 @@ tq.home = {
     var url = tq.t.getQueryString("url");
     //将修改后的提交
     $(".edit_submit").on("click", function() {
-      var api = tq.url + "participant/update?utoken=" + utoken + "";
+      var api = tq.url + "participant/update";
       if ($("#realname").val() == null || $("#birth").val() == null || $("#gender").val() == null || $("#card_num").val() == null || $("#certificate").val() == null) {
         tq.t.alert("信息不完整");
         tq.t.cancel();
@@ -1497,7 +1497,7 @@ tq.home = {
         }
         var data = JSON.stringify(arr);
         $.post(api, {
-          participant: data
+          participant: data,utoken:utoken
         }, function(res) {
           if (res.errno == 0) {
             location.href = url;
@@ -1509,38 +1509,9 @@ tq.home = {
       }
     });
 
-    //将修改后的提交
-    $(".edit_submit").on("click", function() {
-      var api = tq.url + "participant/update?utoken=" + utoken + "";
-      if ($("#realname").val() == null || $("#birth").val() == null || $("#gender").val() == null || $("#card_num").val() == null || $("#certificate").val() == null) {
-        tq.t.alert("信息不完整");
-        tq.t.cancel();
-      } else if (!tq.t.valiID($("#card_num").val()) && !tq.t.valiPass($("#card_num").val())) {
-        tq.t.alert("证件号码不正确");
-        tq.t.cancel();
-      } else {
-        var arr = {
-          "id": outer_id,
-          "name": $("#realname").val(),
-          "birthday": $("#birth").val(),
-          "sex": $("#gender").val(),
-          "idType": $("#certificate").val(),
-          "idNo": $("#card_num").val()
-        }
-        var data = JSON.stringify(arr);
-        $.post(api, {
-          participant: data
-        }, function(res) {
-          if (res.errno == 0) {
-            location.href = url;
-          } else {
-            tq.t.alert(res.errmsg);
-            tq.t.cancel();
-          }
-        });
-      }
-    });
-
+    $(".back").on("click",function(){
+      location.href = url;
+    })
     // 删除出行人
     $(".delete").on("click",function(){
       var api = tq.url + "participant/delete";
@@ -1634,21 +1605,6 @@ tq.home = {
         })
       }
   }
-  //常用出行人
-  ,
-  getComOuter: function() {
-      var utoken = tq.t.cookie.get("utoken");
-      var url = location.href;
-      $(".form01").on("click", function() {
-        var outer_id = $(this).attr("id");
-        location.href = "edit_outer.html?id="+outer_id+"&url="+url+"";
-      });
-
-      $(".add").on("click", function() {
-        location.href = "addOuter.html?url="+url+"";
-      })
-  }
-
   //我的订单页面
   ,
   user_order: function() {
@@ -2019,7 +1975,7 @@ tq.home = {
   // 动态添加小孩信息标签
   ,
   addChildInfo: function(name, gender, birth){
-      var s = "<div class='form bot' style='border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;'>";
+      var s = "<div class='form bot' style='border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;onclick=''>";
       s += "<div class='fitem_input edit'>";
       s += "<span class='fh'>大宝姓名</span>";
       s += "<span class='fd tr cNickname' id='right'>"+name+"</span>";

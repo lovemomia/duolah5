@@ -62,9 +62,16 @@
 </article>
 
 <script>
-    $(function(){
-        tq.t.back();
-        tq.home.getComOuter();
+    var url = location.href;
+    $(".form01").on("click", function() {
+        var outer_id = $(this).attr("id");
+        location.href = "edit_outer.html?id="+outer_id+"&url="+url+"";
+    });
+    $(".back").on("click",function(){
+        location.href = "profile.html";
+    });
+    $(".add").on("click", function() {
+        location.href = "addOuter.html?url="+url+"";
     })
 </script>
 </body>

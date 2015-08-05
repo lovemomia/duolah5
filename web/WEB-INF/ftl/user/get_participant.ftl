@@ -53,7 +53,7 @@
                 <span class="fh">证件类型</span>
 					<span class="fd">
 						<select class="realname fdc" id="certificate" style="width:100%;color: #333;">
-                            <#if map.type = "1">
+                            <#if map.idType = 1>
                                 <option value="1" class="id_card" selected = "selected">身份证</option>
                                 <option value="2" class="passport">护照</option>
                             <#else>
@@ -68,7 +68,7 @@
             <div class="fitem_input">
                 <span class="fh">证件号码</span>
 					<span class="fd">
-						<input	type="text" id="card_num" class="realname" maxlength="18" value=${map.idNo} style="color: #333;">
+						<input	type="text" id="card_num" class="realname" maxlength="18" <#if map.idNo??>value='${map.idNo}'</#if> style="color: #333;">
                         </input>
 					</span>
             </div>

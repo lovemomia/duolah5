@@ -27,9 +27,9 @@
                 <span class="fh" style="line-height:0.6rem">头像</span>
 					<span class="fd" id="right">
                         <#if map[key].avatar!="">
-						<img src = "${map[key].avatar}"  class="nick_img">
-                            <#else>
-                                 <img src="image/default02.png" alt="" class="nick_img">
+                            <img src = "${map[key].avatar}"  class="nick_img">
+                        <#else>
+                            <img src="image/default02.png" alt="" class="nick_img">
                         </#if>
 						<form method="post" action="http://upload.momia.cn/upload/image" enctype="multipart/form-data" accept="image/*" name="fileinfo" target="ifr1">
                             <input type="file" id="browsefile" name="file">
@@ -61,9 +61,8 @@
 
             <div class="fitem_input edit">
                 <span class="fh">常居地</span>
-					<span class="fd tr address" id="right">${map[key].address}
-
-					</span>
+					<span class="fd tr address" id="right"><#if map[key].address!= "">${map[key].address}<#else >上海</#if>
+                    </span>
             </div>
 
         </div>
@@ -80,31 +79,28 @@
         </div>
 
         <div class="babyMain">
-                            <#if map[key].children??>
-                                <#list map[key].children as child>
-            <div class="form bot" style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;">
-                <div class="fitem_input edit">
-                    <span class="fh">大宝姓名</span>
-                    <span class="fd tr cNickname test"  id=${child.id}>${child.name}</span>
-                </div>
+                <#if map[key].children??>
+                    <#list map[key].children as child>
+                        <div class="form bot" style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;">
+                            <div class="fitem_input edit">
+                                <span class="fh">大宝姓名</span>
+                                <span class="fd tr cNickname test"  id=${child.id}>${child.name}</span>
+                            </div>
 
+                            <div class="fitem_input edit">
+                                <span class="fh">性别</span>
+                                <span class="fd tr cGender test" id=${child.id}>${child.sex}</span>
+                            </div>
 
-            <div class="fitem_input edit">
-                    <span class="fh">性别</span>
-                    <span class="fd tr cGender test" id=${child.id}>${child.sex}</span>
-                </div>
-
-
-
-                <div class="fitem_input edit">
-                    <span class="fh">生日</span>
-                    <span class="fd tr cBirth test" id=${child.id}>${child.birthday}</span>
-                </div>
-
-        </div>
-        </div
+                            <div class="fitem_input edit">
+                                <span class="fh">生日</span>
+                                <span class="fd tr cBirth test" id=${child.id}>${child.birthday}</span>
+                            </div>
+                        </div>
                     </#list>
                 </#if>
+        </div>
+
             </#if>
         </#if>
     </#list>
@@ -129,43 +125,5 @@
         tq.home.uploadImg();
     })
 </script>
-<#--
-<#list list as map>
-    <#list map?keys as key>
-        <#if key = "errno">
-           errno:${map[key]}
-        </#if>
-        <#if key = "errmsg">
-        errmsg:${map[key]}
-        </#if>
-        <#if key = "data">
-        <#if map[key] ??>
-        avatar:${map[key].avatar}
-        mobile:${map[key].mobile}
-        address:${map[key].address}
-        nickname:${map[key].nickName}
-        <#if map[key].children??>
-        <#list map[key].children as child>
-            <#list child?keys as childKey>
-                <#if childKey = "id">
-                id:${child[childKey]}
-                </#if>
-                <#if childKey = "name">
-                name:${child[childKey]}
-                </#if>
-                <#if childKey = "sex">
-                sex:${child[childKey]}
-                </#if>
-                <#if childKey = "birthday">
-                birthday:${child[childKey]}
-                </#if>
-            </#list>
-        </#list>
-        </#if>
-        </#if>
-        </#if>
-
-    </#list>
-</#list>-->
 </body>
 </html>
