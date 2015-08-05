@@ -61,19 +61,6 @@ public class ParticipantController extends BaseFunc {
         return new ModelAndView("./user/participant", "participant", list);
     }
 
-    private Ftl buildParticipantsDto(JSONArray participantsJson) {
-        ListFtl participants = new ListFtl();
-        for (int i = 0; i < participantsJson.size(); i++) {
-            try {
-                JSONObject participantJson = participantsJson.getJSONObject(i);
-                participants.add(new ParticipantFtl(participantJson));
-            } catch (Exception e) {
-                LOGGER.error("invalid participant: {}", participantsJson.get(i));
-            }
-        }
-
-        return participants;
-    }
 
 
 }

@@ -1,5 +1,8 @@
 package cn.momia.duolah5.web.controller;
 
+import cn.momia.duolah5.ftl.base.Ftl;
+import cn.momia.duolah5.ftl.base.ParticipantFtl;
+import cn.momia.duolah5.ftl.composite.ListFtl;
 import cn.momia.duolah5.web.http.MomiaHttpParamBuilder;
 import cn.momia.duolah5.web.http.MomiaHttpRequest;
 import cn.momia.duolah5.web.http.MomiaHttpResponseCollector;
@@ -170,7 +173,7 @@ public class ProductController extends BaseFunc {
         return MomiaHttpRequest.GET("skus", true, url("product", productId, "sku"));
     }
 
-    @RequestMapping(value = "/playmate", method = RequestMethod.GET)
+    @RequestMapping(value = "/partner.html", method = RequestMethod.GET)
     public ModelAndView getProductPlaymates(@RequestParam long id) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("start", 0)
@@ -193,9 +196,27 @@ public class ProductController extends BaseFunc {
                 return data;
             }
         });
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error!");
         List list = new ArrayList();
-        list.add(responseMessage);
+        list.add(responseMessage.getData());
         return new ModelAndView("./product/playmates", "playmates", list);
+    }
+
+    @RequestMapping(value = "/choose_Outer.html", method = RequestMethod.GET)
+    public ModelAndView getParticipants(HttpServletRequest httpRequest) {
+        String utoken = getUtoken(httpRequest);
+
+        if (StringUtils.isBlank(utoken)) return new ModelAndView("success", "msg", "invalid param");
+        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("participant"), builder.build());
+        ResponseMessage responseMessage =  executeRequest(request);
+        if(responseMessage.getErrno() != 0 )
+            return new ModelAndView("BadRequest", "errmsg", "error!");
+
+        List list = new ArrayList();
+        list.add(responseMessage.getData());
+        return new ModelAndView("./product/sku_participant", "participant", list);
     }
 
 

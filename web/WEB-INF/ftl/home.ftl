@@ -55,7 +55,7 @@
     if(tq.t.isios()){
         $(".ads_bot").removeClass("none");
         $(".ads_bot").on("click", function(){
-            location.href = "downapp.html";
+            location.href = "../../downapp.html";
         });
     }
 

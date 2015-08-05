@@ -958,22 +958,22 @@ tq.home = {
               
             } else if (data1[j].adult == 0) {
               if(data1[j].desc){
-                m += "<p class='time child' id="+data1[j].child+">" + data1[j].child + "儿童("+data1[j].desc+")：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
+                m += "<p class='time child' id="+data1[j].child+"c>" + data1[j].child + "儿童("+data1[j].desc+")：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
                 m += "</div>";
                 m += "<div class='chk_num right c'>";
               }else{
-                m += "<p class='time child' id="+data1[j].child+">" + data1[j].child + "儿童：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
+                m += "<p class='time child' id="+data1[j].child+"c>" + data1[j].child + "儿童：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
                 m += "</div>";
                 m += "<div class='chk_num right c'>";
               }
               
             } else if (data1[j].child == 0) {
               if(data1[j].desc){
-                m += "<p class='time adult' id="+data1[j].adult+">" + data1[j].adult + "成人("+data1[j].desc+")：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
+                m += "<p class='time adult' id="+data1[j].adult+"a>" + data1[j].adult + "成人("+data1[j].desc+")：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
                 m += "</div>";
                 m += "<div class='chk_num right a'>";
               }else{
-                m += "<p class='time adult' id="+data1[j].adult+">" + data1[j].adult + "成人：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
+                m += "<p class='time adult' id="+data1[j].adult+"a>" + data1[j].adult + "成人：￥<i class='orange fee1'>" + data1[j].price + "</i>/" + data1[j].unit + "</p>";
                 m += "</div>";
                 m += "<div class='chk_num right a'>";
               }
@@ -1015,6 +1015,10 @@ tq.home = {
           var fee1_arr = $(".flag1 .fee").find(".time");
           var minus_arr = $(".flag1 .fee").find(".minus");
           var single_price = $(fee[click_index]).find(".fee1");
+
+          if(data.skus[click_index].needRealName == false){
+            $("#chk_name").addClass("none");
+          }
 
           if(prices != null){
             prices = JSON.parse(prices);
@@ -1335,7 +1339,6 @@ tq.home = {
 
         order_child_single = parseInt($(num_arr[i]).html());
         order_child_price = parseFloat($(single_price[i]).html());
-        var idC = $(time_arr[i]).attr("id");
 
         if (order_child_single > 0) {
           var fee_json2 = {
@@ -1351,7 +1354,6 @@ tq.home = {
 
         order_adult_single = parseInt($(num_arr[i]).html());
         order_adult_price = parseFloat($(single_price[i]).html());
-        var idA = $(time_arr[i]).attr("id");
 
         if (order_adult_single > 0) {
           var fee_json3 = {
@@ -1365,7 +1367,6 @@ tq.home = {
           fee_arr.push(fee_json3);
         }
       }
-      console.log(fee_arr);
       sessionStorage.setItem("fee_arr", JSON.stringify(fee_arr));
       sessionStorage.setItem("adultSum", adult);
       sessionStorage.setItem("childSum", child);
@@ -1407,8 +1408,6 @@ tq.home = {
           location.href = "orderDetail.html?id=" + id + "";
         }
       }
-
-      
     });
   }
   //获得所有(选择)出行人
@@ -1420,84 +1419,56 @@ tq.home = {
       var child = sessionStorage.getItem("childSum");
       var url = location.href;
 
-      api = tq.url + "participant/list?utoken=" + utoken + "";
-
       $(".adult").html(adult);
       $(".child").html(child);
 
-      $.get(api, {}, function(res) {
-        if(res.errno == 0){
+      $(".form01").on("click", function() {
+        var outer_id = $(this).attr("id");
+        location.href = "edit_Outer.html?id=" + outer_id + "&url="+url+"";
+      });
 
-          var data = res.data;
-          for (var i = 0; i < data.length; i++) {
-            if (i == data.length - 1) {
-              var s = "<div class='form01' id='last'>";
-            } else {
-              var s = "<div class='form01'>";
-            }
-            s += "<div class='left outer_info'>";
-            s += "<span class='name'>" + data[i].name + "</span>";
-            s += "<span class='age'>" + data[i].type + "</span>";
-            s += "<span class='sex'>" + data[i].sex + "</span>";
-            s += "</a></div>";
-            s += "<div class='right pay-chk'></div>";
-            s += "<div style='clear:both'></div>";
-            s += "</div>";
-            $(".order_detail").append(s);
+      $(".form01 .pay-chk").on("click", function() {
+        event.stopPropagation(); //阻止继承父元素的事件
+        var index = $(".form01 .pay-chk").index(this);
+        $(this).toggleClass("pay_checked");
+        $($(".form01")[index]).toggleClass("choose_chk");
+      });
+
+      $(".add").on("click", function() { // 传入product_id
+        location.href = "addOuter.html?url="+url+"";
+      });
+    //选择
+    $(".add_submit").on("click", function() {
+      if (!$(".pay-chk").hasClass("pay_checked")) {
+        tq.t.alert("请选择出行人");
+        tq.t.cancel();
+      } else {
+        var participant_idArr = [];
+        var childSum = 0;
+        var adultSum = 0;
+
+        for (var i = 0; i < $(".form01.choose_chk").length; i++) {
+          var index = $(".form01").index($(".form01.choose_chk")[i]);
+          if (data[index].type == "儿童") {
+            childSum++;
+          } else {
+            adultSum++;
           }
-          $(".form01").on("click", function() {
-            var index = $(".form01").index(this); //获取当前出行人的id进入编辑
-            location.href = "edit_Outer.html?outer_id=" + data[index].id + "&url="+url+"";
-          });
+          participant_idArr.push(data[index].id);
 
-          $(".form01 .pay-chk").on("click", function() {
-            event.stopPropagation(); //阻止继承父元素的事件
-            var index = $(".form01 .pay-chk").index(this);
-            $(this).toggleClass("pay_checked");
-            $($(".form01")[index]).toggleClass("choose_chk");
-          });
-
-          $(".add").on("click", function() { // 传入product_id
-              location.href = "addOuter.html?id=" + id + "&url="+url+"";
-            })
-            //选择
-          $(".add_submit").on("click", function() {
-            if (!$(".pay-chk").hasClass("pay_checked")) {
-              tq.t.alert("请选择出行人");
-              $(".cancel").on("click", function() {
-                tq.t.delshide();
-              });
-            } else {
-              var participant_idArr = [];
-              var childSum = 0;
-              var adultSum = 0;
-
-              for (var i = 0; i < $(".form01.choose_chk").length; i++) {
-                var index = $(".form01").index($(".form01.choose_chk")[i]);
-                if (data[index].type == "儿童") {
-                  childSum++;
-                } else {
-                  adultSum++;
-                }
-                participant_idArr.push(data[index].id);
-                
-              } //for_end
-              if (childSum == child && adultSum == adult) {
-                location.href = "orderDetail.html?id=" + id + ""; 
-              } else {
-                tq.t.alert("所选出行人数目不匹配");
-                tq.t.cancel();
-              }
-              participant_idArr = participant_idArr.join(",");
-              sessionStorage.setItem("participant_idArr", participant_idArr);
-            } //else_end
-
-          }); //选择完成end
-        }else{
-          tq.t.alert(res.errmsg);
+        } //for_end
+        if (childSum == child && adultSum == adult) {
+          location.href = "orderDetail.html?id=" + id + "";
+        } else {
+          tq.t.alert("所选出行人数目不匹配");
           tq.t.cancel();
         }
-      }); //get请求end
+        participant_idArr = participant_idArr.join(",");
+        sessionStorage.setItem("participant_idArr", participant_idArr);
+      } //else_end
+
+    }); //选择完成end
+
   } //getOuter_end
 
   //编辑出行人

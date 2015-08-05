@@ -204,14 +204,14 @@
         if(tq.t.isios()){
             $(".ads_top").removeClass("none");
             $(".ads_top").on("click", function(){
-                location.href = "downapp.html";
+                location.href = "../../../downapp.html";
             });
         }
         $(".back").on("click", function(){
             location.href = "index.html";
         });
         $(".ads_top").on("click", function(){
-            location.href = "downapp.html";
+            location.href = "../../../downapp.html";
         });
 
         <#if map.favored?c == "true">
@@ -244,7 +244,10 @@
             });
          </#if>
       //  tq.t.getDetailScrollImg();
-
+        $(".attent_total").on("click", function(){
+            var id = tq.t.getQueryString("id");
+            location.href = "partner.html?id="+id+"";
+        })
 
     });
 </script>
