@@ -11,9 +11,7 @@
     <script src='JS/hhSwipe.js'></script>
     <script type="text/javascript">
         document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";
-        $(function(){
-            tq.t.back();
-        });
+
     </script>
 </head>
 <body>
