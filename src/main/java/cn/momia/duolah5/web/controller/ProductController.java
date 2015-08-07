@@ -180,5 +180,10 @@ public class ProductController extends BaseFunc {
         return new ModelAndView("./product/sku_participant", "participant", list);
     }
 
+    @RequestMapping(value = "/topic.html", method = RequestMethod.GET)
+    public ModelAndView getProductDetail (@RequestParam long id) {
+        return null;
+
+    }
 
 }
