@@ -31,45 +31,6 @@ import java.util.List;
 public class ProductController extends BaseFunc {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ProductController.class);
 
-    @RequestMapping(value = "/weekend", method = RequestMethod.GET)
-    public ModelAndView getProductsByWeekend(@RequestParam(value = "city") int cityId, @RequestParam int start) {
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("city", cityId)
-                .add("start", start)
-                .add("count", conf.getInt("Product.PageSize"));
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("product/weekend"), builder.build());
-
-        ResponseMessage responseMessage =  executeRequest(request, pagedProductsFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./product/products", "products", list);
-
-    }
-
-    @RequestMapping(value = "/month", method = RequestMethod.GET)
-    public ModelAndView getProductsByMonth(@RequestParam(value = "city") int cityId, @RequestParam int month) {
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("city", cityId)
-                .add("month", month);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("product/month"), builder.build());
-
-        ResponseMessage responseMessage =  executeRequest(request, new Function<Object, Object>() {
-            @Override
-            public Object apply(Object data) {
-                JSONArray groupedProductsJson = (JSONArray) data;
-                for (int i = 0; i < groupedProductsJson.size(); i++) {
-                    productsFunc.apply(groupedProductsJson.getJSONObject(i).getJSONArray("products"));
-                }
-
-                return data;
-            }
-        });
-
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./product/products", "products", list);
-    }
-
     @RequestMapping(value = "/actsDetail.html", method = RequestMethod.GET)
     public ModelAndView getProduct(@RequestParam(defaultValue = "") String utoken, @RequestParam long id, HttpServletRequest httpRequest) {
         if (id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
