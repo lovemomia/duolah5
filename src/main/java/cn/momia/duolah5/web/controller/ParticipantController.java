@@ -61,6 +61,10 @@ public class ParticipantController extends BaseFunc {
         return new ModelAndView("./user/participant", "participant", list);
     }
 
+    @RequestMapping(value = "/addOuter.html")
+    public ModelAndView addParticipant() {
+        return new ModelAndView("./user/addParticipant");
+    }
 
 
 }
