@@ -53,6 +53,10 @@ public class UserController extends BaseFunc {
             return data;
         }
     };
+    @RequestMapping(value = "/profile.html")
+    public ModelAndView profile() {
+        return new ModelAndView("./user/profile");
+    }
     @RequestMapping(value = "/profileInfo.html", method = RequestMethod.GET)
     public ModelAndView getUser(HttpServletRequest httpRequest) throws IOException {
 
