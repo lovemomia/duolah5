@@ -66,7 +66,7 @@
         location.href = "edit_outer.html?id="+outer_id+"&url="+url+"";
     });
     $(".back").on("click",function(){
-        location.href = "profile.html";
+        location.href = "../../../../profile.html";
     });
     $(".add").on("click", function() {
         location.href = "addOuter.html?url="+url+"";

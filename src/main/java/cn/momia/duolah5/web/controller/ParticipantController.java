@@ -4,13 +4,7 @@ package cn.momia.duolah5.web.controller;
 import cn.momia.duolah5.web.http.MomiaHttpParamBuilder;
 import cn.momia.duolah5.web.http.MomiaHttpRequest;
 import cn.momia.duolah5.web.response.ResponseMessage;
-import cn.momia.duolah5.ftl.base.Ftl;
 
-import cn.momia.duolah5.ftl.base.ParticipantFtl;
-import cn.momia.duolah5.ftl.composite.ListFtl;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,7 +36,7 @@ public class ParticipantController extends BaseFunc {
             return new ModelAndView("BadRequest", "errmsg", "error!");
         List list = new ArrayList();
         list.add(responseMessage.getData());
-        return new ModelAndView("./user/get_participant", "participant", list);
+        return new ModelAndView("./user/participant/get_participant", "participant", list);
     }
 
     @RequestMapping(value = "/com_outer.html", method = RequestMethod.GET)
@@ -58,12 +52,12 @@ public class ParticipantController extends BaseFunc {
 
         List list = new ArrayList();
         list.add(responseMessage.getData());
-        return new ModelAndView("./user/participant", "participant", list);
+        return new ModelAndView("./user/participant/participant", "participant", list);
     }
 
     @RequestMapping(value = "/addOuter.html")
     public ModelAndView addParticipant() {
-        return new ModelAndView("./user/addParticipant");
+        return new ModelAndView("./user/participant/addParticipant");
     }
 
 
