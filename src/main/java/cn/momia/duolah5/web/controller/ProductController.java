@@ -112,7 +112,7 @@ public class ProductController extends BaseFunc {
             return new ModelAndView("BadRequest", "errmsg", "error!");
         List list = new ArrayList();
         list.add(responseMessage.getData());
-        return new ModelAndView("./product/sku", "skus", list);
+        return new ModelAndView("./product/get_sku", "skus", list);
     }
 
     private List<MomiaHttpRequest> buildProductOrderRequests(long productId, String utoken) {
