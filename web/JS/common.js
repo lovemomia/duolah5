@@ -370,100 +370,6 @@ tq.home = {
         InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
       }
   }
-  //注册
-  ,
-  register: function(odiv, nicktext, phonetext, codetext, submit) {
-      var InterValObj; //timer变量，控制时间
-      var count = 60; //间隔函数，1秒执行
-      var curCount; //当前剩余秒数
-      var param = window.location.search;
-      var url = param.substring(1, param.length);
-
-      //获取验证码
-      odiv.on('click', function() {
-        sendMessage();
-      });
-
-      //点击注册
-      $(".add .add").on("click",function(){
-        event.preventDefault();
-        location.href = "login.html?"+url+"";
-      })
-
-      //注册
-      submit.on("click", function() {
-        var api = tq.url + "auth/register";
-        var nickName = nicktext.val(); //昵称
-        var phone = phonetext.val(); //手机号码
-        var code = codetext.val();
-
-        if(!phone || phone == ""){
-          tq.t.alert("请输入手机号");
-          tq.t.cancel();
-        }else if(!tq.t.valPho(phone)){
-          tq.t.alert("手机号输入不正确");
-          tq.t.cancel();
-        }else if(!code || code == ""){
-          tq.t.alert("请输入验证码");
-          tq.t.cancel();
-        }else if(!nickName || nickName == ""){
-          tq.t.alert("请输入昵称");
-          tq.t.cancel();
-        }else{
-          $.post(api, {
-            nickName: nickName,
-            mobile: phone,
-            code: code
-          }, function(res) {
-            if (res.errno == 0) {
-              tq.t.cookie.set("utoken", res.data.token);
-              location.href = url;
-            } else {
-              tq.t.alert(res.errmsg);
-              tq.t.cancel();
-            }
-          }); //post_end;
-        } //else_end;      
-      }) //submit_end
-
-      function sendMessage() {
-        var api = tq.url + "auth/send";
-        curCount = count;
-        var phone = phonetext.val(); //手机号码
-
-        $.post(api, {
-          mobile: phone,
-          type: "register"
-        }, function(res) {
-          if (res.errno == 0) {
-            suceess();
-          } else {
-            tq.t.alert(res.errmsg);
-          }
-        });
-      }
-
-      function SetRemainTime() {
-        if (curCount == 1) {
-          window.clearInterval(InterValObj); //停止计时器
-          odiv.removeAttr("disabled"); //启用按钮
-          odiv.removeClass("colddown");
-          odiv.html("重新发送");
-        } else {
-          odiv.html(curCount + "秒后重试");
-          tq.t.waitok();
-          curCount--;
-        }
-      }
-
-      function suceess() {
-        odiv.attr("disabled", "true");
-        tq.t.wait();
-        odiv.val(curCount + "秒后重试");
-        odiv.addClass("colddown");
-        InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
-      }
-  }
   
   //通过密码登录
   ,loginPsw: function(phonetext, pswtext, submit){
@@ -592,6 +498,7 @@ tq.home = {
           suceess();
         } else {
           tq.t.alert(res.errmsg);
+          tq.t.cancel();
         }
       });
     }
@@ -1902,6 +1809,8 @@ tq.home = {
     });
 
     $(".order_detail .chk_num .minus").on("click", function(){
+      var cNickname = $(".cNickname");
+      var cid = $(cNickname[cNickname.length - 1]).attr("id");
       var input = $(this).siblings(".num01");
       var api = tq.url + "user/child/delete";
       var botLength = $(".babyMain .bot").length;
@@ -1909,7 +1818,7 @@ tq.home = {
         input.html("0");
         return;
       }else{
-        $.post(api, {utoken:utoken,cid:chidlIdArr[chidlIdArr.length -1]}, function(res){
+        $.post(api, {utoken:utoken,cid:cid}, function(res){
           if(res.errno == 0){
             $($(".babyMain .bot")[botLength-1]).remove();
             chidlIdArr.pop();
@@ -1974,19 +1883,19 @@ tq.home = {
   }
   // 动态添加小孩信息标签
   ,
-  addChildInfo: function(name, gender, birth){
+  addChildInfo: function(name, gender, birth, cid){
       var s = "<div class='form bot' style='border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;onclick=''>";
       s += "<div class='fitem_input edit'>";
       s += "<span class='fh'>大宝姓名</span>";
-      s += "<span class='fd tr cNickname' id='right'>"+name+"</span>";
+      s += "<span class='fd tr cNickname test' id="+cid+">"+name+"</span>";
       s += "</div>";
       s += "<div class='fitem_input edit'>";
       s += "<span class='fh'>性别</span>";
-      s += "<span class='fd tr cGender' id='right'>"+gender+"</span>";
+      s += "<span class='fd tr cGender test' id="+cid+">"+gender+"</span>";
       s += "</div>";
       s += "<div class='fitem_input edit'>";
       s += "<span class='fh'>生日</span>";
-      s += "<span class='fd tr cBirth' id='right'>"+birth+"</span>";
+      s += "<span class='fd tr cBirth test' id="+cid+">"+birth+"</span>";
       s += "</div></div>";
       $(".babyMain").append(s);
   }
@@ -2006,7 +1915,11 @@ tq.home = {
     var children = JSON.stringify(dataArr);
     $.post(api, {utoken:utoken, children: children}, function(res){
       if(res.errno == 0){
-        tq.home.addChildInfo("Peter","男","2015-01-01");
+        chidlIdArr = [];
+        for(var i=0; i<res.data.children.length; i++){
+          chidlIdArr.push(res.data.children[i].id);
+        }
+        tq.home.addChildInfo("Peter","男","2015-01-01",chidlIdArr[chidlIdArr.length-1]);
         chidlIdArr = [];
         for(var i=0; i<res.data.children.length; i++){
           chidlIdArr.push(res.data.children[i].id);
@@ -2130,7 +2043,10 @@ tq.home = {
             value = $($(".cNickname")[index]).html();
           }
           $.post(url, {utoken:utoken, name:value, cid:cid}, function(res){
+            console.log(url);
+            console.log(utoken);
             console.log(value);
+            console.log(cid);
             if(res.errno == 0){
               $($(".cNickname")[index]).html(value);
             }else{
