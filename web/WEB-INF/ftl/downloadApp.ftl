@@ -31,13 +31,11 @@
                             <li><a href="#"><img src="image/i1.jpg" width="100%" /></a></li>
                             <li><a href="#"><img src="image/i1.jpg" width="100%" /></a></li>
                         </ul>
-
-
                     </div>
                 </div>
             </div>
             <div class="text">
-                <img src="image/t1.png" alt="" />
+                <img src="image/download.png" alt="" />
                 <div class="download">
                     <button id="btn_submit" class="tapable">立即下载</button>
                 </div>
@@ -49,8 +47,8 @@
                 <li><a href="javascript:void(0);">2</a></li>
                 <li><a href="javascript:void(0);">3</a></li>
             </ul>
-            <img class="logo" src="image/logo.png" alt="" />
-            <p>陪孩子一起长大</p>
+            <img class="logo" src="image/dd.png" alt="" />
+            <#--<p>陪孩子一起长大</p>-->
         </div>
     </section>
 

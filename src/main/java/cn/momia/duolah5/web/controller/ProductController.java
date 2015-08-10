@@ -187,8 +187,29 @@ public class ProductController extends BaseFunc {
 
     @RequestMapping(value = "/topic.html", method = RequestMethod.GET)
     public ModelAndView getProductDetail (@RequestParam long id) {
-        return null;
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("topic", id));
+        ResponseMessage responseMessage = executeRequest(request);
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error!");
 
+        JSONObject topicJson = (JSONObject)responseMessage.getData();
+        topicJson.put("cover", ImageFile.url(topicJson.getString("cover")));
+        processCoverJson(topicJson.getJSONArray("groups"));
+
+        return new ModelAndView("./product/topicProduct", "topic", topicJson);
+
+    }
+
+    private void processCoverJson(JSONArray productArray) {
+
+        for(int i = 0; i < productArray.size(); i++) {
+            JSONArray productsJson = productArray.getJSONObject(i).getJSONArray("products");
+            for(int j = 0; j < productsJson.size(); j++) {
+                JSONObject productJson = productsJson.getJSONObject(j);
+                productJson.put("cover", ImageFile.url(productJson.getString("cover")));
+            }
+
+        }
     }
 
 

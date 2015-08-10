@@ -1199,9 +1199,8 @@ header{
 }
 .logo{
 	margin-top: 0.3rem;
-	width: 0.5rem;
-	height: 0.5rem;
-	border-radius: 0.5rem;
+	width: 0.8rem;
+	/*height: 0.7rem;*/
 }
 .bottomPan p{
 	text-align: center;
@@ -1309,4 +1308,19 @@ header{
 	height: 70px;
 	outline: none;
 	opacity: 0;
+}
+/*专题活动页面*/
+.topic_banner{
+	height: 1.8rem;
+	width: 100%;
+}
+.popular{
+	margin-bottom: 0.1rem;
+}
+.popular h3{
+	background: #fff;
+	color: #00c49d;
+	padding: 0.08rem;
+	border-bottom: 1px solid #eee;
+	font-weight: normal;
 }
