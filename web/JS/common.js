@@ -587,6 +587,7 @@ tq.home = {
           suceess();
         } else {
           tq.t.alert(res.errmsg);
+          tq.t.cancel();
         }
       });
     }

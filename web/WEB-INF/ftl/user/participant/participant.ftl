@@ -32,11 +32,9 @@
                     <#if map_index != outer?size-1>
                     <div class="form01" id="${map.id}">
                         <div class="left outer_info">
-                            <a href="">
                                 <span class="name">${map.name}</span>
                                 <span class="age"><#if map.type??>${map.type}</#if></span>
                                 <span class="sex">${map.sex}</span>
-                            </a>
                         </div>
                         <div style="clear:both"></div>
                     </div>
