@@ -33,7 +33,6 @@
                         </#if>
 						<form method="post" action="http://upload.momia.cn/upload/image" enctype="multipart/form-data" accept="image/*" name="fileinfo" target="ifr1">
                             <input type="file" id="browsefile" name="file">
-                            <!-- <input type="submit" value="上传" style="position:absolute;top:0;left:0">	 -->
                         </form>
 						<div style="clear:both"></div>
 					</span>
@@ -82,17 +81,17 @@
                 <#if map[key].children??>
                     <#list map[key].children as child>
                         <div class="form bot" style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;">
-                            <div class="fitem_input edit">
+                            <div class="fitem_input edit" onclick="">
                                 <span class="fh">大宝姓名</span>
                                 <span class="fd tr cNickname test"  id=${child.id}>${child.name}</span>
                             </div>
 
-                            <div class="fitem_input edit">
+                            <div class="fitem_input edit" onclick="">
                                 <span class="fh">性别</span>
                                 <span class="fd tr cGender test" id=${child.id}>${child.sex}</span>
                             </div>
 
-                            <div class="fitem_input edit">
+                            <div class="fitem_input edit" onclick="">
                                 <span class="fh">生日</span>
                                 <span class="fd tr cBirth test" id=${child.id}>${child.birthday}</span>
                             </div>

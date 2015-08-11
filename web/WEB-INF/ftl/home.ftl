@@ -32,28 +32,28 @@
         <div id="act_content"></div>
     </section>
 
-    <div class="ads_bot">
-        <img src="image/downapp.png" alt="">
-    </div>
+    <#--<div class="ads_bot">-->
+        <#--<img src="image/downapp.png" alt="">-->
+    <#--</div>-->
 </article>
 
 <script type="text/javascript">
     tq.home.getIndexScrollImg($("#scroll_img"));
     tq.home.getActsList($("#act_content"),0);
-    if(tq.t.isandroid()){
-        $(".ads_bot").addClass("none");
-    }
-    if(tq.t.isios()){
-        $(".ads_bot").removeClass("none");
-        $(".ads_bot").on("click", function(){
-            location.href = "../../downapp.html";
-        });
-    }
+//    if(tq.t.isandroid()){
+//        $(".ads_bot").addClass("none");
+//    }
+//    if(tq.t.isios()){
+//        $(".ads_bot").removeClass("none");
+//        $(".ads_bot").on("click", function(){
+//            location.href = "../../downapp.html";
+//        });
+//    }
 
     $(".my").on("click",function(){
         var utoken = tq.t.cookie.get("utoken");
         if(utoken == null || utoken == "" || !utoken){
-            location.href = "registerpsw.html?profile.html";
+            location.href = "loginpsw.html?profile.html";
         }
         else{
             location.href = "profile.html";
