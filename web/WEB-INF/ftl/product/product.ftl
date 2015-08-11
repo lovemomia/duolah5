@@ -17,9 +17,9 @@
 <body>
 <#list product as map>
 <article id="page">
-    <div class="ads_top">
-        <img src="image/downapp.png" alt="">
-    </div>
+    <#--<div class="ads_top">-->
+        <#--<img src="image/downapp.png" alt="">-->
+    <#--</div>-->
 
     <header class="head">
         <span class="back"><img src="image/back2.png"></span>活动详情
@@ -198,15 +198,15 @@
 </div>
 <script type="text/javascript">
     $(function(){
-        if(tq.t.isandroid()){
-            $(".ads_top").addClass("none");
-        }
-        if(tq.t.isios()){
-            $(".ads_top").removeClass("none");
-            $(".ads_top").on("click", function(){
-                location.href = "../../../downapp.html";
-            });
-        }
+//        if(tq.t.isandroid()){
+//            $(".ads_top").addClass("none");
+//        }
+//        if(tq.t.isios()){
+//            $(".ads_top").removeClass("none");
+//            $(".ads_top").on("click", function(){
+//                location.href = "../../../downapp.html";
+//            });
+//        }
         $(".back").on("click", function(){
             location.href = "index.html";
         });
