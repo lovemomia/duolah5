@@ -14,6 +14,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
@@ -50,12 +53,16 @@ public class UserController extends BaseFunc {
             return data;
         }
     };
-    @RequestMapping(value = "/profile.html", method = RequestMethod.GET)
-    public ModelAndView getUser(@RequestParam String utoken) throws IOException {
+    @RequestMapping(value = "/profile.html")
+    public ModelAndView profile() {
+        return new ModelAndView("./user/profile");
+    }
+    @RequestMapping(value = "/profileInfo.html", method = RequestMethod.GET)
+    public ModelAndView getUser(HttpServletRequest httpRequest) throws IOException {
+
+        String utoken = getUtoken(httpRequest);
         if (StringUtils.isBlank(utoken))
             return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(url("user"), builder.build());
 
@@ -78,280 +85,11 @@ public class UserController extends BaseFunc {
     }
 
     @RequestMapping(value = "/user_order.html", method = RequestMethod.GET)
-    public ModelAndView getOrdersOfUser(@RequestParam String utoken,
-                                           @RequestParam(defaultValue = "1") int status,
-                                           @RequestParam int start) {
-        if (StringUtils.isBlank(utoken) || start < 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("status", status < 0 ? 1 : status)
-                .add("start", start)
-                .add("count", conf.getInt("Order.PageSize"));
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("order/user"), builder.build());
+    public ModelAndView getOrdersOfUser() {
 
-        ResponseMessage responseMessage =  executeRequest(request, pagedOrdersFunc);
-
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./user/ordersOfUser", "list", list);
+        return new ModelAndView("./user/ordersOfUser", "list", "");
     }
 
-    private Ftl buildOrdersDto(JSONObject ordersPackJson, int start, int count) {
-        PagedListFtl orders = new PagedListFtl();
-
-        long totalCount = ordersPackJson.getLong("totalCount");
-        orders.setTotalCount(totalCount);
-
-        JSONArray ordersJson = ordersPackJson.getJSONArray("list");
-        for (int i = 0; i < ordersJson.size(); i++) {
-            try {
-                orders.add(new OrderOfUserFtl(ordersJson.getJSONObject(i), true));
-            } catch (Exception e) {
-                LOGGER.error("fail to parse order: {}", ordersJson.getJSONObject(i), e);
-            }
-        }
-        if (start + count < totalCount) orders.setNextIndex(start + count);
-
-        return orders;
-    }
-
-    @RequestMapping(value = "/nickname", method = RequestMethod.POST)
-    public ModelAndView updateNickName(@RequestParam String utoken, @RequestParam(value = "nickname") String nickName) throws IOException {
-        if(StringUtils.isBlank(utoken) || StringUtils.isBlank(nickName)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("nickname", nickName);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/nickname"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-
-    @RequestMapping(value = "/avatar", method = RequestMethod.POST)
-    public ModelAndView updateAvatar(@RequestParam String utoken, @RequestParam String avatar) {
-        if(StringUtils.isBlank(utoken) || StringUtils.isBlank(avatar)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("avatar", avatar);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/avatar"), builder.build());
-
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-
-    }
-
-    @RequestMapping(value = "/name", method = RequestMethod.POST)
-    public ModelAndView updateName(@RequestParam String utoken, @RequestParam String name) {
-        if(StringUtils.isBlank(utoken) || StringUtils.isBlank(name)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("name", name);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/name"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/sex", method = RequestMethod.POST)
-    public ModelAndView updateSex(@RequestParam String utoken, @RequestParam String sex) {
-        if(StringUtils.isBlank(utoken) || StringUtils.isBlank(sex)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("sex", sex);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/sex"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/birthday", method = RequestMethod.POST)
-    public ModelAndView updateBirthday(@RequestParam String utoken, @RequestParam String birthday) {
-        if(StringUtils.isBlank(utoken) || StringUtils.isBlank(birthday)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("birthday", birthday);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/birthday"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/city", method = RequestMethod.POST)
-    public ModelAndView updateCity(@RequestParam String utoken, @RequestParam int city) {
-        if(StringUtils.isBlank(utoken) || city <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("city", city);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/city"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/address", method = RequestMethod.POST)
-    public ModelAndView updateAddress(@RequestParam String utoken, @RequestParam String address) {
-        if(StringUtils.isBlank(utoken) || StringUtils.isBlank(address)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("address", address);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/address"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/child", method = RequestMethod.POST)
-    public ModelAndView addChild(@RequestParam String utoken, @RequestParam String children) {
-        if(StringUtils.isBlank(utoken) || StringUtils.isBlank(children)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        long userId = getUserId(utoken);
-        if (userId <= 0) return new ModelAndView("user does not exist");
-
-        JSONArray childrenJson = JSONArray.parseArray(children);
-        for (int i = 0; i < childrenJson.size(); i++) childrenJson.getJSONObject(i).put("userId", userId);
-        MomiaHttpRequest request = MomiaHttpRequest.POST(url("user/child"), childrenJson.toString());
-
-        ResponseMessage responseMessage = executeRequest(request, userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/child/name", method = RequestMethod.POST)
-    public ModelAndView updateChildByName(@RequestParam String utoken,
-                                             @RequestParam(value = "cid") long childId,
-                                             @RequestParam String name) {
-        if (StringUtils.isBlank(utoken) || childId <= 0 || StringUtils.isBlank(name)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("cid", childId)
-                .add("name", name);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/child/name"), builder.build());
-        ResponseMessage response = executeRequest(request);
-        if (!response.successful()) return new ModelAndView("BadRequest", "errmsg", response.getErrmsg());
-
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-    }
-
-
-    @RequestMapping(value = "/child/sex", method = RequestMethod.POST)
-    public ModelAndView updateChildBySex(@RequestParam String utoken,
-                                            @RequestParam(value = "cid") long childId,
-                                            @RequestParam String sex) {
-        if (StringUtils.isBlank(utoken) || childId <= 0 || StringUtils.isBlank(sex)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("cid", childId)
-                .add("sex", sex);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/child/sex"), builder.build());
-
-        ResponseMessage response = executeRequest(request);
-        if (!response.successful()) return new ModelAndView("BadRequest", "errmsg", response.getErrmsg());
-
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/child/birthday", method = RequestMethod.POST)
-    public ModelAndView updateChildByBirthday(@RequestParam String utoken,
-                                                 @RequestParam(value = "cid") long childId,
-                                                 @RequestParam String birthday) {
-        if (StringUtils.isBlank(utoken) || childId <= 0 || StringUtils.isBlank(birthday)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("cid", childId)
-                .add("birthday", birthday);
-        MomiaHttpRequest request = MomiaHttpRequest.PUT(url("user/child/birthday"), builder.build());
-
-        ResponseMessage response = executeRequest(request);
-        if (!response.successful()) return new ModelAndView("BadRequest", "errmsg", response.getErrmsg());
-
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/child/delete", method = RequestMethod.POST)
-    public ModelAndView deleteChild(@RequestParam String utoken, @RequestParam(value = "cid") long childId) {
-        if(StringUtils.isBlank(utoken) || childId <= 0)  return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.DELETE(url("user/child", childId), builder.build());
-
-        ResponseMessage responseMessage =  executeRequest(MomiaHttpRequest.GET(url("user"), new MomiaHttpParamBuilder().add("utoken", utoken).build()), userFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/user","list",list);
-
-    }
-
-    @RequestMapping(value = "/child", method = RequestMethod.GET)
-    public ModelAndView getChild(@RequestParam String utoken, @RequestParam(value = "cid") long childId) {
-        if(StringUtils.isBlank(utoken) || childId <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/child", childId), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/participant","participant",list);
-
-    }
 
     private Map<String, Object> buildChild(JSONObject childJson) {
         Map<String, Object> child = new HashMap<String, Object>();
@@ -365,20 +103,6 @@ public class UserController extends BaseFunc {
         return child;
     }
 
-    @RequestMapping(value = "/child/list", method = RequestMethod.GET)
-    public ModelAndView getChildren(@RequestParam String utoken) {
-        if(StringUtils.isBlank(utoken)) return new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/child"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request);
-        List list = new ArrayList();
-        list.add(responseMessage);
-
-        return  new ModelAndView("./user/children","list",list);
-
-    }
 
     private Ftl buildChildrenDto(JSONArray childrenJson) {
         ListFtl children = new ListFtl();
@@ -394,19 +118,8 @@ public class UserController extends BaseFunc {
         return children;
     }
 
-    @RequestMapping(value = "/favorite", method = RequestMethod.GET)
-    public ModelAndView getFavoritesOfUser(@RequestParam String utoken, @RequestParam int start) {
-        if (StringUtils.isBlank(utoken) || start < 0) new ModelAndView("BadRequest", "errmsg","invalid params");
-
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("utoken", utoken)
-                .add("start", start)
-                .add("count", conf.getInt("Favorite.PageSize"));
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/favorite"), builder.build());
-
-        ResponseMessage responseMessage = executeRequest(request, pagedProductsFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./user/ordersOfUser", "list", list);
+    @RequestMapping(value = "/collect.html", method = RequestMethod.GET)
+    public ModelAndView getFavoritesOfUser() {
+        return new ModelAndView("./user/myfavorite", "list", "");
     }
 }

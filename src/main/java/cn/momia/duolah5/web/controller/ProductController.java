@@ -1,5 +1,8 @@
 package cn.momia.duolah5.web.controller;
 
+import cn.momia.duolah5.ftl.base.Ftl;
+import cn.momia.duolah5.ftl.base.ParticipantFtl;
+import cn.momia.duolah5.ftl.composite.ListFtl;
 import cn.momia.duolah5.web.http.MomiaHttpParamBuilder;
 import cn.momia.duolah5.web.http.MomiaHttpRequest;
 import cn.momia.duolah5.web.http.MomiaHttpResponseCollector;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,49 +31,11 @@ import java.util.List;
 public class ProductController extends BaseFunc {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ProductController.class);
 
-    @RequestMapping(value = "/weekend", method = RequestMethod.GET)
-    public ModelAndView getProductsByWeekend(@RequestParam(value = "city") int cityId, @RequestParam int start) {
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("city", cityId)
-                .add("start", start)
-                .add("count", conf.getInt("Product.PageSize"));
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("product/weekend"), builder.build());
-
-        ResponseMessage responseMessage =  executeRequest(request, pagedProductsFunc);
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./product/products", "products", list);
-
-    }
-
-    @RequestMapping(value = "/month", method = RequestMethod.GET)
-    public ModelAndView getProductsByMonth(@RequestParam(value = "city") int cityId, @RequestParam int month) {
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
-                .add("city", cityId)
-                .add("month", month);
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("product/month"), builder.build());
-
-        ResponseMessage responseMessage =  executeRequest(request, new Function<Object, Object>() {
-            @Override
-            public Object apply(Object data) {
-                JSONArray groupedProductsJson = (JSONArray) data;
-                for (int i = 0; i < groupedProductsJson.size(); i++) {
-                    productsFunc.apply(groupedProductsJson.getJSONObject(i).getJSONArray("products"));
-                }
-
-                return data;
-            }
-        });
-
-        List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./product/products", "products", list);
-    }
-
     @RequestMapping(value = "/actsDetail.html", method = RequestMethod.GET)
-    public ModelAndView getProduct(@RequestParam(defaultValue = "") String utoken, @RequestParam long id) {
+    public ModelAndView getProduct(@RequestParam(defaultValue = "") String utoken, @RequestParam long id, HttpServletRequest httpRequest) {
         if (id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
+        utoken = getUtoken(httpRequest);
         List<MomiaHttpRequest> requests = buildProductRequests(utoken, id);
 
         ResponseMessage responseMessage = executeRequests(requests, new Function<MomiaHttpResponseCollector, Object>() {
@@ -87,8 +53,11 @@ public class ProductController extends BaseFunc {
             }
         });
 
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error");
+
         List list = new ArrayList();
-        list.add(responseMessage);
+        list.add(responseMessage.getData());
         return new ModelAndView("./product/product", "product", list);
     }
 
@@ -127,7 +96,8 @@ public class ProductController extends BaseFunc {
     }
 
     @RequestMapping(value = "/orderDetail.html", method = RequestMethod.GET)
-    public ModelAndView getProductOrder(@RequestParam String utoken, @RequestParam long id) {
+    public ModelAndView getProductOrder(HttpServletRequest httpRequest, @RequestParam long id) {
+        String utoken = getUtoken(httpRequest);
         if(StringUtils.isBlank(utoken) || id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
         List<MomiaHttpRequest> requests = buildProductOrderRequests(id, utoken);
@@ -138,9 +108,11 @@ public class ProductController extends BaseFunc {
                 return new PlaceOrderFtl((JSONObject) collector.getResponse("contacts"), (JSONArray) collector.getResponse("skus"));
             }
         });
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error!");
         List list = new ArrayList();
-        list.add(responseMessage);
-        return new ModelAndView("./product/sku", "skus", list);
+        list.add(responseMessage.getData());
+        return new ModelAndView("./product/get_sku", "skus", list);
     }
 
     private List<MomiaHttpRequest> buildProductOrderRequests(long productId, String utoken) {
@@ -162,7 +134,7 @@ public class ProductController extends BaseFunc {
         return MomiaHttpRequest.GET("skus", true, url("product", productId, "sku"));
     }
 
-    @RequestMapping(value = "/playmate", method = RequestMethod.GET)
+    @RequestMapping(value = "/partner.html", method = RequestMethod.GET)
     public ModelAndView getProductPlaymates(@RequestParam long id) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("start", 0)
@@ -185,27 +157,60 @@ public class ProductController extends BaseFunc {
                 return data;
             }
         });
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error!");
         List list = new ArrayList();
-        list.add(responseMessage);
+        list.add(responseMessage.getData());
         return new ModelAndView("./product/playmates", "playmates", list);
     }
 
-    @RequestMapping(value = "/favor", method = RequestMethod.POST)
-    public ResponseMessage favor(@RequestParam String utoken, @RequestParam long id){
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.POST(url("product", id, "favor"), builder.build());
+    @RequestMapping(value = "/choose_Outer.html", method = RequestMethod.GET)
+    public ModelAndView getParticipants(HttpServletRequest httpRequest) {
+        String utoken = getUtoken(httpRequest);
 
-        return executeRequest(request);
+        if (StringUtils.isBlank(utoken)) return new ModelAndView("success", "msg", "invalid param");
+        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("participant"), builder.build());
+        ResponseMessage responseMessage =  executeRequest(request);
+        if(responseMessage.getErrno() != 0 )
+            return new ModelAndView("BadRequest", "errmsg", "error!");
+
+        List list = new ArrayList();
+        list.add(responseMessage.getData());
+        return new ModelAndView("./product/sku_participant", "participant", list);
     }
 
-    @RequestMapping(value = "/unfavor", method = RequestMethod.POST)
-    public ResponseMessage unFavor(@RequestParam String utoken, @RequestParam long id){
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
-        MomiaHttpRequest request = MomiaHttpRequest.POST(url("product", id, "unfavor"), builder.build());
-
-        return executeRequest(request);
+    @RequestMapping(value = "/outer_info.html")
+    public ModelAndView getContacts() {
+        return new ModelAndView("./product/contacts");
     }
 
+    @RequestMapping(value = "/topic.html", method = RequestMethod.GET)
+    public ModelAndView getProductDetail (@RequestParam long id) {
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("topic", id));
+        ResponseMessage responseMessage = executeRequest(request);
+        if(responseMessage.getErrno() != 0)
+            return new ModelAndView("BadRequest", "errmsg", "error!");
+
+        JSONObject topicJson = (JSONObject)responseMessage.getData();
+        topicJson.put("cover", ImageFile.url(topicJson.getString("cover")));
+        processCoverJson(topicJson.getJSONArray("groups"));
+
+        return new ModelAndView("./product/topicProduct", "topic", topicJson);
+
+    }
+
+    private void processCoverJson(JSONArray productArray) {
+
+        for(int i = 0; i < productArray.size(); i++) {
+            JSONArray productsJson = productArray.getJSONObject(i).getJSONArray("products");
+            for(int j = 0; j < productsJson.size(); j++) {
+                JSONObject productJson = productsJson.getJSONObject(j);
+                productJson.put("cover", ImageFile.url(productJson.getString("cover")));
+            }
+
+        }
+    }
 
 
 }
