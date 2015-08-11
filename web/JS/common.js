@@ -1885,16 +1885,16 @@ tq.home = {
   // 动态添加小孩信息标签
   ,
   addChildInfo: function(name, gender, birth, cid){
-      var s = "<div class='form bot' style='border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;onclick=''>";
-      s += "<div class='fitem_input edit'>";
+      var s = "<div class='form bot' style='border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:0.1rem;'>";
+      s += "<div class='fitem_input edit' onclick=''>";
       s += "<span class='fh'>大宝姓名</span>";
       s += "<span class='fd tr cNickname test' id="+cid+">"+name+"</span>";
       s += "</div>";
-      s += "<div class='fitem_input edit'>";
+      s += "<div class='fitem_input edit' onclick=''>";
       s += "<span class='fh'>性别</span>";
       s += "<span class='fd tr cGender test' id="+cid+">"+gender+"</span>";
       s += "</div>";
-      s += "<div class='fitem_input edit'>";
+      s += "<div class='fitem_input edit' onclick=''>";
       s += "<span class='fh'>生日</span>";
       s += "<span class='fd tr cBirth test' id="+cid+">"+birth+"</span>";
       s += "</div></div>";
