@@ -234,7 +234,6 @@
         </#if>
         if(${map.imgs?size} >1 )
         {
-            console.log(1);
             tq.t.getScrollImg();
         }
 
