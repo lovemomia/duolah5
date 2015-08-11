@@ -1192,7 +1192,7 @@ tq.home = {
         //编辑联系人
         $(".chk_phone").on("click", function() {
           event.preventDefault();
-          tq.home.aveCurrent();
+          tq.home.saveCurrent();
           location.href = "outer_info.html?id=" + id + "";
         });
       }else{
