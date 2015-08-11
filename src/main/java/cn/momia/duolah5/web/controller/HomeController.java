@@ -22,12 +22,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/index.html")
+@RequestMapping
 public class HomeController extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public ModelAndView home() {
+        return new ModelAndView("home", "home", "");
+
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView rootHome() {
         return new ModelAndView("home", "home", "");
 
     }
