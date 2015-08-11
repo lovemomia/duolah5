@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 public class Duolah5Web {
     private static final Logger LOGGER = LoggerFactory.getLogger(Duolah5Web.class);
 
-    private static final int DEFAULT_SERVER_PORT = 8080;
+    private static final int DEFAULT_SERVER_PORT = 6060;
 
     public static void main(String[] args) {
         int port = getServerPort(args);
