@@ -1245,6 +1245,8 @@ tq.home = {
         }
       } else if ($(time_arr[i]).hasClass("child")) {
 
+        var idC = $(time_arr[i]).attr("id")[0];
+
         order_child_single = parseInt($(num_arr[i]).html());
         order_child_price = parseFloat($(single_price[i]).html());
 
@@ -1259,6 +1261,7 @@ tq.home = {
           fee_arr.push(fee_json2);
         }
       } else if ($(time_arr[i]).hasClass("adult")) {
+        var idA = $(time_arr[i]).attr("id")[0];
 
         order_adult_single = parseInt($(num_arr[i]).html());
         order_adult_price = parseFloat($(single_price[i]).html());
@@ -2106,7 +2109,7 @@ tq.home = {
           var data = new FormData();
           data.append('file', $('#browsefile')[0].files[0]);
           $.ajax({
-              url: 'http://upload.momia.cn/upload/image',
+              url: tq.uploadurl,
               type: 'POST',
               data: data,
               processData: false,
