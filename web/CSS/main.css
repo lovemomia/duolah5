@@ -1249,8 +1249,9 @@ header{
 	margin-right: 0.08rem;
 }
 .part_calender .cTitle img{
-	width: 0.3rem;
+	width: 0.19rem;
 	float: left;
+	margin-top: 0.025rem;
 }
 .part_calender .cTitle .pDate{
 	float: left;

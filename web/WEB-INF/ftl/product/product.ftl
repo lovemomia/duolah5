@@ -213,11 +213,14 @@
         $(".ads_top").on("click", function(){
             location.href = "../../../downapp.html";
         });
+        <#if map.customers.avatars??>
         $(".attent_total").on("click", function(){
             var id = tq.t.getQueryString("id");
             location.href = "partner.html?id="+id+"";
         })
-
+        <#else >
+            $(".attent_total h3").css("background","none");
+        </#if>
         <#if map.favored?c == "true">
             $(".collect").on("click",function(){
                 tq.home.uncollect();

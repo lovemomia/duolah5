@@ -26,7 +26,7 @@
         <div class="pMain"></div>
          <div class="part_calender">
             <div class="cTitle">
-                <img src="image/calender2.png" alt="">
+                <img src="image/cd2.png" alt="">
                 <div class="pDate">
                     <p class="date"><#if map.time??>${map.time}</#if></p>
                     <p class="pNum"><#if map.joined??>${map.joined}</#if></p>
