@@ -53,7 +53,7 @@
     $(".my").on("click",function(){
         var utoken = tq.t.cookie.get("utoken");
         if(utoken == null || utoken == "" || !utoken){
-            location.href = "registerpsw.html?profile.html";
+            location.href = "loginpsw.html?profile.html";
         }
         else{
             location.href = "profile.html";

@@ -84,11 +84,13 @@ public class ProductController extends BaseFunc {
     }
 
     private JSONObject processAvatars(JSONObject customersJson) {
-        JSONArray avatarsJson = customersJson.getJSONArray("avatars");
-        if (avatarsJson != null) {
-            for (int i = 0; i < avatarsJson.size(); i++) {
-                String avatar = avatarsJson.getString(i);
-                avatarsJson.set(i, ImageFile.url(avatar));
+        if (customersJson != null) {
+            JSONArray avatarsJson = customersJson.getJSONArray("avatars");
+            if (avatarsJson != null) {
+                for (int i = 0; i < avatarsJson.size(); i++) {
+                    String avatar = avatarsJson.getString(i);
+                    avatarsJson.set(i, ImageFile.url(avatar));
+                }
             }
         }
 

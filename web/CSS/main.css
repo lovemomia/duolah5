@@ -1140,11 +1140,11 @@ header{
 }
 /*下载appbtn*/
 .ads_bot{
+	width: 100%;
+	overflow: hidden;
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	z-index: 1;
-	width: 100%;
 }
 .ads_bot img, .ads_top img{
 	width: 100%;

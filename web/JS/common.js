@@ -319,7 +319,7 @@ tq.home = {
             code: code
           }, function(res) {
             if (res.errno == 0) {
-              tq.t.cookie.set("utoken", res.data.token, 20);
+              tq.t.cookie.set("utoken", res.data.token, 365);
               location.href = url;
             } else {
               tq.t.alert(res.errmsg);
@@ -413,7 +413,7 @@ tq.home = {
             password: password
           }, function(res) {
             if (res.errno == 0) {
-              tq.t.cookie.set("utoken", res.data.token, 20);
+              tq.t.cookie.set("utoken", res.data.token, 365);
               location.href = url;
             } else {
               tq.t.alert(res.errmsg);
@@ -697,7 +697,7 @@ tq.home = {
     var id = tq.t.getQueryString("id");
     var utoken = tq.t.cookie.get("utoken");
     if (!utoken || utoken == "" || utoken == null) {
-      location.href = "registerpsw.html?actsDetail.html?id=" + id + "";
+      location.href = "loginpsw.html?actsDetail.html?id=" + id + "";
     } else {
       var api = tq.url + "product/favor";
       $.post(api, {utoken:utoken,id:id}, function(res){

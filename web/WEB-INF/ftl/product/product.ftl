@@ -245,7 +245,7 @@
                 var utoken = tq.t.cookie.get("utoken");
                 var id = tq.t.getQueryString("id");
                 if (!utoken || utoken == "" || utoken == null) {
-                    location.href = "registerpsw.html?orderDetail.html?id=" + id + "";
+                    location.href = "loginpsw.html?orderDetail.html?id=" + id + "";
                 } else {
                     tq.t.delSession();
                     location.href = "orderDetail.html?id=" + id + "";
