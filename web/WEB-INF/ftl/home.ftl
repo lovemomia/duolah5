@@ -37,15 +37,6 @@
     </div>
 </article>
 
-<<<<<<< HEAD
-            </#if>
-            <#if map[homeKey].nextPage??>
-            nextPage:${data[dataKey]}
-            </#if>
-        </#if>
-    </#list>
-</#list>
-=======
 <script type="text/javascript">
     tq.home.getIndexScrollImg($("#scroll_img"));
     tq.home.getActsList($("#act_content"),0);
@@ -71,4 +62,3 @@
 </script>
 </body>
 </html>
->>>>>>> 详情页模板
