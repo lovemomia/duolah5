@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping()
+@RequestMapping
 public class HomeController extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
