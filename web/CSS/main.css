@@ -230,11 +230,10 @@ header{
 }
 .act_list .act_detail {
 	margin-left: 0.1rem;
-	border-bottom: 1px solid #eee;
 }
 .act_list .act_safe{
-	margin-left: 0.1rem;
 	width: 100%;
+	border-top: 1px solid #eee;
 }
 .act_list .act_safe span{
 	width: 30%;
@@ -246,6 +245,7 @@ header{
 	font-size: 0.123rem;
 	padding: 0.08rem;
 	margin-right: 0.1rem;
+	margin-left: 0.1rem;
 }
 .act_list .act_detail .address{
 	font-size: 0.1rem;
@@ -393,7 +393,7 @@ header{
 .attent_total{
 	margin-top: 0.08rem;
 	background: #fff;
-	border-bottom: 1px solid #eee;
+	/*border-bottom: 1px solid #eee;*/
 	border-top: 1px solid #eee;
 }
 .attent_total h3{
@@ -819,7 +819,7 @@ header{
 }
 .order_detail{
 	background: #fff;
-	border-top: 1px solid #eee;
+	/*border-top: 1px solid #eee;*/
 	/*border-bottom: 1px solid #eee;*/
 }
 .order_detail .form01, .order_detail .form02{
@@ -953,7 +953,7 @@ header{
 	background: #fff;
 	bottom: 0;
 	width: 100%;
-	border-top: 1px solid #eee;
+	/*border-top: 1px solid #eee;*/
 }
 .add_submit .submit{
 	display: block;
