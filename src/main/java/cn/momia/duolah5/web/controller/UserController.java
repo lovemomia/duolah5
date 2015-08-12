@@ -122,4 +122,9 @@ public class UserController extends BaseFunc {
     public ModelAndView getFavoritesOfUser() {
         return new ModelAndView("./user/myfavorite", "list", "");
     }
+
+    @RequestMapping(value = "/recommend")
+    public ModelAndView recommend() {
+        return new ModelAndView("./user/recommend");
+    }
 }
