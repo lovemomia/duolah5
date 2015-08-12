@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
     <title>我要爆料</title>
-    <link rel="stylesheet" type="text/css" href="CSS/main.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/main_v1.css" />
     <script type="text/javascript" src="JS/zepto.min.js"></script>
-    <script type="text/javascript" src="JS/config.js"></script>
-    <script type="text/javascript" src="JS/common.js"></script>
+    <script type="text/javascript" src="JS/config_v1.js"></script>
+    <script type="text/javascript" src="JS/common_v1.js"></script>
     <script type="text/javascript">document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";</script>
 </head>
 <body>
