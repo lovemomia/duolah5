@@ -53,11 +53,11 @@ public class UserController extends BaseFunc {
             return data;
         }
     };
-    @RequestMapping(value = "/profile.html")
+    @RequestMapping(value = "/profile")
     public ModelAndView profile() {
         return new ModelAndView("./user/profile");
     }
-    @RequestMapping(value = "/profileInfo.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/profileInfo", method = RequestMethod.GET)
     public ModelAndView getUser(HttpServletRequest httpRequest) throws IOException {
 
         String utoken = getUtoken(httpRequest);
@@ -84,7 +84,7 @@ public class UserController extends BaseFunc {
         return user;
     }
 
-    @RequestMapping(value = "/user_order.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/user_order", method = RequestMethod.GET)
     public ModelAndView getOrdersOfUser() {
 
         return new ModelAndView("./user/ordersOfUser", "list", "");
@@ -118,7 +118,7 @@ public class UserController extends BaseFunc {
         return children;
     }
 
-    @RequestMapping(value = "/collect.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/collect", method = RequestMethod.GET)
     public ModelAndView getFavoritesOfUser() {
         return new ModelAndView("./user/myfavorite", "list", "");
     }

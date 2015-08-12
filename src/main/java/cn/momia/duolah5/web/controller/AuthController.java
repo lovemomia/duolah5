@@ -10,23 +10,23 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AuthController extends BaseFunc {
 
-    @RequestMapping(value = "/registerpsw.html")
+    @RequestMapping(value = "/registerpsw")
     public ModelAndView register() {
         return new ModelAndView("./auth/register");
     }
 
-    @RequestMapping(value = "/loginpsw.html")
+    @RequestMapping(value = "/loginpsw")
     public ModelAndView login() {
         return new ModelAndView("./auth/login");
 
     }
 
-    @RequestMapping(value = "/login.html")
+    @RequestMapping(value = "/login")
     public ModelAndView loginWithCode() {
         return new ModelAndView("./auth/loginWithCode");
     }
 
-    @RequestMapping(value = "/resetpsw.html")
+    @RequestMapping(value = "/resetpsw")
     public ModelAndView fogetPassword() {
         return new ModelAndView("./auth/forgetPassword");
     }

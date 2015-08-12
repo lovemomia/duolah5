@@ -31,7 +31,7 @@ import java.util.List;
 public class ProductController extends BaseFunc {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ProductController.class);
 
-    @RequestMapping(value = "/actsDetail.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/actsDetail", method = RequestMethod.GET)
     public ModelAndView getProduct(@RequestParam(defaultValue = "") String utoken, @RequestParam long id, HttpServletRequest httpRequest) {
         if (id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
@@ -97,7 +97,7 @@ public class ProductController extends BaseFunc {
         return customersJson;
     }
 
-    @RequestMapping(value = "/orderDetail.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
     public ModelAndView getProductOrder(HttpServletRequest httpRequest, @RequestParam long id) {
         String utoken = getUtoken(httpRequest);
         if(StringUtils.isBlank(utoken) || id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
@@ -136,7 +136,7 @@ public class ProductController extends BaseFunc {
         return MomiaHttpRequest.GET("skus", true, url("product", productId, "sku"));
     }
 
-    @RequestMapping(value = "/partner.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/partner", method = RequestMethod.GET)
     public ModelAndView getProductPlaymates(@RequestParam long id) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("start", 0)
@@ -166,7 +166,7 @@ public class ProductController extends BaseFunc {
         return new ModelAndView("./product/playmates", "playmates", list);
     }
 
-    @RequestMapping(value = "/choose_Outer.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/choose_Outer", method = RequestMethod.GET)
     public ModelAndView getParticipants(HttpServletRequest httpRequest) {
         String utoken = getUtoken(httpRequest);
 
@@ -182,7 +182,7 @@ public class ProductController extends BaseFunc {
         return new ModelAndView("./product/sku_participant", "participant", list);
     }
 
-    @RequestMapping(value = "/outer_info.html")
+    @RequestMapping(value = "/outer_info")
     public ModelAndView getContacts() {
         return new ModelAndView("./product/contacts");
     }
