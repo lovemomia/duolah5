@@ -58,13 +58,14 @@
 </article>
 <script>
     $(function(){
-        tq.home.wxPay();
         if(tq.t.isweixin()){
             $(".weixin").removeClass("none");
             $(".ali_pay").addClass("none");
+            tq.home.wxPay();
         }else{
             $(".ali_pay").removeClass("none");
             $(".weixin").addClass("none");
+            tq.home.wxPay();
         }
     })
 </script>

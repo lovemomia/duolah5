@@ -164,21 +164,19 @@
                         <h3>${content.title}</h3>
                         <p class="tips_article spec spes">
                             <#list content.body as body>
-                                <#list body?keys as bodyKey>
-                                <#if bodyKey = "label">
-                                    <#if body.label != "" >
-                                        <span class="orange">${body.label}</span>
-                                    </#if>
-                                <#elseif bodyKey = "img">
-                                    <#if body.img != "" >
-                                        <img src= '${body.img}'><br>
-                                    </#if>
-                                <#elseif bodyKey = "html">
-                                    <span>${body.html}</span>
-                                <#else >
-                                    <span>${body.text}</span><br>
+
+                                <#if body.label ??>
+                                    <span class="orange">${body.label}</span><br>
                                 </#if>
-                                </#list>
+                                <#if body.img ??>
+                                    <img src= '${body.img}'><br>
+                                </#if>
+                                <#if body.html ??>
+                                    <span>${body.html}</span>
+                                </#if>
+                             <span><#if body.text??>${body.text}</#if></span><br>
+
+
                             </#list>
                         </p>
                     </div>
@@ -210,6 +208,7 @@
         $(".back").on("click", function(){
             location.href = "index.html";
         });
+        document.title = '${map.title}';
         $(".ads_top").on("click", function(){
             location.href = "../../../downapp.html";
         });
