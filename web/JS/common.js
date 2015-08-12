@@ -1825,7 +1825,7 @@ tq.home = {
         $.post(api, {utoken:utoken,cid:cid}, function(res){
           if(res.errno == 0){
             $($(".babyMain .bot")[botLength-1]).remove();
-            chidlIdArr.pop();
+            //chidlIdArr.pop();
           }else{
             tq.t.alert(errmsg);
             tq.t.cancel();
@@ -2127,12 +2127,52 @@ tq.home = {
                   })
                 }
               },
-              error: function(res){
-                console.log("erro");
-              } 
+              error: function(){}
           });
           return false;
         }
     };
+  }
+
+  // 爆料
+  ,
+  recommend: function(){
+    var api = tq.url + "recommend";
+    var act_content = $("#textarea").val();
+    var act_time = $("#act_time").val();
+    var act_address = $("#act_address").val();
+    var act_phone = $("#act_contact").val();
+    if(!act_phone || act_phone == ""){
+      tq.t.alert("请输入手机号");
+      tq.t.cancel();
+    }else if(!tq.t.valPho(act_phone)){
+      tq.t.alert("手机号输入不正确");
+      tq.t.cancel();
+    }else if(!act_content || act_content == ""){
+      tq.t.alert("请输入爆料内容");
+      tq.t.cancel();
+    }else if(!act_address || act_address == ""){
+      tq.t.alert("请输入活动地址");
+      tq.t.cancel();
+    }else if(!act_time || act_time == ""){
+      tq.t.alert("请输入活动时间");
+      tq.t.cancel();
+    }
+    else{
+      $.post(api,{
+        content:act_content,
+        time:act_time,
+        address:act_address,
+        contacts:act_phone
+      },function(res){
+        if(res.errno == 0){
+          tq.t.alert("提交成功");
+          tq.t.cancel();
+        }else{
+          tq.t.alert(res.errmsg);
+          tq.t.cancel();
+        }
+      });
+    }
   }
 }
