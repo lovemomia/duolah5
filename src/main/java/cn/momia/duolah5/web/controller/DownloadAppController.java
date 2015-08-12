@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class DownloadAppController extends BaseFunc {
-    @RequestMapping(value = "/downapp.html")
+    @RequestMapping(value = "/downapp")
     public ModelAndView downloadApp() {
         return new ModelAndView("/downloadApp");
     }

@@ -24,7 +24,7 @@ public class ParticipantController extends BaseFunc {
     private static final Logger LOGGER = LoggerFactory.getLogger(ParticipantController.class);
 
 
-    @RequestMapping(value = "/edit_outer.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/edit_outer", method = RequestMethod.GET)
     public ModelAndView getParticipant(HttpServletRequest httpRequest, @RequestParam long id) {
         String utoken = getUtoken(httpRequest);
         if (StringUtils.isBlank(utoken) || id <= 0) return new ModelAndView("success", "msg", "invalid param");
@@ -39,7 +39,7 @@ public class ParticipantController extends BaseFunc {
         return new ModelAndView("./user/participant/get_participant", "participant", list);
     }
 
-    @RequestMapping(value = "/com_outer.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/com_outer", method = RequestMethod.GET)
     public ModelAndView getParticipantsOfUser(HttpServletRequest httpRequest) {
         String utoken = getUtoken(httpRequest);
 
@@ -55,7 +55,7 @@ public class ParticipantController extends BaseFunc {
         return new ModelAndView("./user/participant/participant", "participant", list);
     }
 
-    @RequestMapping(value = "/addOuter.html")
+    @RequestMapping(value = "/addOuter")
     public ModelAndView addParticipant() {
         return new ModelAndView("./user/participant/addParticipant");
     }

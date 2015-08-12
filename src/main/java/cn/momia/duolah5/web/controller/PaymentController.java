@@ -9,12 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class PaymentController extends BaseFunc {
-    @RequestMapping(value = "/orderPay.html")
+    @RequestMapping(value = "/orderPay")
     public ModelAndView payment() {
         return new ModelAndView("./payment/payment");
     }
 
-    @RequestMapping(value = "/payOk.html")
+    @RequestMapping(value = "/payOk")
     public ModelAndView payOk() {
         return new ModelAndView("./payment/payOk");
     }
