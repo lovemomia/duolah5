@@ -167,7 +167,7 @@
                                 <#list body?keys as bodyKey>
                                 <#if bodyKey = "label">
                                     <#if body.label != "" >
-                                        <span class="orange">${body.label}</span><#if body.text ??>${body.text}</#if><br>
+                                        <span class="orange">${body.label}</span>
                                     </#if>
                                 <#elseif bodyKey = "img">
                                     <#if body.img != "" >
