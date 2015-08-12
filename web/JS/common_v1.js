@@ -1655,8 +1655,6 @@ tq.home = {
             type: "wap"
           }, function(res){
             if(res.errno == 0){
-              console.log(res.data);
-              console.log(res.data.return_url);
               var param = "_input_charset="+res.data.input_charset+"&body="+res.data.body+"&it_b_pay="+res.data.it_b_pay+"&notify_url="+encodeURIComponent(res.data.notify_url)+"&out_trade_no="+res.data.out_trade_no +"&partner="+res.data.partner+"&payment_type="+res.data.payment_type+"&seller_id="+res.data.seller_id+"&service="+res.data.service+"&sign="+res.data.sign+"&sign_type="+res.data.sign_type+"&subject="+res.data.subject+"&total_fee="+res.data.total_fee+"&show_url="+encodeURIComponent(res.data.show_url)+"&return_url="+encodeURIComponent(res.data.return_url)+"";
               var url = "https://mapi.alipay.com/gateway.do?"+param;
               location.href = url;
