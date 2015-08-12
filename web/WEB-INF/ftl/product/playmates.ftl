@@ -43,10 +43,12 @@
                     </#if>
                     <div class="pMaMa">
                         <p class="MaMa"><#if playmate.nickName??>${playmate.nickName}</#if></p>
-                        <#list playmate.children as children>
-                        <#if children_index <= 1>
-                        <p class="pAge">${children}</p></#if>
-                        </#list>
+
+                            <#if (playmate.children?size>=2)>
+                                <p class="pAge">${playmate.children[0]}，${playmate.children[1]}</p>
+                            <#elseif (playmate.children?size = 0)>
+                                <p class="pAge"></p>
+                            </#if>
                     </div>
                 </div>
             </div>
