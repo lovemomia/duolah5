@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,user-scalable=no">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>哆啦亲子,和孩子一起探索世界</title>
+    <title>哆啦亲子－约上玩伴，探索世界</title>
     <link rel="stylesheet" type="text/css" href="CSS/main_v1.css">
     <script type="text/javascript" src="JS/zepto.min.js"></script>
     <script type="text/javascript" src="JS/config_v1.js"></script>
