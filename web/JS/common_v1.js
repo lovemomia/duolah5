@@ -633,7 +633,7 @@ tq.home = {
           s += '<h3>' + data[i].title + '</h3>'; //获取title
           s += '<p class="address">' + data[i].scheduler + ''; //获取时间
           s += '<div class="act_attend">';
-          s += '<span class="act_time">' + data[i].address + '</span>'; //获取地址
+          s += '<span class="act_time">' + data[i].region + '</span>'; //获取地址
           s += '<span class="act_price"><i class="rmb">￥</i><i>' + data[i].price + '</i><i class="rmb">起</i></span>'; //获取报名费用
           s += "</div></div></a></div>";
           $(wrap).append(s);
