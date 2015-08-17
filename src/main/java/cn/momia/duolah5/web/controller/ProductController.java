@@ -42,9 +42,9 @@ public class ProductController extends BaseFunc {
             @Override
             public Object apply(MomiaHttpResponseCollector collector) {
                 JSONObject productJson = (JSONObject) productFunc.apply(collector.getResponse("product"));
-                JSONObject customersJson = (JSONObject) collector.getResponse("customers");
+                JSONArray customersJson = (JSONArray) collector.getResponse("customers");
 
-                productJson.put("customers", processAvatars(customersJson));
+                productJson.put("customers", buildCustomers(customersJson, productJson.getInteger("stock")));
 
                 boolean opened = productJson.getBoolean("opened");
                 if (!opened) productJson.put("soldOut", true);
@@ -70,31 +70,39 @@ public class ProductController extends BaseFunc {
     }
 
     private MomiaHttpRequest buildProductRequest(String utoken, long productId) {
-        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
+        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
+                .add("utoken", utoken)
+                .add("type", 4);
 
         return MomiaHttpRequest.GET("product", true, url("product", productId), builder.build());
     }
 
     private MomiaHttpRequest buildProductCustomersRequest(long productId) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
+                .add("pid", productId)
                 .add("start", 0)
                 .add("count", conf.getInt("Product.CustomerPageSize"));
 
-        return MomiaHttpRequest.GET("customers", false, url("product", productId, "customer"), builder.build());
+        return MomiaHttpRequest.GET("customers", false, url("order/customer"), builder.build());
     }
 
-    private JSONObject processAvatars(JSONObject customersJson) {
-        if (customersJson != null) {
-            JSONArray avatarsJson = customersJson.getJSONArray("avatars");
-            if (avatarsJson != null) {
-                for (int i = 0; i < avatarsJson.size(); i++) {
-                    String avatar = avatarsJson.getString(i);
-                    avatarsJson.set(i, ImageFile.url(avatar));
-                }
+    private JSONObject buildCustomers(JSONArray avatarsJson, int stock) {
+        JSONObject customersJson = new JSONObject();
+        customersJson.put("text", "玩伴信息" + ((stock > 0 && stock <= conf.getInt("Product.StockAlert")) ? "（仅剩" + stock + "个名额）" : ""));
+        customersJson.put("avatars", processAvatars(avatarsJson));
+
+        return customersJson;
+    }
+
+    private JSONArray processAvatars(JSONArray avatarsJson) {
+        if (avatarsJson != null) {
+            for (int i = 0; i < avatarsJson.size(); i++) {
+                String avatar = avatarsJson.getString(i);
+                avatarsJson.set(i, ImageFile.url(avatar));
             }
         }
 
-        return customersJson;
+        return avatarsJson;
     }
 
     @RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
@@ -139,9 +147,10 @@ public class ProductController extends BaseFunc {
     @RequestMapping(value = "/partner", method = RequestMethod.GET)
     public ModelAndView getProductPlaymates(@RequestParam long id) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
+                .add("pid", id)
                 .add("start", 0)
                 .add("count", conf.getInt("Product.Playmate.MaxSkuCount"));
-        MomiaHttpRequest request = MomiaHttpRequest.GET(url("product", id, "playmate"), builder.build());
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("order/playmate"), builder.build());
 
         ResponseMessage responseMessage = executeRequest(request, new Function<Object, Object>() {
             @Override
