@@ -72,7 +72,7 @@
                         <#if map.joined == 0>
                             <span class="num"></span>
                         <#else >
-                            <span class="num"><i>${map.joined}</i>人报名</span>
+                            <span class="num"><i>${map.joined}</i>人参加</span>
                         </#if>
 
                         <span class="act_price orange">
