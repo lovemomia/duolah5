@@ -21,7 +21,7 @@
     </Image>
 
     <Service>
-        <Base>http://120.55.102.12:7070</Base>
+        <Base>http://localhost:7070</Base>
         <Deal>http://localhost:7070</Deal>
     </Service>
 
@@ -39,6 +39,7 @@
             <MaxSkuCount>20</MaxSkuCount>
         </Playmate>
         <Url>http://m.duolaqinzi.cn/actsDetail.html</Url>
+        <StockAlert>10</StockAlert>
     </Product>
 
     <Order>
