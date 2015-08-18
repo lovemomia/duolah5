@@ -218,7 +218,7 @@
             location.href = "partner.html?id="+id+"";
         })
         <#else >
-            $(".attent_total h3").css("background","none");
+            $(".attent_total").addClass("none");
         </#if>
         <#if map.favored?c == "true">
             $(".collect").on("click",function(){
