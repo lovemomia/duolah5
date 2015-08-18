@@ -1,8 +1,5 @@
 package cn.momia.duolah5.web.controller;
 
-import cn.momia.duolah5.ftl.base.Ftl;
-import cn.momia.duolah5.ftl.base.ParticipantFtl;
-import cn.momia.duolah5.ftl.composite.ListFtl;
 import cn.momia.duolah5.web.http.MomiaHttpParamBuilder;
 import cn.momia.duolah5.web.http.MomiaHttpRequest;
 import cn.momia.duolah5.web.http.MomiaHttpResponseCollector;
@@ -32,13 +29,13 @@ public class ProductController extends BaseFunc {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ProductController.class);
 
     @RequestMapping(value = "/actsDetail", method = RequestMethod.GET)
-    public ModelAndView getProduct(@RequestParam(defaultValue = "") String utoken, @RequestParam long id, HttpServletRequest httpRequest) {
+    public ModelAndView getProduct(@RequestParam final long id, HttpServletRequest httpRequest) {
         if (id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
-        utoken = getUtoken(httpRequest);
+        final String utoken = getUtoken(httpRequest);
         List<MomiaHttpRequest> requests = buildProductRequests(utoken, id);
 
-        ResponseMessage responseMessage = executeRequests(requests, new Function<MomiaHttpResponseCollector, Object>() {
+        final ResponseMessage responseMessage = executeRequests(requests, new Function<MomiaHttpResponseCollector, Object>() {
             @Override
             public Object apply(MomiaHttpResponseCollector collector) {
                 JSONObject productJson = (JSONObject) productFunc.apply(collector.getResponse("product"));
@@ -46,8 +43,20 @@ public class ProductController extends BaseFunc {
 
                 productJson.put("customers", buildCustomers(customersJson, productJson.getInteger("stock")));
 
-                boolean opened = productJson.getBoolean("opened");
-                if (!opened) productJson.put("soldOut", true);
+                Boolean opened = productJson.getBoolean("opened");
+                if (opened == null || !opened) productJson.put("soldOut", true);
+
+                if (!StringUtils.isBlank(utoken)) {
+                    try {
+                        long userId = getUserId(utoken);
+                        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("uid", userId);
+                        MomiaHttpRequest request = MomiaHttpRequest.GET(url("product", id, "favored"), builder.build());
+                        ResponseMessage favoredResponse = executeRequest(request);
+                        if (favoredResponse.successful()) productJson.put("favored", favoredResponse.getData());
+                    } catch (Exception e) {
+
+                    }
+                }
 
                 return productJson;
             }
@@ -208,7 +217,6 @@ public class ProductController extends BaseFunc {
         processCoverJson(topicJson.getJSONArray("groups"));
 
         return new ModelAndView("./product/topicProduct", "topic", topicJson);
-
     }
 
     private void processCoverJson(JSONArray productArray) {
@@ -222,6 +230,4 @@ public class ProductController extends BaseFunc {
 
         }
     }
-
-
 }
