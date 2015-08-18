@@ -1553,7 +1553,11 @@ tq.home = {
           if (status == "2" && type == "le") {
             s += "<div class='ofd green'>";
             s += "<a href='' class='rbtn del green'>删除订单</a>";
-            s += "<a href='' class='rbtn green pay'>继续支付</a>";
+            if (data[i].closed) {
+              s += "<a href='' class='rbtn green' disabled='ture'>已过期</a>"
+            } else {
+              s += "<a href='' class='rbtn green pay'>继续支付</a>";
+            }
             s += "<div style='clear:both'></div>"
             s += "</div>";
           }
