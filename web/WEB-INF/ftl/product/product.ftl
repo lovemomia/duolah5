@@ -106,7 +106,7 @@
             </div>
         <div class="attent_total">
             <#if map.customers??>
-
+                <#if (map.customers.avatars?? && map.customers.avatars?size>0)>
                 <h3>${map.customers.text}</h3>
                 <div style="clear:both"></div>
                 <#if map.customers.avatars??>
@@ -117,6 +117,7 @@
                             <img src="${avatars}">
                         </#if>
                     </#list>
+                </#if>
                 </#if>
             </#if>
         </div>
