@@ -117,7 +117,7 @@ public class OrderOfUserFtl implements Ftl {
         this.status = orderPackJson.getInteger("status");
 
         if (extractExtraInfo) {
-            this.cover = ImageFile.url(orderPackJson.getString("cover"));
+            this.cover = ImageFile.largeUrl(orderPackJson.getString("cover"));
             this.title = orderPackJson.getString("title");
             this.scheduler = orderPackJson.getString("scheduler");
             this.price = orderPackJson.getBigDecimal("price");

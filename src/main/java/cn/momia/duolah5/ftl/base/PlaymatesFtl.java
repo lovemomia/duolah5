@@ -16,7 +16,7 @@ public class PlaymatesFtl extends ArrayList<JSONObject> implements Ftl {
             JSONArray playmatesJson = skuPlaymatesJson.getJSONArray("playmates");
             for (int j = 0; j < playmatesJson.size(); j++) {
                 JSONObject playmateJson = playmatesJson.getJSONObject(j);
-                playmateJson.put("avatar", ImageFile.url(playmateJson.getString("avatar")));
+                playmateJson.put("avatar", ImageFile.smallUrl(playmateJson.getString("avatar")));
             }
             this.add(skuPlaymatesJson);
         }

@@ -33,7 +33,7 @@ public class ProductDetailFtl extends ProductFtl implements Ftl {
         if (avatarsJson != null) {
             for (int i = 0; i < avatarsJson.size(); i++) {
                 String avatar = avatarsJson.getString(i);
-                avatarsJson.set(i, ImageFile.url(avatar));
+                avatarsJson.set(i, ImageFile.smallUrl(avatar));
             }
         }
 

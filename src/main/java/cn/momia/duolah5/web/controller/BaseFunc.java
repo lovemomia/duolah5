@@ -22,7 +22,7 @@ public class BaseFunc extends AbstractController {
         @Override
         public Object apply(Object data) {
             JSONObject userJson = (JSONObject) data;
-            userJson.put("avatar", ImageFile.url(userJson.getString("avatar")));
+            userJson.put("avatar", ImageFile.smallUrl(userJson.getString("avatar")));
 
             return data;
         }
@@ -33,7 +33,7 @@ public class BaseFunc extends AbstractController {
         public Object apply(Object data) {
             JSONObject productJson = (JSONObject) data;
             productJson.put("url", buildUrl(productJson.getLong("id")));
-            productJson.put("thumb", ImageFile.url(productJson.getString("thumb")));
+            productJson.put("thumb", ImageFile.smallUrl(productJson.getString("thumb")));
             if (productJson.containsKey("cover")) productJson.put("cover", ImageFile.url(productJson.getString("cover")));
             if (productJson.containsKey("imgs")) productJson.put("imgs", processImgs(productJson.getJSONArray("imgs")));
             if (productJson.containsKey("content")) productJson.put("content", processContent(productJson.getJSONArray("content")));

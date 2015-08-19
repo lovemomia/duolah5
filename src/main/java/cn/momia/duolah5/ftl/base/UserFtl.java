@@ -79,7 +79,7 @@ public class UserFtl implements Ftl {
         this.nickName = userPackJson.getString("nickName");
         this.mobile = userPackJson.getString("mobile");
         this.hasPassword = userPackJson.getBoolean("hasPassword");
-        this.avatar = ImageFile.url(userPackJson.getString("avatar"));
+        this.avatar = ImageFile.smallUrl(userPackJson.getString("avatar"));
         this.name = userPackJson.getString("name");
         this.sex = userPackJson.getString("sex");
       //  this.birthday = userPackJson.getDate("birthday");

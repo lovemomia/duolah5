@@ -107,7 +107,7 @@ public class ProductController extends BaseFunc {
         if (avatarsJson != null) {
             for (int i = 0; i < avatarsJson.size(); i++) {
                 String avatar = avatarsJson.getString(i);
-                avatarsJson.set(i, ImageFile.url(avatar));
+                avatarsJson.set(i, ImageFile.smallUrl(avatar));
             }
         }
 
@@ -170,7 +170,7 @@ public class ProductController extends BaseFunc {
                     JSONArray playmatesJson = skuPlaymatesJson.getJSONArray("playmates");
                     for (int j = 0; j < playmatesJson.size(); j++) {
                         JSONObject playmateJson = playmatesJson.getJSONObject(j);
-                        playmateJson.put("avatar", ImageFile.url(playmateJson.getString("avatar")));
+                        playmateJson.put("avatar", ImageFile.smallUrl(playmateJson.getString("avatar")));
                     }
                 }
 
