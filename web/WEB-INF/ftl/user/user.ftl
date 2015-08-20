@@ -106,9 +106,6 @@
 </#list>
 
     </section>
-    <div class="login">
-        <button id="btn_submit" class="tapable">退出登录</button>
-    </div>
 </article>
 <script type="text/javascript">
     $(function(){
@@ -116,11 +113,6 @@
             location.href = "profile.html";
         });
         tq.home.profileInfo();
-        $(".login").on("click", function(){
-            tq.t.cookie.del("utoken");
-            sessionStorage.clear();
-            location.href = "index.html";
-        });
         tq.home.uploadImg();
     })
 </script>
