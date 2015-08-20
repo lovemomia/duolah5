@@ -1160,7 +1160,8 @@ tq.home = {
             var data_order = JSON.stringify(data_json);
             $.post(api, {
               utoken: utoken,
-              order: data_order
+              order: data_order,
+              invite: (sessionStorage.getItem("invite") != null ? sessionStorage.getItem("invite") : "")
             }, function(res) {
               if (res.errno == 0) {
                 var data = res.data;

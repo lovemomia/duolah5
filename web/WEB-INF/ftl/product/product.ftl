@@ -206,6 +206,9 @@
 //                location.href = "../../../downapp.html";
 //            });
 //        }
+        var invite = tq.t.getQueryString("invite");
+        if (invite != null) sessionStorage.setItem("invite", invite);
+
         $(".back").on("click", function(){
             location.href = "index.html";
         });
