@@ -127,4 +127,9 @@ public class UserController extends BaseFunc {
     public ModelAndView recommend() {
         return new ModelAndView("./user/recommend");
     }
+
+    @RequestMapping(value = "/coupon")
+    public ModelAndView coupon() {
+        return new ModelAndView("./user/coupon");
+    }
 }
