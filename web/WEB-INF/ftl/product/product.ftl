@@ -218,7 +218,28 @@
                 wx.onMenuShareTimeline({
                     title: '${map.title}',
                     link: '${map.url}',
-                    imgUrl: '${map.thumb}',
+                    imgUrl: '${map.thumb}'
+                });
+
+                wx.onMenuShareQQ({
+                    title: '${map.title}',
+                    desc: '${map.abstracts}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
+                });
+
+                wx.onMenuShareWeibo({
+                    title: '${map.title}',
+                    desc: '${map.abstracts}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
+                });
+
+                wx.onMenuShareQZone({
+                    title: '${map.title}',
+                    desc: '${map.abstracts}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
                 });
             });
         }
