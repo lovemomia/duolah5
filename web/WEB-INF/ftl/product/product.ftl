@@ -204,7 +204,7 @@
                 timestamp: ${map.config.timeStamp}, // 必填，生成签名的时间戳
                 nonceStr: '${map.config.nonceStr}', // 必填，生成签名的随机串
                 signature: '${map.config.sign}',// 必填，签名，见附录1
-                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'], // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             });
 
             wx.ready(function() {
@@ -212,7 +212,7 @@
                     title: '${map.title}',
                     desc: '${map.abstracts}',
                     link: '${map.url}',
-                    imgUrl: '${map.thumb}',
+                    imgUrl: '${map.thumb}'
                 });
             });
         }
