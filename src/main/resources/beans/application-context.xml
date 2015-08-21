@@ -51,9 +51,13 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean class="cn.momia.duolah5.web.secret.SecretKey" init-method="init">
+    <bean id="secretKey" class="cn.momia.duolah5.web.secret.SecretKey" init-method="init">
         <property name="conf" ref="conf" />
         <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean class="cn.momia.duolah5.wx.WxAuth" init-method="init" depends-on="secretKey">
+        <property name="conf" ref="conf" />
     </bean>
 
     <bean id="requestExecutor" class="cn.momia.duolah5.web.http.MomiaHttpRequestExecutor" />
@@ -61,8 +65,6 @@
     <bean class="cn.momia.duolah5.ftl.misc.ProductUtil">
         <property name="conf" ref="conf" />
     </bean>
-
-
 
     <bean id="freemarkerConfiguration"
           class="org.springframework.beans.factory.config.PropertiesFactoryBean">

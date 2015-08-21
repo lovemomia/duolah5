@@ -102,6 +102,16 @@ public class BaseFunc extends AbstractController {
         throw new RuntimeException("fail to get user id");
     }
 
+    protected String getUserInviteCode(String utoken) {
+        MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("user/code"), builder.build());
+
+        ResponseMessage response = executeRequest(request);
+        if (response.successful()) return (String) response.getData();
+
+        throw new RuntimeException("fail to get user invite code");
+    }
+
     protected String getUtoken(HttpServletRequest httpRequest) {
         Cookie[] cookies = httpRequest.getCookies();
         for(Cookie cookie : cookies)

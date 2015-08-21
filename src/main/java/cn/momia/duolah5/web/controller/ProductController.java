@@ -6,6 +6,7 @@ import cn.momia.duolah5.web.http.MomiaHttpResponseCollector;
 import cn.momia.duolah5.web.img.ImageFile;
 import cn.momia.duolah5.web.response.ResponseMessage;
 import cn.momia.duolah5.ftl.base.PlaceOrderFtl;
+import cn.momia.duolah5.wx.WxConfig;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
@@ -46,16 +47,24 @@ public class ProductController extends BaseFunc {
                 Boolean opened = productJson.getBoolean("opened");
                 if (opened == null || !opened) productJson.put("soldOut", true);
 
-                if (!StringUtils.isBlank(utoken)) {
-                    try {
+                try {
+                    if (!StringUtils.isBlank(utoken)) {
                         long userId = getUserId(utoken);
                         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("uid", userId);
                         MomiaHttpRequest request = MomiaHttpRequest.GET(url("product", id, "favored"), builder.build());
                         ResponseMessage favoredResponse = executeRequest(request);
                         if (favoredResponse.successful()) productJson.put("favored", favoredResponse.getData());
-                    } catch (Exception e) {
-
                     }
+
+                    StringBuilder urlBuilder = new StringBuilder().append(conf.getString("Product.Url")).append("?id=").append(productJson.getInteger("id"));
+                    productJson.put("config", getWxConfig(urlBuilder.toString()));
+                    if (!StringUtils.isBlank(utoken)) {
+                        String code = getUserInviteCode(utoken);
+                        if (!StringUtils.isBlank(code)) urlBuilder.append("&invite=").append(code);
+                    }
+                    productJson.put("url", urlBuilder.toString());
+                } catch (Exception e) {
+                    LOGGER.error("exception", e);
                 }
 
                 return productJson;
@@ -112,6 +121,10 @@ public class ProductController extends BaseFunc {
         }
 
         return avatarsJson;
+    }
+
+    private WxConfig getWxConfig(String url) {
+        return new WxConfig(conf.getString("Weixin.JsApiAppId"), url);
     }
 
     @RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
