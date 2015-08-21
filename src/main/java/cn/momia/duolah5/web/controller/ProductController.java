@@ -30,7 +30,7 @@ public class ProductController extends BaseFunc {
     private static final Logger LOGGER =  LoggerFactory.getLogger(ProductController.class);
 
     @RequestMapping(value = "/actsDetail", method = RequestMethod.GET)
-    public ModelAndView getProduct(@RequestParam final long id, HttpServletRequest httpRequest) {
+    public ModelAndView getProduct(@RequestParam final long id, final HttpServletRequest httpRequest) {
         if (id <= 0) return new ModelAndView("BadRequest", "errmsg","invalid params");
 
         final String utoken = getUtoken(httpRequest);
@@ -56,8 +56,8 @@ public class ProductController extends BaseFunc {
                         if (favoredResponse.successful()) productJson.put("favored", favoredResponse.getData());
                     }
 
+                    productJson.put("config", getWxConfig(httpRequest.getRequestURL() + "?" + httpRequest.getQueryString()));
                     StringBuilder urlBuilder = new StringBuilder().append(conf.getString("Product.Url")).append("?id=").append(productJson.getInteger("id"));
-                    productJson.put("config", getWxConfig(urlBuilder.toString()));
                     if (!StringUtils.isBlank(utoken)) {
                         String code = getUserInviteCode(utoken);
                         if (!StringUtils.isBlank(code)) urlBuilder.append("&invite=").append(code);
