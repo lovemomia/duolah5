@@ -214,6 +214,12 @@
                     link: '${map.url}',
                     imgUrl: '${map.thumb}'
                 });
+
+                wx.onMenuShareTimeline({
+                    title: '${map.title}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}',
+                });
             });
         }
         </#if>
