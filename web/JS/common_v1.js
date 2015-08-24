@@ -733,11 +733,12 @@ tq.home = {
 
   // 获取个人收藏
   ,
-  getCollect: function(){
+  getCollect: function(nextIndex){
     var utoken = tq.t.cookie.get("utoken");
-    var api = tq.url + "user/favorite?utoken="+utoken+"&start=0";
+    var api = tq.url + "user/favorite?utoken="+utoken+"&start=" + nextIndex;
     $.get(api,{},function(res){
       if(res.errno == 0){
+        $('#more').remove();
         var pro_id = [];
         // console.log(res);
         var data = res.data.list;
@@ -755,6 +756,13 @@ tq.home = {
           s += '</p>';
           s += '</div></div></div>';
           $("section").append(s);
+        }
+
+        if (res.data.nextIndex == undefined) {
+          sessionStorage.removeItem("favoriteNextIndex");
+        } else {
+          sessionStorage.setItem("favoriteNextIndex", res.data.nextIndex);
+          $("section").append('<div id="more" onclick="more();">查看更多</div>');
         }
       }else{
         tq.t.alert(res.errmsg);
@@ -1573,14 +1581,12 @@ tq.home = {
           $(".user_order").append(s);
         }
 
-
         if (res.data.nextIndex == undefined) {
           sessionStorage.removeItem("orderNextIndex");
         } else {
           sessionStorage.setItem("orderNextIndex", res.data.nextIndex);
           $(".user_order").append('<div id="more" onclick="more();">查看更多</div>');
         }
-
       } else {
         tq.t.alert(res.errmsg);
         tq.t.cancel();

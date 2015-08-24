@@ -22,9 +22,13 @@
 </article>
 
 <script type="text/javascript">
+    function more() {
+        if (sessionStorage.getItem("favoriteNextIndex") != null) tq.home.getCollect(sessionStorage.getItem("favoriteNextIndex"));
+    }
+
     $(function(){
         tq.t.back();
-        tq.home.getCollect();
+        tq.home.getCollect(0);
     })
 </script>
 </body>
