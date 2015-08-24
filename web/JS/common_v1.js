@@ -780,35 +780,6 @@ tq.home = {
     });
   }
   ,
-  getUserCoupon: function(){
-    var utoken = tq.t.cookie.get("utoken");
-    var api = tq.url + "user/coupon?utoken="+utoken+"&start=0&status=1";
-    $.get(api,{},function(res){
-      if(res.errno == 0){
-        var pro_id = [];
-        // console.log(res);
-        var data = res.data.list;
-        for(var i=0; i<data.length; i++){
-          pro_id.push(data[i].id);
-          var s = '<div class="coupon">';
-          s += '<div class="discount">¥' + data[i].discount + '</div>';
-          s += '<div class="collect_main">';
-          s += '<div class="collect_info">';
-          s += '<p class="title">'+data[i].title+'</p>';
-          s += '<p class="desc">'+data[i].desc+'</p>';
-          s += '<p class="time" style="margin-bottom:0">';
-          s += data[i].startTime + '至' + data[i].endTime + '有效';
-          s += '</p>';
-          s += '</div></div></div>';
-          $("section").append(s);
-        }
-      }else{
-        tq.t.alert(res.errmsg);
-        tq.t.cancel();
-      }
-    });
-  }
-  ,
 
   //获取sku信息
 
