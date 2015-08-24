@@ -1521,16 +1521,17 @@ tq.home = {
   }
   //我的订单页面
   ,
-  user_order: function() {
+  user_order: function(nextIndex) {
     var status = tq.t.getQueryString("status");
     var type = tq.t.getQueryString("type");
     var utoken = tq.t.cookie.get("utoken");
-    var api = tq.url + "user/order?utoken=" + utoken + "&status=" + status + "&type=" + type + "&start=0&count=50";
+    var api = tq.url + "user/order?utoken=" + utoken + "&status=" + status + "&type=" + type + "&start=" + nextIndex + "&count=50";
     $.get(api, {}, function(res) {
       var id_arr = [];
       var pro_id_arr = [];
       var sku_id_arr = [];
       if (res.errno == 0) {
+        $('#more').remove();
         var data = res.data.list;
         for (var i = 0; i < data.length; i++) {
           var s = "<div class='order_box'>";
@@ -1571,6 +1572,15 @@ tq.home = {
           sku_id_arr.push(data[i].skuId);
           $(".user_order").append(s);
         }
+
+
+        if (res.data.nextIndex == undefined) {
+          sessionStorage.removeItem("orderNextIndex");
+        } else {
+          sessionStorage.setItem("orderNextIndex", res.data.nextIndex);
+          $(".user_order").append('<div id="more" onclick="more();">查看更多</div>');
+        }
+
       } else {
         tq.t.alert(res.errmsg);
         tq.t.cancel();

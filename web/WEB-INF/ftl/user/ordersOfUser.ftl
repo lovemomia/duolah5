@@ -45,9 +45,13 @@
 </article>
 
 <script type="text/javascript">
+    function more() {
+        if (sessionStorage.getItem("orderNextIndex") != null) tq.home.user_order(sessionStorage.getItem("orderNextIndex"));
+    }
+
     $(function(){
         tq.t.back();
-        tq.home.user_order();
+        tq.home.user_order(0);
     })
 </script>
 </body>
