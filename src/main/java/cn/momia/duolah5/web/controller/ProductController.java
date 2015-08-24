@@ -11,9 +11,14 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Function;
 import org.apache.commons.lang3.StringUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -242,5 +247,26 @@ public class ProductController extends BaseFunc {
             }
 
         }
+    }
+
+    @RequestMapping(value = "/product/{id}/detail", method = RequestMethod.GET)
+    public ModelAndView detail(@PathVariable long id) {
+        MomiaHttpRequest request = MomiaHttpRequest.GET(url("product", id, "detail"));
+        ResponseMessage responseMessage = executeRequest(request);
+        if(responseMessage.getErrno() != 0 )
+            return new ModelAndView("BadRequest", "errmsg", "error!");
+
+        return new ModelAndView("product/detail", "detail", processDetail((String) responseMessage.getData()));
+    }
+
+    private String processDetail(String detailHtml) {
+        Document doc = Jsoup.parse(detailHtml);
+        Elements imgs = doc.select("img[src]");
+        for (Element element : imgs) {
+            String imgUrl = element.attr("src");
+            element.attr("src", ImageFile.largeUrl(imgUrl));
+        }
+
+        return doc.toString();
     }
 }
