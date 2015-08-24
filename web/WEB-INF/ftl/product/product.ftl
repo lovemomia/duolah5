@@ -154,15 +154,20 @@
 
                                 <#if body.label ??>
                                     <span class="orange">${body.label}</span><br>
-                                </#if>
-                                <#if body.img ??>
+                                    <#if body.text ??><span>${body.text}</span><br></#if>
+                                <#elseif body.img ??>
                                     <img src= '${body.img}'><br>
-                                </#if>
-                                <#if body.html ??>
+                                <#elseif body.html ??>
                                     <span>${body.html}</span>
+                                <#elseif body.link ??>
+                                    <#if body.link != "" >
+                                        <div class="word_img" onclick="location='${body.link}'">
+                                        ${body.text}<span class="more01"></span>
+                                        </div>
+                                    </#if>
+                                <#else>
+                                    <#if body.text ??><span>${body.text}</span></#if><br>
                                 </#if>
-                             <span><#if body.text??>${body.text}</#if></span><br>
-
 
                             </#list>
                         </p>
