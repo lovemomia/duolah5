@@ -40,6 +40,12 @@
             </div>
 
             <div class="chk_info">
+                <a class="chk_outer l" href="coupon.html">
+                    <img src="image/coupon2.png" alt="">我的红包<i></i></a>
+                <div style="clear:both"></div>
+            </div>
+
+            <div class="chk_info">
                 <a class="chk_outer l" href="com_outer.html">
                     <img src="image/outer2.png" alt="">常用出行人<i></i></a>
                 <div style="clear:both"></div>
