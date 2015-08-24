@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,user-scalable=no">
-    <title>哆啦亲子</title>
-    <link rel="stylesheet" type="text/css" href="CSS/main_v1.css">
-    <script type="text/javascript" src="JS/zepto.min.js"></script>
-    <script type="text/javascript" src="JS/config_v1.js"></script>
-    <script type="text/javascript" src="JS/common_v1.js"></script>
-    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src='JS/hhSwipe.js'></script>
-    <script type="text/javascript">
-        document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";
-    </script>
-</head>
-<body>
 <#list product as map>
+<@override name="title">${map.title}</@override>
+
+<@override name="body">
 <article id="page">
     <#--<div class="ads_top">-->
         <#--<img src="image/downapp.png" alt="">-->
@@ -196,6 +182,55 @@
     <div class="clear:both"></div>
 </div>
 <script type="text/javascript">
+        <#if map.config??>
+        if (tq.t.isweixin()) {
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: '${map.config.appId}', // 必填，公众号的唯一标识
+                timestamp: ${map.config.timeStamp}, // 必填，生成签名的时间戳
+                nonceStr: '${map.config.nonceStr}', // 必填，生成签名的随机串
+                signature: '${map.config.sign}',// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+
+            wx.ready(function() {
+                wx.onMenuShareAppMessage({
+                    title: '${map.title}',
+                    desc: '${map.abstracts}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
+                });
+
+                wx.onMenuShareTimeline({
+                    title: '${map.title}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
+                });
+
+                wx.onMenuShareQQ({
+                    title: '${map.title}',
+                    desc: '${map.abstracts}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
+                });
+
+                wx.onMenuShareWeibo({
+                    title: '${map.title}',
+                    desc: '${map.abstracts}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
+                });
+
+                wx.onMenuShareQZone({
+                    title: '${map.title}',
+                    desc: '${map.abstracts}',
+                    link: '${map.url}',
+                    imgUrl: '${map.thumb}'
+                });
+            });
+        }
+        </#if>
+
     $(function(){
 //        if(tq.t.isandroid()){
 //            $(".ads_top").addClass("none");
@@ -206,10 +241,13 @@
 //                location.href = "../../../downapp.html";
 //            });
 //        }
+
+        var invite = tq.t.getQueryString("invite");
+        if (invite != null) sessionStorage.setItem("invite", invite);
+
         $(".back").on("click", function(){
             location.href = "index.html";
         });
-        document.title = '${map.title}';
         $(".ads_top").on("click", function(){
             location.href = "../../../downapp.html";
         });
@@ -254,10 +292,9 @@
                 }
             });
          </#if>
-
-
     });
 </script>
+</@override>
+
+<@extends name="../base.ftl"/>
 </#list>
-</body>
-</html>

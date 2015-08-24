@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,user-scalable=no">
-    <title>选择出行人</title>
-    <link rel="stylesheet" type="text/css" href="CSS/main_v1.css">
-    <script type="text/javascript" src="JS/zepto.min.js"></script>
-    <script type="text/javascript" src="JS/config_v1.js"></script>
-    <script type="text/javascript" src="JS/common_v1.js"></script>
-    <script src='JS/hhSwipe.js'></script>
-    <script type="text/javascript">
-        document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";
+<@override name="title">选择出行人</@override>
 
-    </script>
-</head>
-<body>
+<@override name="body">
 <article id="page">
 
     <header class="head">
@@ -70,5 +56,6 @@
         location.href = "addOuter.html?url="+url+"";
     })
 </script>
-</body>
-</html>
+</@override>
+
+<@extends name="../base.ftl"/>

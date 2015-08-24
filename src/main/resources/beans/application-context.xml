@@ -51,9 +51,13 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean class="cn.momia.duolah5.web.secret.SecretKey" init-method="init">
+    <bean id="secretKey" class="cn.momia.duolah5.web.secret.SecretKey" init-method="init">
         <property name="conf" ref="conf" />
         <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
+    <bean class="cn.momia.duolah5.wx.WxAuth" init-method="init" depends-on="secretKey">
+        <property name="conf" ref="conf" />
     </bean>
 
     <bean id="requestExecutor" class="cn.momia.duolah5.web.http.MomiaHttpRequestExecutor" />
@@ -62,8 +66,6 @@
         <property name="conf" ref="conf" />
     </bean>
 
-
-
     <bean id="freemarkerConfiguration"
           class="org.springframework.beans.factory.config.PropertiesFactoryBean">
     </bean>
@@ -71,6 +73,14 @@
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="WEB-INF/ftl/" />
         <property name="defaultEncoding" value="UTF-8" />
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="extends" value-ref="extendsDirective"/>
+                <entry key="override" value-ref="overrideDirective"/>
+                <entry key="block" value-ref="blockDirective"/>
+                <entry key="super" value-ref="superDirective"/>
+            </map>
+        </property>
     </bean>
     <!-- freemarker视图解析器 -->
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
@@ -79,4 +89,9 @@
         <!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
         <property name="requestContextAttribute" value="rc" />
     </bean>
+
+    <bean id="blockDirective" class="cn.org.rapid_framework.freemarker.directive.BlockDirective"/>
+    <bean id="extendsDirective" class="cn.org.rapid_framework.freemarker.directive.ExtendsDirective"/>
+    <bean id="overrideDirective" class="cn.org.rapid_framework.freemarker.directive.OverrideDirective"/>
+    <bean id="superDirective" class="cn.org.rapid_framework.freemarker.directive.SuperDirective"/>
 </beans>

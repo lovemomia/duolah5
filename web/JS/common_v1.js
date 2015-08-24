@@ -617,9 +617,10 @@ tq.home = {
   ,
   getActsList: function(wrap,pageindex) {
     api = tq.url + "home";
-    $.get(api, {pageindex:pageindex,city:1}, function(data) {
-      if(data.errno == 0){
-        var data = data.data.products;
+    $.get(api, {pageindex:pageindex,city:1}, function(res) {
+      if(res.errno == 0){
+        $('#more').remove();
+        var data = res.data.products;
         for (var i = 0; i < data.length; i++) {
           var id = data[i].id;
           if(i == data.length-1){
@@ -638,8 +639,15 @@ tq.home = {
           s += "</div></div></a></div>";
           $(wrap).append(s);
         }
+
+        if (res.data.nextpage == undefined) {
+          sessionStorage.removeItem("homeNextPage");
+        } else {
+          sessionStorage.setItem("homeNextPage", res.data.nextpage);
+          $(wrap).append('<div id="more" onclick="more();">查看更多</div>');
+        }
       }else{
-        tq.t.alert(data.errmsg);
+        tq.t.alert(res.errmsg);
         tq.t.cancel();
       }
     });
@@ -733,11 +741,12 @@ tq.home = {
 
   // 获取个人收藏
   ,
-  getCollect: function(){
+  getCollect: function(nextIndex){
     var utoken = tq.t.cookie.get("utoken");
-    var api = tq.url + "user/favorite?utoken="+utoken+"&start=0";
+    var api = tq.url + "user/favorite?utoken="+utoken+"&start=" + nextIndex;
     $.get(api,{},function(res){
       if(res.errno == 0){
+        $('#more').remove();
         var pro_id = [];
         // console.log(res);
         var data = res.data.list;
@@ -755,6 +764,13 @@ tq.home = {
           s += '</p>';
           s += '</div></div></div>';
           $("section").append(s);
+        }
+
+        if (res.data.nextIndex == undefined) {
+          sessionStorage.removeItem("favoriteNextIndex");
+        } else {
+          sessionStorage.setItem("favoriteNextIndex", res.data.nextIndex);
+          $("section").append('<div id="more" onclick="more();">查看更多</div>');
         }
       }else{
         tq.t.alert(res.errmsg);
@@ -779,8 +795,10 @@ tq.home = {
       });
     });
   }
-  //获取sku信息
   ,
+
+  //获取sku信息
+
   getSKU: function() {
     var utoken = tq.t.cookie.get("utoken");
     var id = tq.t.getQueryString("id");
@@ -1160,7 +1178,8 @@ tq.home = {
             var data_order = JSON.stringify(data_json);
             $.post(api, {
               utoken: utoken,
-              order: data_order
+              order: data_order,
+              invite: (sessionStorage.getItem("invite") != null ? sessionStorage.getItem("invite") : "")
             }, function(res) {
               if (res.errno == 0) {
                 var data = res.data;
@@ -1518,16 +1537,17 @@ tq.home = {
   }
   //我的订单页面
   ,
-  user_order: function() {
+  user_order: function(nextIndex) {
     var status = tq.t.getQueryString("status");
     var type = tq.t.getQueryString("type");
     var utoken = tq.t.cookie.get("utoken");
-    var api = tq.url + "user/order?utoken=" + utoken + "&status=" + status + "&type=" + type + "&start=0&count=50";
+    var api = tq.url + "user/order?utoken=" + utoken + "&status=" + status + "&type=" + type + "&start=" + nextIndex + "&count=50";
     $.get(api, {}, function(res) {
       var id_arr = [];
       var pro_id_arr = [];
       var sku_id_arr = [];
       if (res.errno == 0) {
+        $('#more').remove();
         var data = res.data.list;
         for (var i = 0; i < data.length; i++) {
           var s = "<div class='order_box'>";
@@ -1567,6 +1587,13 @@ tq.home = {
           pro_id_arr.push(data[i].productId);
           sku_id_arr.push(data[i].skuId);
           $(".user_order").append(s);
+        }
+
+        if (res.data.nextIndex == undefined) {
+          sessionStorage.removeItem("orderNextIndex");
+        } else {
+          sessionStorage.setItem("orderNextIndex", res.data.nextIndex);
+          $(".user_order").append('<div id="more" onclick="more();">查看更多</div>');
         }
       } else {
         tq.t.alert(res.errmsg);

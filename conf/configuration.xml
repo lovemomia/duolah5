@@ -38,7 +38,7 @@
         <Playmate>
             <MaxSkuCount>20</MaxSkuCount>
         </Playmate>
-        <Url>http://m.duolaqinzi.cn/actsDetail.html</Url>
+        <Url>http://m.momia.cn/actsDetail.html</Url>
         <StockAlert>10</StockAlert>
     </Product>
 
@@ -51,4 +51,7 @@
         <PageSize>20</PageSize>
     </Favorite>
 
+    <Weixin>
+        <JsApiAppId>wxc4ca5800d28b5650</JsApiAppId>
+    </Weixin>
 </Configuration>
