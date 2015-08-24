@@ -38,6 +38,10 @@
 </article>
 
 <script type="text/javascript">
+    function more() {
+        if (sessionStorage.getItem("homeNextPage") != null) tq.home.getActsList($("#act_content"),sessionStorage.getItem("homeNextPage"));
+    }
+
     tq.home.getIndexScrollImg($("#scroll_img"));
     tq.home.getActsList($("#act_content"),0);
 //    if(tq.t.isandroid()){

@@ -617,9 +617,10 @@ tq.home = {
   ,
   getActsList: function(wrap,pageindex) {
     api = tq.url + "home";
-    $.get(api, {pageindex:pageindex,city:1}, function(data) {
-      if(data.errno == 0){
-        var data = data.data.products;
+    $.get(api, {pageindex:pageindex,city:1}, function(res) {
+      if(res.errno == 0){
+        $('#more').remove();
+        var data = res.data.products;
         for (var i = 0; i < data.length; i++) {
           var id = data[i].id;
           if(i == data.length-1){
@@ -638,8 +639,15 @@ tq.home = {
           s += "</div></div></a></div>";
           $(wrap).append(s);
         }
+
+        if (res.data.nextpage == undefined) {
+          sessionStorage.removeItem("homeNextPage");
+        } else {
+          sessionStorage.setItem("homeNextPage", res.data.nextpage);
+          $(wrap).append('<div id="more" onclick="more();">查看更多</div>');
+        }
       }else{
-        tq.t.alert(data.errmsg);
+        tq.t.alert(res.errmsg);
         tq.t.cancel();
       }
     });
