@@ -840,7 +840,7 @@ tq.home = {
             s += "<p class='time'>" + data.skus[i].time + "(每人限购"+data.skus[i].limit+"件)</p>";
           }
           s += "<span class='price'><i class='orange'>￥" + data.skus[i].minPrice + "</i>起</span>";
-          if(data.skus[i].stock == 0){
+          if(data.skus[i].stock == 0 && data.skus[i].type != 1){
             s += "<span class='num'>名额已满</span>";
           }else if(data.skus[i].type == 1){
             s += "<span class='num'></span>";
