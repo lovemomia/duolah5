@@ -1,4 +1,4 @@
-<@override name="title">哆啦亲子－约上玩伴，探索世界</@override>
+<@override name="title">松果亲子－约上玩伴，探索世界</@override>
 
 <@override name="body">
 <article id="page">
@@ -6,7 +6,7 @@
         <a id="profile"class ="my" href="javascript:;">
             <img src="image/my2.png">
         </a>
-        <span class="city">哆啦亲子</span>
+        <span class="city">松果亲子</span>
     </header>
 
     <section>

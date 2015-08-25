@@ -3,7 +3,7 @@
 <@override name="body">
 <article id="page">
     <header class="head">
-        <span class="back"><img src="image/back2.png"></span>哆啦亲子游<span class="collect"></span>
+        <span class="back"><img src="image/back2.png"></span>松果亲子<span class="collect"></span>
     </header>
     <section>
         <img src="${topic.cover}" alt="" class="topic_banner">
