@@ -818,7 +818,12 @@ tq.home = {
         sessionStorage.setItem("mobile",mobile);
         sessionStorage.setItem("contacts",contacts);
         for (var i = 0; i < data.skus.length; i++) {
-          arr_stock.push(data.skus[i].stock);
+          if (data.skus[i].type != 1) {
+            arr_stock.push(data.skus[i].stock);
+          } else {
+            arr_stock.push(100000000);
+          }
+
           if(data.skus.length == 1){
             var s = "<div class='form01 flag' id='last'>";
           }
@@ -840,7 +845,7 @@ tq.home = {
             s += "<p class='time'>" + data.skus[i].time + "(每人限购"+data.skus[i].limit+"件)</p>";
           }
           s += "<span class='price'><i class='orange'>￥" + data.skus[i].minPrice + "</i>起</span>";
-          if(data.skus[i].stock == 0){
+          if(data.skus[i].stock == 0 && data.skus[i].type != 1){
             s += "<span class='num'>名额已满</span>";
           }else if(data.skus[i].type == 1){
             s += "<span class='num'></span>";

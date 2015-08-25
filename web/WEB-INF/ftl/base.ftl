@@ -11,6 +11,7 @@
     <script type="text/javascript" src="/JS/config_v1.js"></script>
     <script type="text/javascript" src="/JS/common_v1.js"></script>
     <script type="text/javascript" src='/JS/hhSwipe.js'></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";
     </script>

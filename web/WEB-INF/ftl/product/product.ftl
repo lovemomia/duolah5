@@ -1,5 +1,4 @@
-<#list product as map>
-<@override name="title">${map.title}</@override>
+<@override name="title">${product.title}</@override>
 
 <@override name="body">
 <article id="page">
@@ -10,10 +9,10 @@
     <header class="head">
         <span class="back"><img src="image/back2.png"></span>活动详情
         <span class="collect" style="margin-right:0.08rem">
-        <#if map.favored?c == "false">
+        <#if product.favored?c == "false">
             <img src="image/collect2.png">
         </#if>
-        <#if map.favored?c == "true">
+        <#if product.favored?c == "true">
             <img src="image/collect_check2x.png">
         </#if>
 
@@ -23,23 +22,23 @@
     <section>
         <div class="actsDetail">
             <!-- 图片轮播部分 -->
-            <#if map.imgs?size == 0>
+            <#if product.imgs?size == 0>
                 <div class="scroll_box none" id="scroll_img">
-            <#elseif map.imgs?size == 1>
-                <#list map.imgs as img>
+            <#elseif product.imgs?size == 1>
+                <#list product.imgs as img>
                     <img src="${img}" width='100%' />
                 </#list>
             <#else >
                 <div class="scroll_box" id="scroll_img">
 
                     <ul class = 'scroll_wrap' id='scroll_wrap'>
-                        <#list map.imgs as img>
+                        <#list product.imgs as img>
                             <li><img src="${img}" width='100%' /></li>
                         </#list>
                     </ul>
 
                     <ul class='scroll_position' id='scroll_position'>
-                        <#list map.imgs as img>
+                        <#list product.imgs as img>
                             <#if img_index == 0>
                                 <li class='on'><a href='javascript:void(0);'></a></li>
                             <#else>
@@ -53,24 +52,24 @@
 
             <div class="act_list" style="margin-bottom:0">
                 <div class="act_detail">
-                    <h3>${map.title}</h3>
+                    <h3>${product.title}</h3>
                     <div class="act_attend">
-                        <#if map.joined == 0>
+                        <#if product.joined == 0>
                             <span class="num"></span>
                         <#else >
-                            <span class="num"><i>${map.joined}</i>人参加</span>
+                            <span class="num"><i>${product.joined}</i>人参加</span>
                         </#if>
 
                         <span class="act_price orange">
                             <i style="font-size:0.1rem;">￥</i>
-                            <i>${map.price}</i>
+                            <i>${product.price}</i>
                             <i style="font-size:0.1rem;">起</i>
                         </span>
                     </div>
                 </div>
                 <div class="act_safe">
-                    <#if map.tags??>
-                        <#list map.tags as tags>
+                    <#if product.tags??>
+                        <#list product.tags as tags>
                             <span>${tags}</span>
                         </#list>
                     </#if>
@@ -81,22 +80,22 @@
         </div>
         <div class="tips">
                 <p class="child_age">
-                    <img src="image/umbrella.png">${map.crowd}
+                    <img src="image/umbrella.png">${product.crowd}
                 </p>
                 <p class="tel">
-                    <img src="image/alarm.png">${map.scheduler}
+                    <img src="image/alarm.png">${product.scheduler}
                 </p>
                 <p class="address" id="last">
-                    <img src="image/address2.png">${map.address}
+                    <img src="image/address2.png">${product.address}
                 </p>
             </div>
         <div class="attent_total">
-            <#if map.customers??>
-                <#if (map.customers.avatars?? && map.customers.avatars?size>0)>
-                <h3>${map.customers.text}</h3>
+            <#if product.customers??>
+                <#if (product.customers.avatars?? && product.customers.avatars?size>0)>
+                <h3>${product.customers.text}</h3>
                 <div style="clear:both"></div>
-                <#if map.customers.avatars??>
-                    <#list map.customers.avatars as avatars>
+                <#if product.customers.avatars??>
+                    <#list product.customers.avatars as avatars>
                         <#if avatars == "">
                             <img src="image/default.png">
                         <#else>
@@ -108,7 +107,7 @@
             </#if>
         </div>
         <div class="content_list">
-            <#list map.content as content>
+            <#list product.content as content>
                 <#if content.style == "ol">
                     <div class="tips_list">
                         <h3>${content.title}</h3>
@@ -187,50 +186,50 @@
     <div class="clear:both"></div>
 </div>
 <script type="text/javascript">
-        <#if map.config??>
+        <#if product.config??>
         if (tq.t.isweixin()) {
             wx.config({
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                appId: '${map.config.appId}', // 必填，公众号的唯一标识
-                timestamp: ${map.config.timeStamp}, // 必填，生成签名的时间戳
-                nonceStr: '${map.config.nonceStr}', // 必填，生成签名的随机串
-                signature: '${map.config.sign}',// 必填，签名，见附录1
+                appId: '${product.config.appId}', // 必填，公众号的唯一标识
+                timestamp: ${product.config.timeStamp}, // 必填，生成签名的时间戳
+                nonceStr: '${product.config.nonceStr}', // 必填，生成签名的随机串
+                signature: '${product.config.sign}',// 必填，签名，见附录1
                 jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             });
 
             wx.ready(function() {
                 wx.onMenuShareAppMessage({
-                    title: '${map.title}',
-                    desc: '${map.abstracts}',
-                    link: '${map.url}',
-                    imgUrl: '${map.thumb}'
+                    title: '${product.title}',
+                    desc: '${product.abstracts}',
+                    link: '${product.url}',
+                    imgUrl: '${product.thumb}'
                 });
 
                 wx.onMenuShareTimeline({
-                    title: '${map.title}',
-                    link: '${map.url}',
-                    imgUrl: '${map.thumb}'
+                    title: '${product.title}',
+                    link: '${product.url}',
+                    imgUrl: '${product.thumb}'
                 });
 
                 wx.onMenuShareQQ({
-                    title: '${map.title}',
-                    desc: '${map.abstracts}',
-                    link: '${map.url}',
-                    imgUrl: '${map.thumb}'
+                    title: '${product.title}',
+                    desc: '${product.abstracts}',
+                    link: '${product.url}',
+                    imgUrl: '${product.thumb}'
                 });
 
                 wx.onMenuShareWeibo({
-                    title: '${map.title}',
-                    desc: '${map.abstracts}',
-                    link: '${map.url}',
-                    imgUrl: '${map.thumb}'
+                    title: '${product.title}',
+                    desc: '${product.abstracts}',
+                    link: '${product.url}',
+                    imgUrl: '${product.thumb}'
                 });
 
                 wx.onMenuShareQZone({
-                    title: '${map.title}',
-                    desc: '${map.abstracts}',
-                    link: '${map.url}',
-                    imgUrl: '${map.thumb}'
+                    title: '${product.title}',
+                    desc: '${product.abstracts}',
+                    link: '${product.url}',
+                    imgUrl: '${product.thumb}'
                 });
             });
         }
@@ -256,7 +255,7 @@
         $(".ads_top").on("click", function(){
             location.href = "../../../downapp.html";
         });
-        <#if map.customers.avatars??>
+        <#if product.customers.avatars??>
         $(".attent_total").on("click", function(){
             var id = tq.t.getQueryString("id");
             location.href = "partner.html?id="+id+"";
@@ -264,24 +263,24 @@
         <#else >
             $(".attent_total").addClass("none");
         </#if>
-        <#if map.favored?c == "true">
+        <#if product.favored?c == "true">
             $(".collect").on("click",function(){
                 tq.home.uncollect();
             })
         </#if>
 
-        <#if map.favored?c == "false">
+        <#if product.favored?c == "false">
             $(".collect").on("click",function(){
                 tq.home.collect();
             })
         </#if>
-        if(${map.imgs?size} >1 )
+        if(${product.imgs?size} >1 )
         {
             tq.t.getScrollImg();
         }
 
 
-        <#if map.soldOut?c == "true"|| map.opened?c == "false">
+        <#if product.soldOut?c == "true"|| product.opened?c == "false">
             $(".btn.submit").css("background","gray");
             return;
 
@@ -302,4 +301,3 @@
 </@override>
 
 <@extends name="../base.ftl"/>
-</#list>
