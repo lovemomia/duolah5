@@ -818,7 +818,12 @@ tq.home = {
         sessionStorage.setItem("mobile",mobile);
         sessionStorage.setItem("contacts",contacts);
         for (var i = 0; i < data.skus.length; i++) {
-          arr_stock.push(data.skus[i].stock);
+          if (data.skus[i].type != 1) {
+            arr_stock.push(data.skus[i].stock);
+          } else {
+            arr_stock.push(100000000);
+          }
+
           if(data.skus.length == 1){
             var s = "<div class='form01 flag' id='last'>";
           }
