@@ -1,4 +1,4 @@
-<@override name="title">哆啦亲子－约上玩伴，探索世界</@override>
+<@override name="title">松果亲子－约上玩伴，探索世界</@override>
 
 <@override name="body">
 <article id="page">
