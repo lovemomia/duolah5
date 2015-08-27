@@ -1181,25 +1181,75 @@ tq.home = {
               "prices": prices
             }
             var data_order = JSON.stringify(data_json);
-            $.post(api, {
+
+            $.post(tq.url + "order/check/dup", {
               utoken: utoken,
-              order: data_order,
-              invite: (sessionStorage.getItem("invite") != null ? sessionStorage.getItem("invite") : "")
+              order: data_order
             }, function(res) {
               if (res.errno == 0) {
                 var data = res.data;
-                var order_id = data.id; //订单id;
-                var pro_id = data.productId; //活动id;
-                var sku_id = data.skuId; //sku_id;
-                location.href = "orderPay.html?order_id=" + order_id + "&pro_id=" + pro_id + "&sku_id=" + sku_id + "&participants="+tq.t.encodeUTF8(res.data.participants)+"&totalFee="+res.data.totalFee+"&time="+tq.t.encodeUTF8(time)+""; 
-                tq.t.delSession();
+                if (data.duplicated == true) {
+                  var msg = "您之前下的订单还未支付";
+                  orderConfirm(msg, function() {
+                    location.href = "/order/detail?oid=" + data.orderId + "&pid=" + data.productId;
+                  }, function() {
+                    deleteOrder(data.orderId);
+                    postOrder();
+                  });
+                } else {
+                  postOrder();
+                }
               } else {
-                tq.t.alert(res.errmsg);
-                tq.t.cancel();
+                postOrder();
               }
             });
-          }
-            
+
+            function orderConfirm(msg, func_cancel, func_ok) {
+              var s = "<div class='shide'>";
+              s += "<div class='alert' style='width: 2.5rem'>";
+              s += msg;
+              s += "<span class= 'confirm'>"
+              s += "<i class='green old'>支付旧单</i>";
+              s += "<i class='green new'>重新下单</i>";
+              s += "</spn></div></div>";
+              $(document.body).append(s);
+              $(".old").on("click", function(){
+                tq.t.delshide();
+                func_cancel();
+              })
+              $(".new").on("click", function(){
+                tq.t.delshide();
+                func_ok();
+              })
+            };
+
+            function deleteOrder(orderId) {
+              $.post(tq.urls + "order/delete", {
+                utoken: utoken,
+                id: orderId,
+              });
+            };
+
+            function postOrder() {
+              $.post(api, {
+                utoken: utoken,
+                order: data_order,
+                invite: (sessionStorage.getItem("invite") != null ? sessionStorage.getItem("invite") : "")
+              }, function (res) {
+                if (res.errno == 0) {
+                  var data = res.data;
+                  var order_id = data.id; //订单id;
+                  var pro_id = data.productId; //活动id;
+                  var sku_id = data.skuId; //sku_id;
+                  location.href = "orderPay.html?order_id=" + order_id + "&pro_id=" + pro_id + "&sku_id=" + sku_id + "&participants=" + tq.t.encodeUTF8(res.data.participants) + "&totalFee=" + res.data.totalFee + "&time=" + tq.t.encodeUTF8(time) + "";
+                  tq.t.delSession();
+                } else {
+                  tq.t.alert(res.errmsg);
+                  tq.t.cancel();
+                }
+              });
+            };
+          };
         });
 
         if((sessionStorage.getItem("adultSum") == 0 && sessionStorage.getItem("childSum") == 0) || (sessionStorage.getItem("adultSum") == null && sessionStorage.getItem("childSum") == null) || (sessionStorage.getItem("adultSum") == "" && sessionStorage.getItem("childSum") == "")){
