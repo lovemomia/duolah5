@@ -1570,7 +1570,9 @@ tq.home = {
               if(res.data.children.length !=0 ){
                 var date = new Date(res.data.children[0].birthday.replace(/-/g, "/"));
                 var age = new Date().getFullYear() - date.getFullYear();
-                if(age == 0){
+                if (age < 0) {
+                  $(".bbInfo").html(res.data.children[0].sex+"孩未出生");
+                } else if (age == 0){
                   var month = new Date().getMonth() - date.getMonth();
                   $(".bbInfo").html(res.data.children[0].sex+"孩"+month+"个月");
                 }else{
