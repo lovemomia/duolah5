@@ -580,8 +580,7 @@ tq.home = {
       var phone = phonetext.val(); //手机号码
 
       $.post(api, {
-        mobile: phone,
-        type: "register"
+        mobile: phone
       }, function(res) {
         if (res.errno == 0) {
           suceess();
