@@ -581,7 +581,6 @@ tq.home = {
 
       $.post(api, {
         mobile: phone,
-        type: "register"
       }, function(res) {
         if (res.errno == 0) {
           suceess();
