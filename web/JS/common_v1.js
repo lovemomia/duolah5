@@ -1181,25 +1181,75 @@ tq.home = {
               "prices": prices
             }
             var data_order = JSON.stringify(data_json);
-            $.post(api, {
+
+            $.post(tq.urls + "order/check/dup", {
               utoken: utoken,
-              order: data_order,
-              invite: (sessionStorage.getItem("invite") != null ? sessionStorage.getItem("invite") : "")
+              order: data_order
             }, function(res) {
               if (res.errno == 0) {
                 var data = res.data;
-                var order_id = data.id; //订单id;
-                var pro_id = data.productId; //活动id;
-                var sku_id = data.skuId; //sku_id;
-                location.href = "orderPay.html?order_id=" + order_id + "&pro_id=" + pro_id + "&sku_id=" + sku_id + "&participants="+tq.t.encodeUTF8(res.data.participants)+"&totalFee="+res.data.totalFee+"&time="+tq.t.encodeUTF8(time)+""; 
-                tq.t.delSession();
+                if (data.duplicated == true) {
+                  var msg = "您之前下的订单还未支付";
+                  orderConfirm(msg, function() {
+                    location.href = "/order/detail?oid=" + data.orderId + "&pid=" + data.productId;
+                  }, function() {
+                    deleteOrder(data.orderId);
+                    postOrder();
+                  });
+                } else {
+                  postOrder();
+                }
               } else {
-                tq.t.alert(res.errmsg);
-                tq.t.cancel();
+                postOrder();
               }
             });
-          }
-            
+
+            function orderConfirm(msg, func_cancel, func_ok) {
+              var s = "<div class='shide'>";
+              s += "<div class='alert' style='width: 2.5rem'>";
+              s += msg;
+              s += "<span class= 'confirm'>"
+              s += "<i class='green old'>支付旧单</i>";
+              s += "<i class='green new'>重新下单</i>";
+              s += "</spn></div></div>";
+              $(document.body).append(s);
+              $(".old").on("click", function(){
+                tq.t.delshide();
+                func_cancel();
+              })
+              $(".new").on("click", function(){
+                tq.t.delshide();
+                func_ok();
+              })
+            };
+
+            function deleteOrder(orderId) {
+              $.post(tq.urls + "order/delete", {
+                utoken: utoken,
+                id: orderId,
+              });
+            };
+
+            function postOrder() {
+              $.post(api, {
+                utoken: utoken,
+                order: data_order,
+                invite: (sessionStorage.getItem("invite") != null ? sessionStorage.getItem("invite") : "")
+              }, function (res) {
+                if (res.errno == 0) {
+                  var data = res.data;
+                  var order_id = data.id; //订单id;
+                  var pro_id = data.productId; //活动id;
+                  var sku_id = data.skuId; //sku_id;
+                  location.href = "orderPay.html?order_id=" + order_id + "&pro_id=" + pro_id + "&sku_id=" + sku_id + "&participants=" + tq.t.encodeUTF8(res.data.participants) + "&totalFee=" + res.data.totalFee + "&time=" + tq.t.encodeUTF8(time) + "";
+                  tq.t.delSession();
+                } else {
+                  tq.t.alert(res.errmsg);
+                  tq.t.cancel();
+                }
+              });
+            };
+          };
         });
 
         if((sessionStorage.getItem("adultSum") == 0 && sessionStorage.getItem("childSum") == 0) || (sessionStorage.getItem("adultSum") == null && sessionStorage.getItem("childSum") == null) || (sessionStorage.getItem("adultSum") == "" && sessionStorage.getItem("childSum") == "")){
@@ -1548,14 +1598,11 @@ tq.home = {
     var utoken = tq.t.cookie.get("utoken");
     var api = tq.url + "user/order?utoken=" + utoken + "&status=" + status + "&type=" + type + "&start=" + nextIndex + "&count=50";
     $.get(api, {}, function(res) {
-      var id_arr = [];
-      var pro_id_arr = [];
-      var sku_id_arr = [];
       if (res.errno == 0) {
         $('#more').remove();
         var data = res.data.list;
         for (var i = 0; i < data.length; i++) {
-          var s = "<div class='order_box'>";
+          var s = "<div class='order_box' oid='" + data[i].id + "' pid='" + data[i].productId + "' sid='" + data[i].skuId + "'>";
           s += "<div class='ohd'>";
           if (status == "2" && type == "le") {
             s += "<i class='left'>待付款</i>";
@@ -1588,9 +1635,6 @@ tq.home = {
           }
           s += "</div>";
 
-          id_arr.push(data[i].id);
-          pro_id_arr.push(data[i].productId);
-          sku_id_arr.push(data[i].skuId);
           $(".user_order").append(s);
         }
 
@@ -1609,6 +1653,7 @@ tq.home = {
         event.preventDefault();
         event.stopPropagation(); 
         var index = $(".del").index(this);
+        var oid = $(this).attr('oid');
         tq.t.confirm("确定要删除么？", func_cancel, func_ok);
         function func_cancel(){
           tq.t.delshide();
@@ -1617,7 +1662,7 @@ tq.home = {
           var api = tq.urls + "order/delete";
           $.post(api, {
             utoken: utoken,
-            id: id_arr[index]
+            id: oid
           }, function(res) {
             if (res.errno == 0) {
               location.href = "user_order.html?status=2&type=le";
@@ -1634,19 +1679,23 @@ tq.home = {
         event.preventDefault();
         event.stopPropagation();
         var index = $(".pay").index(this);
-        location.href = "orderPay.html?order_id=" + id_arr[index] + "&pro_id=" + pro_id_arr[index] + "&sku_id=" + sku_id_arr[index] + "&time="+tq.t.encodeUTF8(res.data.list[index].time)+"&participants="+tq.t.encodeUTF8(res.data.list[index].participants)+"&totalFee="+res.data.list[index].totalFee+"";
+        var oid = $(this).attr('oid');
+        var pid = $(this).attr('pid');
+        var sid = $(this).attr('sid');
+        location.href = "orderPay.html?order_id=" + oid + "&pro_id=" + pid + "&sku_id=" + sid + "&time="+tq.t.encodeUTF8(res.data.list[index].time)+"&participants="+tq.t.encodeUTF8(res.data.list[index].participants)+"&totalFee="+res.data.list[index].totalFee+"";
       })
 
       //查看当前活动详情
       $(".order_box").on("click", function() {
         var index = $(".order_box").index(this);
         var api = tq.url + "product";
-        var id = pro_id_arr[index];
+        var oid = $(this).attr('oid');
+        var pid = $(this).attr('pid');
         $.get(api, {
-          id: id
+          id: pid
         }, function(res) {
           if (res.errno == 0) {
-            location.href = "actsDetail.html?id=" + id + "";
+            location.href = "/order/detail?oid=" + oid + "&pid=" + pid;
           } else {
             tq.t.alert(res.errmsg);
             tq.t.cancel();

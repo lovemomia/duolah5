@@ -174,7 +174,7 @@
                 </#if>
             </#list>
         </div>
-        <img src="http://s.duolaqinzi.com/2015-07-06/3964b60ed6ca79c314d1c57f1357791b.jpg" alt="" style="width:100%;margin-bottom:0.4rem;">
+        <img src="http://s.duolaqinzi.com/2015-08-26/a26f55422eb589d7eb726fa270a98631.jpg" alt="" style="width:100%;margin-bottom:0.4rem;">
 
     </section>
 
