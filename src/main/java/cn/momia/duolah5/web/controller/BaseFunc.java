@@ -92,6 +92,16 @@ public class BaseFunc extends AbstractController {
         }
     };
 
+    protected Function<Object, Object> orderFunc = new Function<Object, Object>() {
+        @Override
+        public Object apply(Object data) {
+            JSONObject orderJson = (JSONObject) data;
+            orderJson.put("cover", ImageFile.middleUrl(orderJson.getString("cover")));
+
+            return data;
+        }
+    };
+
     protected long getUserId(String utoken) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder().add("utoken", utoken);
         MomiaHttpRequest request = MomiaHttpRequest.GET(url("user"), builder.build());
