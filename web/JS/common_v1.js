@@ -1182,7 +1182,7 @@ tq.home = {
             }
             var data_order = JSON.stringify(data_json);
 
-            $.post(tq.url + "order/check/dup", {
+            $.post(tq.urls + "order/check/dup", {
               utoken: utoken,
               order: data_order
             }, function(res) {
