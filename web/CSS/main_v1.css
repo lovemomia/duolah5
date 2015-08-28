@@ -904,14 +904,14 @@ header{
 .order_detail .form01 .name{
 	color: #333;
 	display: inline-block;
-	width: 35%;
+	width: 45%;
 }
 .order_detail .form01 .age, .order_detail .form01 .sex{
 	font-size: 0.13rem;
 	color: #666;
 	margin-left: 0.08rem;
 	display: inline-block;
-	width: 20%;
+	width: 15%;
 }
 .order_detail .time{
 	font-size: 0.12rem;
