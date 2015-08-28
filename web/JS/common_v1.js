@@ -1595,47 +1595,23 @@ tq.home = {
   ,
   user_order: function(nextIndex) {
     var status = tq.t.getQueryString("status");
-    var type = tq.t.getQueryString("type");
     var utoken = tq.t.cookie.get("utoken");
-    var api = tq.url + "user/order?utoken=" + utoken + "&status=" + status + "&type=" + type + "&start=" + nextIndex + "&count=50";
+    var api = tq.url + "user/order?utoken=" + utoken + "&status=" + status + "&start=" + nextIndex;
     $.get(api, {}, function(res) {
       if (res.errno == 0) {
         $('#more').remove();
         var data = res.data.list;
         for (var i = 0; i < data.length; i++) {
-          var s = "<div class='order_box' oid='" + data[i].id + "' pid='" + data[i].productId + "' sid='" + data[i].skuId + "'>";
-          s += "<div class='ohd'>";
-          if (status == "2" && type == "le") {
-            s += "<i class='left'>待付款</i>";
-          } else if (status == "3" && type == "ge") {
-            s += "<i class='left'>已付款</i>";
-          }
-          s += "<i class='total_fee'>￥" + data[i].totalFee + "</i>";
-          s += "</div>";
-          s += "<div class='odt'>";
-          s += "<h2 class='otitle'>" + data[i].title + "</h2>";
-          s += "<p class='total_num'>"
-          s += "<i class='fn'>活动时间:</i>";
-          s += "<i>" + data[i].scheduler + "</i>";
-          s += "</p>";
-          s += "<p class='total_num'>"
-          s += "<i class='fn'>活动人数:</i>";
-          s += "<i>" + data[i].participants + "</i>";
-          s += "</p>";
-          s += "</div>";
-          if (status == "2" && type == "le") {
-            s += "<div class='ofd green'>";
-            s += "<a href='' class='rbtn del green'>删除订单</a>";
-            if (data[i].closed) {
-              s += "<a href='' class='rbtn green' disabled='ture'>已过期</a>"
-            } else {
-              s += "<a href='' class='rbtn green pay'>继续支付</a>";
-            }
-            s += "<div style='clear:both'></div>"
-            s += "</div>";
-          }
-          s += "</div>";
-
+          var s= '<div class="order_info collect_pad" oid="' + data[i].id + '" pid="' + data[i].productId + '">';
+          s += '<img src="' + data[i].cover + '" alt="">';
+          s += '<div class="collect_main">';
+          s += '<div class="collect_info">';
+          s += '<p class="title">' + data[i].title + '</p>';
+          s += '<p class="schedule">' + data[i].time + '</p>';
+          s += '<p class="ad_pr" style="margin-bottom:0">';
+          s += '<span class="address">' + data[i].address + '</span>';
+          s += '<span class="price">' + data[i].totalFee + '<i>元</i></span>';
+          s += '</p></div></div></div>';
           $(".user_order").append(s);
         }
 
@@ -1649,46 +1625,10 @@ tq.home = {
         tq.t.alert(res.errmsg);
         tq.t.cancel();
       }
-      //删除订单
-      $(".ofd .del").on("click", function() { 
-        event.preventDefault();
-        event.stopPropagation(); 
-        var index = $(".del").index(this);
-        var oid = $(this).attr('oid');
-        tq.t.confirm("确定要删除么？", func_cancel, func_ok);
-        function func_cancel(){
-          tq.t.delshide();
-        } 
-        function func_ok(){
-          var api = tq.urls + "order/delete";
-          $.post(api, {
-            utoken: utoken,
-            id: oid
-          }, function(res) {
-            if (res.errno == 0) {
-              location.href = "user_order.html?status=2&type=le";
-            } else {
-              tq.t.alert(res.errmsg);
-              tq.t.cancel();
-            }
-          });
-        }
-      });
-
-      //继续支付，跳转到支付页面
-      $(".ofd .pay").on("click", function() {
-        event.preventDefault();
-        event.stopPropagation();
-        var index = $(".pay").index(this);
-        var oid = $(this).attr('oid');
-        var pid = $(this).attr('pid');
-        var sid = $(this).attr('sid');
-        location.href = "orderPay.html?order_id=" + oid + "&pro_id=" + pid + "&sku_id=" + sid + "&time="+tq.t.encodeUTF8(res.data.list[index].time)+"&participants="+tq.t.encodeUTF8(res.data.list[index].participants)+"&totalFee="+res.data.list[index].totalFee+"";
-      })
 
       //查看当前活动详情
-      $(".order_box").on("click", function() {
-        var index = $(".order_box").index(this);
+      $(".order_info").on("click", function() {
+        var index = $(".order_info").index(this);
         var api = tq.url + "product";
         var oid = $(this).attr('oid');
         var pid = $(this).attr('pid');

@@ -39,11 +39,12 @@
     }
 
     .pay{
+        height: 0.4rem;
         margin-top: 0.12rem;
         text-align: center;
     }
 
-    .pay button{
+    .pay button {
         width: 80%;
         display: inline-block;
         border: none;
@@ -54,6 +55,18 @@
         color: #fff;
         background: #00c49d;
         border-radius: 4px;
+    }
+
+    .pay .left {
+        width: 40%;
+        float: none;
+        margin-right: 0.05rem;
+    }
+
+    .pay .right {
+        width: 40%;
+        float: none;
+        margin-left: 0.05rem;
     }
 </style>
 </@override>
@@ -104,7 +117,12 @@
 
         <#if !order.payed>
             <div class="pay">
-                <button id="btn_submit" class="tapable">继续支付</button>
+                <#if order.closed>
+                    <button id="btn_delete" class="tapable">删除订单</button>
+                <#else>
+                    <button id="btn_delete" class="tapable left">删除订单</button>
+                    <button id="btn_submit" class="tapable right">继续支付</button>
+                </#if>
             </div>
         </#if>
     </section>
@@ -115,6 +133,30 @@
         tq.t.back();
         $('#product_info').on('click', function() {
             location.href = "/actsDetail.html?id=${order.productId}";
+        });
+        $('#btn_delete').on('click', function() {
+            event.preventDefault();
+            event.stopPropagation();
+            var utoken = tq.t.cookie.get("utoken");
+            var oid = tq.t.getQueryString("oid");
+            tq.t.confirm("确定要删除么？", func_cancel, func_ok);
+            function func_cancel(){
+                tq.t.delshide();
+            }
+            function func_ok(){
+                var api = tq.urls + "order/delete";
+                $.post(api, {
+                    utoken: utoken,
+                    id: oid
+                }, function(res) {
+                    if (res.errno == 0) {
+                        location.href = "/user_order.html?status=2&type=le";
+                    } else {
+                        tq.t.alert(res.errmsg);
+                        tq.t.cancel();
+                    }
+                });
+            }
         });
         $('#btn_submit').on('click', function() {
             location.href = "/orderPay.html?order_id=${order.id}&pro_id=${order.productId}&sku_id=${order.skuId}&time=" + tq.t.encodeUTF8('${order.time}') + "&participants=" + tq.t.encodeUTF8('${order.participants}') + "&totalFee=${order.totalFee}";
