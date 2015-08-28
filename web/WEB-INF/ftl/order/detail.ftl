@@ -45,7 +45,7 @@
     }
 
     .pay button {
-        width: 40%;
+        width: 80%;
         display: inline-block;
         border: none;
         padding: 0 0.2rem;
@@ -58,11 +58,13 @@
     }
 
     .pay .left {
+        width: 40%;
         float: none;
         margin-right: 0.05rem;
     }
 
     .pay .right {
+        width: 40%;
         float: none;
         margin-left: 0.05rem;
     }
@@ -115,10 +117,10 @@
 
         <#if !order.payed>
             <div class="pay">
-                <button id="btn_delete" class="tapable left">删除订单</button>
-                <#if order.payed>
-                    <button id="btn_disable" class="tapable right">无效订单</button>
+                <#if order.closed>
+                    <button id="btn_delete" class="tapable">删除订单</button>
                 <#else>
+                    <button id="btn_delete" class="tapable left">删除订单</button>
                     <button id="btn_submit" class="tapable right">继续支付</button>
                 </#if>
             </div>
