@@ -8,7 +8,7 @@
 
     .product_list {
         background-color: #fff;
-        margin: 0.12rem;
+        margin: 0 0.12rem 0.12rem 0.12rem;
         padding: 0.1rem;
         border-radius: 6px;
     }
