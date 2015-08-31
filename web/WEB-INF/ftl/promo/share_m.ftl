@@ -4,7 +4,5 @@
 </header>
 </@override>
 
-<@override name="home">/</@override>
-
 <@extends name="share.ftl"/>
 
