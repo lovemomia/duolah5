@@ -12,7 +12,7 @@
     <section>
 
         <!-- 图片轮播部分 -->
-        <div class="scroll_box" id="scroll_img" style="height: 280px"></div>
+        <div class="scroll_box" id="scroll_img"></div>
 
         <!-- 活动列表部分 -->
         <div id="act_content"></div>
