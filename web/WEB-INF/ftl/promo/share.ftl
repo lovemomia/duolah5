@@ -71,13 +71,10 @@
         white-space: nowrap;
     }
 
-    .product .share_btn {
+    .product button {
         position: absolute;
         right: 0.02rem;
         bottom: 0.12rem;
-    }
-
-    .product .share_btn button {
         display: inline-block;
         width: 0.55rem;
         height: 0.3rem;
@@ -108,13 +105,19 @@
     .desc h3 {
         font-size: 0.14rem;
         color: #154c15;
-        margin-bottom: 0.05rem;
+        margin-bottom: 0.1rem;
     }
 
     .desc p {
         font-size: 0.12rem;
         color: #254726;
-        margin-bottom: 0.05rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .desc p:last-child {
+        font-size: 0.12rem;
+        color: #254726;
+        margin-bottom: 0.3rem;
     }
 </style>
 </@override>
@@ -140,9 +143,7 @@
                         <p class="price"><i>¥</i><span class="price">${product.price}<i>元</i></span></p>
                         <p class="joined" style="margin-bottom:0">${product.joined}人已报名</p>
                     </div>
-                    <div class="share_btn">
-                        <button>约伴</button>
-                    </div>
+                    <button>约伴</button>
                 </div>
             </#list>
             <div class="view_more"><a href="/">查看更多</a></div>
