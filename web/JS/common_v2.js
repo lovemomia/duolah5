@@ -202,7 +202,7 @@ tq.t = {
   confirm: function (msg, func_cancel, func_ok) {
       var s = "<div class='shide'>";
       s += "<div class='alert'>";
-      s += "<img class='cancel' src='image/cancel2.png'>"+msg+"" ; 
+      s += "<img class='cancel' src='/image/cancel2.png'>"+msg+"" ;
       s += "<span class= 'confirm'>"
       s += "<i class='green cancel2'>取消</i>";
       s += "<i class='green del2'>确定</i>";
