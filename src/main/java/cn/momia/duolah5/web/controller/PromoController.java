@@ -15,10 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/promo")
 public class PromoController extends BaseFunc {
-    @RequestMapping(value = "/share", method = RequestMethod.GET)
-    public ModelAndView share() {
+    @RequestMapping(value = "/m/promo/share", method = RequestMethod.GET)
+    public ModelAndView shareM() {
+        return share("promo/share_m");
+    }
+
+    public ModelAndView share(String ftl) {
         MomiaHttpParamBuilder builder = new MomiaHttpParamBuilder()
                 .add("city", 1)  // TODO 其它城市支持
                 .add("start", 0)
@@ -36,6 +39,11 @@ public class PromoController extends BaseFunc {
             JSONObject product = list.getJSONObject(i);
             if (product.getBigDecimal("price").compareTo(threshold) > 0) products.add(product);
         }
-        return new ModelAndView("promo/share", "products", products);
+        return new ModelAndView(ftl, "products", products);
+    }
+
+    @RequestMapping(value = "/promo/share", method = RequestMethod.GET)
+    public ModelAndView shareApp() {
+        return share("promo/share_app");
     }
 }

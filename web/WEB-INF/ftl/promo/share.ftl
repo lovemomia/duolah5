@@ -122,10 +122,7 @@
 
 <@override name="body">
 <article id="page">
-    <header class="head">
-        <span class="back"><img src="/image/back2.png"></span>约伴返红包<span class="collect"></span>
-    </header>
-
+    <@block name="header"></@block>
     <section>
         <div>
             <img src="/image/share.png" width="100%" />
@@ -144,7 +141,7 @@
                     <button>约伴</button>
                 </div>
             </#list>
-            <div class="view_more"><a href="/">查看更多</a></div>
+            <div class="view_more"><a href="<@block name="home"></@block>">查看更多</a></div>
         </div>
         <div class="desc">
             <h3>返红包规则</h3>
