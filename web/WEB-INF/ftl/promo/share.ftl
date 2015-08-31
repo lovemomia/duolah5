@@ -115,8 +115,6 @@
     }
 
     .desc p:last-child {
-        font-size: 0.12rem;
-        color: #254726;
         margin-bottom: 0.3rem;
     }
 </style>
