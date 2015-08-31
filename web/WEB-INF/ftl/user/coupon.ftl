@@ -36,7 +36,7 @@
                     $("section").append(s);
                 }
 
-                if (res.data.nextIndex == undefined) {
+                if (res.data.nextIndex == undefined || res.data.nextIndex <= 0) {
                     sessionStorage.removeItem("couponNextIndex");
                 } else {
                     sessionStorage.setItem("couponNextIndex", res.data.nextIndex);

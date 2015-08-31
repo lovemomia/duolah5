@@ -765,7 +765,7 @@ tq.home = {
           $("section").append(s);
         }
 
-        if (res.data.nextIndex == undefined) {
+        if (res.data.nextIndex == undefined || res.data.nextIndex <= 0) {
           sessionStorage.removeItem("favoriteNextIndex");
         } else {
           sessionStorage.setItem("favoriteNextIndex", res.data.nextIndex);
@@ -1615,7 +1615,7 @@ tq.home = {
           $(".user_order").append(s);
         }
 
-        if (res.data.nextIndex == undefined) {
+        if (res.data.nextIndex == undefined || res.data.nextIndex <= 0) {
           sessionStorage.removeItem("orderNextIndex");
         } else {
           sessionStorage.setItem("orderNextIndex", res.data.nextIndex);
