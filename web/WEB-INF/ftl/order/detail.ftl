@@ -117,7 +117,7 @@
 
         <#if !order.payed>
             <div class="pay">
-                <#if order.closed>
+                <#if order.finished>
                     <button id="btn_delete" class="tapable">删除订单</button>
                 <#else>
                     <button id="btn_delete" class="tapable left">删除订单</button>
