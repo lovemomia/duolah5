@@ -1,5 +1,53 @@
 <@override name="title">${product.title}</@override>
 
+<@override name="css" >
+<style type="text/css">
+    .share_tips{
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+    }
+
+    .share_tips .tips_info{
+        border-radius: 4px;
+        border: 2px solid #00c49d;
+        background: rgba(255,255,255,0.9);
+        width: 100%;
+        overflow: hidden;
+        margin: 0 auto auto;
+        height: 1rem;
+        text-align: center;
+        padding: 0.16rem 0.6rem;
+        position: relative;
+        background: url(/image/jiantou.png) no-repeat right 0 #fff;
+    }
+
+    .share_tips .tips_info p {
+        color: #333;
+    }
+
+    .share_tips .tips_info .tip1 {
+        font-size: 0.12rem;
+        padding-bottom: 0.06rem;
+    }
+
+    .share_tips .tips_info .tip2 {
+        font-size: 0.16rem;
+        height: 0.4rem;
+        padding: 0.1rem 0;
+    }
+
+    .share_tips .tips_info img {
+        float: left;
+        width: 0.4rem;
+    }
+</style>
+</@override>
+
 <@override name="body">
 <article id="page">
     <#--<div class="ads_top">-->
@@ -181,9 +229,6 @@
 </article>
 
 <div class="bot_btn">
-    <!-- <span class="btn partnership">约伴</span> -->
-    <span class="btn submit">立即报名</span>
-    <div class="clear:both"></div>
 </div>
 <script type="text/javascript">
         <#if product.config??>
@@ -194,7 +239,7 @@
                 timestamp: ${product.config.timeStamp}, // 必填，生成签名的时间戳
                 nonceStr: '${product.config.nonceStr}', // 必填，生成签名的随机串
                 signature: '${product.config.sign}',// 必填，签名，见附录1
-                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             });
 
             wx.ready(function() {
@@ -207,27 +252,6 @@
 
                 wx.onMenuShareTimeline({
                     title: '${product.title}',
-                    link: '${product.url}',
-                    imgUrl: '${product.thumb}'
-                });
-
-                wx.onMenuShareQQ({
-                    title: '${product.title}',
-                    desc: '${product.abstracts}',
-                    link: '${product.url}',
-                    imgUrl: '${product.thumb}'
-                });
-
-                wx.onMenuShareWeibo({
-                    title: '${product.title}',
-                    desc: '${product.abstracts}',
-                    link: '${product.url}',
-                    imgUrl: '${product.thumb}'
-                });
-
-                wx.onMenuShareQZone({
-                    title: '${product.title}',
-                    desc: '${product.abstracts}',
                     link: '${product.url}',
                     imgUrl: '${product.thumb}'
                 });
@@ -248,6 +272,15 @@
 
         var invite = tq.t.getQueryString("invite");
         if (invite != null) sessionStorage.setItem("invite", invite);
+
+        if (tq.t.isweixin()) {
+            $(".bot_btn").append('<span class="btn partnership" style="width: 35%;">约伴</span>');
+            $(".bot_btn").append('<span class="btn submit" style="width: 65%;">立即报名</span>');
+            $(".bot_btn").append('<div class="clear:both"></div>');
+        } else {
+            $(".bot_btn").append('<span class="btn submit" style="width: 100%">立即报名</span>');
+            $(".bot_btn").append('<div class="clear:both"></div>');
+        };
 
         $(".back").on("click", function(){
             location.href = "index.html";
@@ -270,18 +303,33 @@
         </#if>
 
         <#if product.favored?c == "false">
-            $(".collect").on("click",function(){
+            $(".collect").on("click",function() {
                 tq.home.collect();
             })
         </#if>
-        if(${product.imgs?size} >1 )
-        {
+        if(${product.imgs?size} >1 ) {
             tq.t.getScrollImg();
         }
 
+        $(".btn.partnership").on("click", function() {
+            share_tips();
+        });
+
+        function share_tips() {
+            var s = "";
+            s += "<div class='share_tips' onclick='$(this).remove()'>";
+            s += "<div class='tips_info'>";
+            s += "<p class='tip1'>请点击右上角按钮</p>"
+            s += "<img src='/image/timeline.png' />";
+            s += "<p class='tip2'>分享到朋友圈</p>"
+            s += "</div>";
+            s += "</div>";
+            $(document.body).append(s);
+        }
 
         <#if product.soldOut?c == "true"|| product.opened?c == "false">
             $(".btn.submit").css("background","gray");
+            $(".btn.submit").css("border-top","1px solid gray");
             return;
 
         <#else>

@@ -763,7 +763,6 @@ header{
 	width: 100%;
 	overflow: hidden;
 	line-height: 0.5rem;
-	border-top: 1px solid #eee;
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -780,14 +779,15 @@ header{
 }
 
 .bot_btn .partnership{
-	width: 40%;
+	border-top: 1px solid #eee;
 	color: #333;
+	padding-left: 0.25rem;
 	background: url(../image/share2.png) no-repeat 0.2rem center #fff;
 	background-size: 25px auto;
 }
 
 .bot_btn .submit{
-	width: 100%;
+	border-top: 1px solid #f67531;
 	background: #f67531;
 	color: #fff;
 }
