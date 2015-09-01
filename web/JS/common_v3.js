@@ -565,7 +565,7 @@ tq.home = {
         }, function(res) {
           if (res.errno == 0) {
             tq.t.cookie.set("utoken", res.data.token);
-            location.href = "loginpsw.html?"+url+"";
+            location.href = url;
           } else {
             tq.t.alert(res.errmsg);
             tq.t.cancel();

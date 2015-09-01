@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="/CSS/main_v2.css">
     <@block name="css" ></@block>
     <script type="text/javascript" src="/JS/zepto.min.js"></script>
-    <script type="text/javascript" src="/JS/config_v2.js"></script>
-    <script type="text/javascript" src="/JS/common_v2.js"></script>
+    <script type="text/javascript" src="/JS/config_v3.js"></script>
+    <script type="text/javascript" src="/JS/common_v3.js"></script>
     <script type="text/javascript" src='/JS/hhSwipe.js'></script>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
