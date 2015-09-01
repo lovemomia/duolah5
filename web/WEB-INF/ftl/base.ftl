@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,user-scalable=no">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title><@block name="title" ></@block></title>
-    <link rel="stylesheet" type="text/css" href="/CSS/main_v2.css">
+    <link rel="stylesheet" type="text/css" href="/CSS/main_v4.css">
     <@block name="css" ></@block>
     <script type="text/javascript" src="/JS/zepto.min.js"></script>
-    <script type="text/javascript" src="/JS/config_v3.js"></script>
-    <script type="text/javascript" src="/JS/common_v3.js"></script>
+    <script type="text/javascript" src="/JS/config_v4.js"></script>
+    <script type="text/javascript" src="/JS/common_v4.js"></script>
     <script type="text/javascript" src='/JS/hhSwipe.js'></script>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
