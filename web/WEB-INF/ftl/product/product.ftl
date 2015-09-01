@@ -16,7 +16,7 @@
         border-radius: 4px;
         border: 2px solid #00c49d;
         background: rgba(255,255,255,0.9);
-        width: 2.8rem;
+        width: 3rem;
         overflow: hidden;
         margin: 0.1rem auto auto;
         height: 1rem;
@@ -234,7 +234,7 @@
         <#if product.config??>
         if (tq.t.isweixin()) {
             wx.config({
-                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: '${product.config.appId}', // 必填，公众号的唯一标识
                 timestamp: ${product.config.timeStamp}, // 必填，生成签名的时间戳
                 nonceStr: '${product.config.nonceStr}', // 必填，生成签名的随机串
