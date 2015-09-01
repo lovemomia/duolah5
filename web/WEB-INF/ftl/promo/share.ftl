@@ -128,7 +128,7 @@
             <img src="/image/share.png" width="100%" />
         </div>
         <div class="product_list">
-            <#list products as product>
+            <#list result.products as product>
                 <div class="product">
                     <div class="img">
                         <img src="${product.cover}" alt="">
@@ -154,6 +154,58 @@
 </article>
 
 <script type="text/javascript">
+    var invite = tq.t.getQueryString("invite");
+    if (invite != null) sessionStorage.setItem("invite", invite);
+
+    <#if result.config??>
+        if (tq.t.isweixin()) {
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: '${result.config.appId}', // 必填，公众号的唯一标识
+                timestamp: ${result.config.timeStamp}, // 必填，生成签名的时间戳
+                nonceStr: '${result.config.nonceStr}', // 必填，生成签名的随机串
+                signature: '${result.config.sign}',// 必填，签名，见附录1
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+
+            wx.ready(function() {
+                wx.onMenuShareAppMessage({
+                    title: '约伴返红包',
+                    desc: '亲子活动一起嗨',
+                    link: '${result.url}',
+                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jpg'
+                });
+
+                wx.onMenuShareTimeline({
+                    title: '约伴返红包',
+                    link: '${result.url}',
+                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
+                });
+
+                wx.onMenuShareQQ({
+                    title: '约伴返红包',
+                    desc: '亲子活动一起嗨',
+                    link: '${result.url}',
+                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
+                });
+
+                wx.onMenuShareWeibo({
+                    title: '约伴返红包',
+                    desc: '亲子活动一起嗨',
+                    link: '${result.url}',
+                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
+                });
+
+                wx.onMenuShareQZone({
+                    title: '约伴返红包',
+                    desc: '亲子活动一起嗨',
+                    link: '${result.url}',
+                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
+                });
+            });
+        }
+    </#if>
+
     $(function(){
         tq.t.back();
     })
