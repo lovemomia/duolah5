@@ -1,3 +1,5 @@
+<@override name="home">duola://productcalendar</@override>
+
 <@override name="setlink">
     function setlink() {
         $(".share_btn").each(function() {

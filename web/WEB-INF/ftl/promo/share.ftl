@@ -142,7 +142,7 @@
                     <a id="${product.id}" class="share_btn">约伴</a>
                 </div>
             </#list>
-            <div class="view_more"><a href="/">查看更多</a></div>
+            <div class="view_more"><a href="<@block name="home"></@block>">查看更多</a></div>
         </div>
         <div class="desc">
             <h3>返红包规则</h3>
@@ -166,7 +166,7 @@
                 timestamp: ${result.config.timeStamp}, // 必填，生成签名的时间戳
                 nonceStr: '${result.config.nonceStr}', // 必填，生成签名的随机串
                 signature: '${result.config.sign}',// 必填，签名，见附录1
-                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             });
 
             wx.ready(function() {
@@ -179,27 +179,6 @@
 
                 wx.onMenuShareTimeline({
                     title: '约伴返红包',
-                    link: '${result.url}',
-                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
-                });
-
-                wx.onMenuShareQQ({
-                    title: '约伴返红包',
-                    desc: '亲子活动一起嗨',
-                    link: '${result.url}',
-                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
-                });
-
-                wx.onMenuShareWeibo({
-                    title: '约伴返红包',
-                    desc: '亲子活动一起嗨',
-                    link: '${result.url}',
-                    imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
-                });
-
-                wx.onMenuShareQZone({
-                    title: '约伴返红包',
-                    desc: '亲子活动一起嗨',
                     link: '${result.url}',
                     imgUrl: 'http://s.dulaqinzi.com/2015-09-01/a0d9ab3551fa28e68a8037c996fed63f_s.jp'
                 });

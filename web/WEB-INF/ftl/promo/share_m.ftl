@@ -4,6 +4,8 @@
 </header>
 </@override>
 
+<@override name="home">/</@override>
+
 <@override name="setlink">
     function setlink() {
         $(".share_btn").each(function() {
