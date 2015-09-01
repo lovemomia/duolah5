@@ -4,5 +4,13 @@
 </header>
 </@override>
 
+<@override name="setlink">
+    function setlink() {
+        $(".share_btn").each(function() {
+            $(this).attr("href", "/actsDetail.html?id=" + $(this).attr("id"));
+        });
+    };
+</@override>
+
 <@extends name="share.ftl"/>
 

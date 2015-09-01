@@ -71,7 +71,7 @@
         white-space: nowrap;
     }
 
-    .product button {
+    .product a {
         position: absolute;
         right: 0.02rem;
         bottom: 0.12rem;
@@ -80,6 +80,7 @@
         height: 0.3rem;
         line-height: 0.3rem;
         background: #ff6634;
+        text-align: center;
         font-size: 0.14rem;
         color: #fff;
         border: none;
@@ -138,7 +139,7 @@
                         <p class="price"><i>¥</i><span class="price">${product.price}<i>元</i></span></p>
                         <p class="joined" style="margin-bottom:0">${product.joined}人已报名</p>
                     </div>
-                    <button>约伴</button>
+                    <a id="${product.id}" class="share_btn">约伴</a>
                 </div>
             </#list>
             <div class="view_more"><a href="/">查看更多</a></div>
@@ -206,8 +207,11 @@
         }
     </#if>
 
+    <@block name="setlink"></@block>
+
     $(function(){
         tq.t.back();
+        setlink();
     })
 </script>
 </@override>
