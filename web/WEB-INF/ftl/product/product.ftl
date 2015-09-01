@@ -16,9 +16,9 @@
         border-radius: 4px;
         border: 2px solid #00c49d;
         background: rgba(255,255,255,0.9);
-        width: 3rem;
+        width: 100%;
         overflow: hidden;
-        margin: 0.1rem auto auto;
+        margin: 0 auto auto;
         height: 1rem;
         text-align: center;
         padding: 0.16rem 0.6rem;
