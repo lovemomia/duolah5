@@ -1,7 +1,7 @@
 <@override name="title">松果亲子－约上玩伴，探索世界</@override>
 
 <@override name="body">
-<article id="page">
+<article id="page" style="margin-bottom: 0.55rem;">
     <header class="head01">
         <a id="profile"class ="my" href="javascript:;">
             <img src="image/my2.png">
