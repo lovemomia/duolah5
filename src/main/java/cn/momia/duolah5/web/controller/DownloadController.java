@@ -9,9 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by ysm on 15-8-7.
  */
 @Controller
-public class DownloadAppController extends BaseFunc {
-    @RequestMapping(value = "/downapp")
+public class DownloadController extends BaseFunc {
+    @RequestMapping(value = "/download")
     public ModelAndView downloadApp() {
-        return new ModelAndView("/downloadApp");
+        return new ModelAndView("/download");
     }
 }
