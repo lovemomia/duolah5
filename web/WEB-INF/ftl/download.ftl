@@ -9,14 +9,13 @@
 
         .center_pan img {
             width: 70%;
-            vertical-align: middle;
         }
 
         .bottom_pan {
             position: absolute;
             left: 0;
             right: 0;
-            top: 3.6rem;
+            top: 3.3rem;
             bottom: 0;
             background: #fff;
             border-top: 1px solid #eee;
@@ -30,7 +29,7 @@
             border: none;
             border-radius: 4px;
             background: #00c49d;
-            margin-top: 0.4rem;
+            margin-top: 0.2rem;
             padding: 0 0.18rem;
             font-size: 0.18rem;
             color: #fff;
@@ -48,7 +47,6 @@
         .download_tips .tips_info {
             width: 100%;
             border: none;
-            border-radius: 4px;
         }
 
         .download_tips .tips_info img {
@@ -63,15 +61,14 @@
         <span class="back"><img src="image/back2.png"></span>客户端下载<span class="collect"></span>
     </header>
 
-    <section>
-        <div class="center_pan">
-            <img src="/image/app.png" />
-        </div>
-        <div class="bottom_pan">
-            <button id="download">立即下载</button>
-        </div>
-    </section>
+    <div class="center_pan">
+        <img src="/image/app.png" />
+    </div>
 </article>
+
+<div class="bottom_pan">
+    <button id="download">立即下载</button>
+</div>
 
 <script type="text/javascript">
     $(function(){

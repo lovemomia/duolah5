@@ -30,13 +30,10 @@
 
     tq.home.getIndexScrollImg($("#scroll_img"));
     tq.home.getActsList($("#act_content"),0);
-        if(tq.t.isios()){
-            $(".ads_bot").on("click", function(){
-                location.href = "/download.html";
-            });
-        } else {
 
-        }
+    $(".ads_bot").on("click", function(){
+        location.href = "/download.html";
+    });
 
     $(".my").on("click",function(){
         var utoken = tq.t.cookie.get("utoken");
