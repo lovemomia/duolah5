@@ -1,7 +1,15 @@
 <@override name="title">松果亲子－约上玩伴，探索世界</@override>
 
+<@override name="css">
+    <style type="text/css">
+        .home_content {
+            margin-bottom: 0.55rem;
+        }
+    </style>
+</@override>
+
 <@override name="body">
-<article id="page" style="margin-bottom: 0.55rem;">
+<div class="home_content">
     <header class="head01">
         <a id="profile"class ="my" href="javascript:;">
             <img src="image/my2.png">
@@ -17,10 +25,10 @@
         <!-- 活动列表部分 -->
         <div id="act_content"></div>
     </section>
-</article>
+</div>
 
 <div class="ads_bot">
-    <img src="image/downapp.png" alt="">
+    <img src="/image/downapp.png" alt="">
 </div>
 
 <script type="text/javascript">

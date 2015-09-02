@@ -81,9 +81,9 @@
                 download_tips();
             } else {
                 if (tq.t.isios()) {
-                    alert("ios");
+                    location.href = 'http://www.duolaqinzi.com/songguo_songguo_v1.0.apk';
                 } else {
-                    alert("android");
+                    location.href = 'http://www.duolaqinzi.com/songguo_songguo_v1.0.apk';
                 }
             }
         })
