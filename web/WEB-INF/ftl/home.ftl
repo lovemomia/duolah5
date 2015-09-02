@@ -17,11 +17,11 @@
         <!-- 活动列表部分 -->
         <div id="act_content"></div>
     </section>
+</article>
 
 <div class="ads_bot">
     <img src="image/downapp.png" alt="">
 </div>
-</article>
 
 <script type="text/javascript">
     function more() {
