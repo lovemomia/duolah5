@@ -80,11 +80,7 @@
             if (tq.t.isweixin()) {
                 download_tips();
             } else {
-                if (tq.t.isios()) {
-                    location.href = 'https://itunes.apple.com/cn/app/song-guo-qin-zi/id1019473117?mt=8';
-                } else {
-                    location.href = 'http://www.duolaqinzi.com/songguo_songguo_v1.0.1.apk';
-                }
+                location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.youxing.duola&g_f=991653';
             }
         })
 
