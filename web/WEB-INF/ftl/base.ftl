@@ -1,4 +1,4 @@
-<#setting number_format="#">
+<#setting number_format="#.##">
 
 <!DOCTYPE html>
 <html lang="zh-CN">
