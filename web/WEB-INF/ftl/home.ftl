@@ -40,7 +40,7 @@
     tq.home.getActsList($("#act_content"),0);
 
     $(".ads_bot").on("click", function(){
-        location.href = "/download.html";
+        location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.youxing.duola&g_f=991653";
     });
 
     $(".my").on("click",function(){

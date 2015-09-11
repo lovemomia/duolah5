@@ -50,9 +50,9 @@
 
 <@override name="body">
 <article id="page">
-    <#--<div class="ads_top">-->
-        <#--<img src="image/downapp.png" alt="">-->
-    <#--</div>-->
+    <div class="ads_top">
+        <img src="/image/downapp.png" alt="">
+    </div>
 
     <header class="head">
         <span class="back"><img src="image/back2.png"></span>活动详情
@@ -260,16 +260,6 @@
         </#if>
 
     $(function(){
-//        if(tq.t.isandroid()){
-//            $(".ads_top").addClass("none");
-//        }
-//        if(tq.t.isios()){
-//            $(".ads_top").removeClass("none");
-//            $(".ads_top").on("click", function(){
-//                location.href = "../../../downapp.html";
-//            });
-//        }
-
         var invite = tq.t.getQueryString("invite");
         if (invite != null) sessionStorage.setItem("invite", invite);
 
@@ -286,7 +276,7 @@
             location.href = "index.html";
         });
         $(".ads_top").on("click", function(){
-            location.href = "../../../downapp.html";
+            location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.youxing.duola&g_f=991653";
         });
         <#if product.customers.avatars??>
         $(".attent_total").on("click", function(){
