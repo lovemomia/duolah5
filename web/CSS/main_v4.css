@@ -560,7 +560,7 @@ header{
 .collect_pad .collect_info{
 	margin-left: 1rem;
 	padding: 0.05rem 0 0 0.08rem;
-	
+	overflow: hidden;
 }
 .collect_pad .collect_info p{
 	margin-bottom: 0.05rem;
