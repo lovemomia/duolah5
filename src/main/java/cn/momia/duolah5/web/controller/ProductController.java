@@ -52,6 +52,7 @@ public class ProductController extends BaseFunc {
                 Boolean opened = productJson.getBoolean("opened");
                 if (opened == null || !opened) productJson.put("soldOut", true);
 
+                productJson.put("favored", false);
                 try {
                     if (!StringUtils.isBlank(utoken)) {
                         long userId = getUserId(utoken);
