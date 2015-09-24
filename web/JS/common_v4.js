@@ -1186,13 +1186,13 @@ tq.home = {
               order: data_order
             }, function(res) {
               if (res.errno == 0) {
-                var data = res.data;
-                if (data.duplicated == true) {
+                var oid = res.data;
+                if (oid > 0) {
                   var msg = "您之前下的订单还未支付";
                   orderConfirm(msg, function() {
-                    location.href = "/order/detail?oid=" + data.orderId + "&pid=" + data.productId;
+                    location.href = "/order/detail?oid=" + oid + "&pid=" + pro_id;
                   }, function() {
-                    deleteOrder(data.orderId);
+                    deleteOrder(oid);
                     postOrder();
                   });
                 } else {
