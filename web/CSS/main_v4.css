@@ -1103,7 +1103,8 @@ header{
 .scroll_box{
 	overflow:hidden;
 	position:relative;
-	margin-bottom: 0.08rem;
+	text-align: center;
+	margin-bottom: -0.16rem;
 }
 .scroll_wrap{
 	overflow:hidden; 
@@ -1126,10 +1127,9 @@ header{
 	position:relative;
 }
 .scroll_position{
-	position:absolute;
-	left:40%;
-	z-index:400; 
-	bottom: 0.08rem;
+	position:relative;
+	z-index:400;
+	bottom: 0.2rem;
 }
 .scroll_position li{
 	display:inline-block;
