@@ -1,4 +1,4 @@
-<@override name="title">松果亲子－约上玩伴，探索世界</@override>
+<@override name="title">松果亲子－孩子体验式成长的第一课</@override>
 
 <@override name="css">
     <style type="text/css">
@@ -20,7 +20,7 @@
     <section>
 
         <!-- 图片轮播部分 -->
-        <div class="scroll_box" id="scroll_img"></div>
+        <div class="scroll_box" id="scroll_img" style="margin-bottom: -0.08rem"></div>
 
         <!-- 活动列表部分 -->
         <div id="act_content"></div>
